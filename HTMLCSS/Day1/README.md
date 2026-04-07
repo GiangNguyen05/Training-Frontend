@@ -33,7 +33,7 @@
    - long table (thead, tbody, tfoot)
 
 This demo uses HTML headings, image tags, email links, table tags, and some semantic tags:
-link: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day1/democv.html
+https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day1/democv/democv.html
 
 note: Using heading tag
 
@@ -46,16 +46,19 @@ note: Using heading tag
    - use get method: sortform, not sending infor that should be added or deleted
    - use post method: longform, upload file, data password, adds infor, deleted infor
    - form user types in or the values of the option senr to the server
+
+This demo uses Forms tag and fileldset:
+
 8. Extra Markup
-   - id and class attribute identify particular element
-   - div and span element group block-inline and inline element
-   - iframe creat windows into your web
-   - meta tag supply all kinds of informations
+
+- id and class attribute identify particular element
+- div and span element group block-inline and inline element
+- iframe creat windows into your web
+- meta tag supply all kinds of informations
+
 9. Flash, video & audio
    - use video tag, audio tag
    - flash is not supported iphone or ipad
-
-10.
 
 #### CSS
 

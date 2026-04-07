@@ -9,7 +9,17 @@ body {
   border-radius: 50%;
 }
 #name {
-  margin-left: 50px;
+  margin-left: 80px;
   font-size: 150%;
   text-transform: uppercase;
+}
+
+.order {
+  padding-left: 50px;
+  padding-top: 5px;
+}
+#size {
+  padding: 3px;
+  width: 200px;
+  margin-bottom: 10px;
 }

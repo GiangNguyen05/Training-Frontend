@@ -9,7 +9,41 @@
   <body>
     <header>
       <img src="images/logo music.png" alt="logo music" id="logo" />
-      <h1 id="name">Nhac chil</h1>
+      <h1 id="name">Nhạc</h1>
     </header>
+    <main>
+      <form
+        action="http://127.0.0.1:5500/HTMLCSS/Day1/demomusic/demomusic.html"
+        method="get"
+      >
+        <p>Xin chào đã đến với trang nhạc của tôi</p>
+      </form>
+      <fieldset class="order">
+        <legend>G'nhạc</legend>
+        <label>Name: <input type="text" /></label>
+        <label>Song: <input type="text" /></label>
+        <label>Code: <input type="password" name="codesong" id="" /></label>
+        <br />
+        <p>What genre of music is this song?</p>
+        <input type="radio" name="song" value="rock" checked="checked" />
+        <label for="rock">Rock</label>
+        <input type="radio" name="song" value="Jazz" />
+        <label for="Jazz">Jazz</label>
+        <input type="radio" name="song" value="Pop" />
+        <label for="Pop">Pop</label>
+        <br />
+        <p>Why do you like this song? <br /></p>
+        <textarea name="comment" cols="20" rows="5"">Enter your comment</textarea>
+        <br />
+        <p>Upload your song in Nhac:</p>
+        <input type="file" name="user-song" id="size">
+        <input type="submit" value="Upload" >
+        <br>
+        <input type="checkbox" name="ok" id="" />
+        <label for="i agree">I Agree</label>
+        <label><input type="submit" value="Confirm" /></label>
+      </fieldset>
+      <br />
+    </main>
   </body>
 </html>
