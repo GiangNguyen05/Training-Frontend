@@ -32,8 +32,7 @@
    - use rowspan or colspan attribute make cells of a table span more than one row or column
    - long table (thead, tbody, tfoot)
 
-This demo uses HTML headings, image tags, email links, table tags, and some semantic tags:
-https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day1/democv/democv.html
+This demo uses HTML headings, image tags, email links, table tags, and some semantic tags:https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day1/democv/democv.html
 
 note: Using heading tag
 
@@ -47,7 +46,7 @@ note: Using heading tag
    - use post method: longform, upload file, data password, adds infor, deleted infor
    - form user types in or the values of the option senr to the server
 
-This demo uses Forms tag and fileldset:
+This demo uses Forms tag and fileldset: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day1/demomusic/demomusic.html
 
 8. Extra Markup
 
