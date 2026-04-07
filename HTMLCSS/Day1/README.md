@@ -31,6 +31,10 @@
    - drawn out row by row
    - use rowspan or colspan attribute make cells of a table span more than one row or column
    - long table (thead, tbody, tfoot)
+
+demo using the above
+link:
+
 7. Forms
    - use tag form (tag form action="url" method(get or post))
    - use get method: sortform, not sending infor that should be added or deleted
@@ -44,6 +48,8 @@
 9. Flash, video & audio
    - use video tag, audio tag
    - flash is not supported iphone or ipad
+
+10.
 
 #### CSS
 
