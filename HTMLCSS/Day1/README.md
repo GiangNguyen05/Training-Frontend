@@ -32,8 +32,14 @@
    - use rowspan or colspan attribute make cells of a table span more than one row or column
    - long table (thead, tbody, tfoot)
 
-demo using the above
-link:
+This demo uses HTML headings, image tags, email links, table tags, and some semantic tags:
+link: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day1/democv.html
+
+note: Using heading tag
+
+- The h1 tag is used only once on the page and represents the main topic
+- The h2 tag breaks down the main content into sections
+- the h3 describe the ideas in the h2 tag
 
 7. Forms
    - use tag form (tag form action="url" method(get or post))
