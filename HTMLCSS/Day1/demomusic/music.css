@@ -1,0 +1,15 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+#logo {
+  width: 150px;
+  height: 150px;
+  margin-left: 50px;
+  border-radius: 50%;
+}
+#name {
+  margin-left: 50px;
+  font-size: 150%;
+  text-transform: uppercase;
+}
