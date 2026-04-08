@@ -51,6 +51,6 @@ This demo uses Forms tag and fileldset: https://github.com/GiangNguyen05/Trainin
 ##### CSS Basic
 
 2.5 Activity - Adding your own properties
-link:http://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day2/edx25/active.html
+link:https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day2/edx25/active.html
 
 -->using some CSS properties
