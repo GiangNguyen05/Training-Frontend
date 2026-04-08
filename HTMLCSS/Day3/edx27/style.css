@@ -1,0 +1,40 @@
+body {
+  width: 700px;
+  margin: 0 auto;
+  background-color: powderblue;
+}
+#avt {
+  width: 200px;
+  height: 200px;
+  border-radius: 70%;
+}
+#name {
+  color: white;
+  font-family: serif;
+  background-color: darkgray;
+}
+h2 {
+  color: red;
+  font-family: sans-serif;
+  background-color: gainsboro;
+}
+
+#text {
+  padding: 10px;
+  border: 2px dotted black;
+}
+.list {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.list p {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+ol li {
+  text-decoration: underline;
+  font-style: italic;
+}
