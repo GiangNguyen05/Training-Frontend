@@ -22,11 +22,14 @@ This demo uses Forms tag and fileldset: https://github.com/GiangNguyen05/Trainin
   When the frame size is exceeded, a scrollbar will appear.
   Use the CSS overflow property to control the appearance of the scrollbar
   Use -webkit to create a custom scrollbar
-  linkExam:
+  linkExam:https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day2/scrollbar.html
 
 9. Flash, video & audio
    - use video tag, audio tag
    - flash is not supported iphone or ipad
+
+- The audio and video tags are supported by HTML5, but not in HTML4(Flash support is required)
+  LinkExam:
 
 #### CSS
 
