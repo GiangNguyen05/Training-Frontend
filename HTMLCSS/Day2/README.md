@@ -17,7 +17,7 @@ This demo uses Forms tag and fileldset: https://github.com/GiangNguyen05/Trainin
   the id attribute is known as a global attribute because it can be used on any element.
 - class attribute:
   The class attribute on anyelement can share the same value
-  --> pritority: id>class.
+- priority of selectors: inline css > id > class > tag html.
 - Control scrollbar: three value: yes, no, auto.
   When the frame size is exceeded, a scrollbar will appear.
   Use the CSS overflow property to control the appearance of the scrollbar
@@ -29,7 +29,7 @@ This demo uses Forms tag and fileldset: https://github.com/GiangNguyen05/Trainin
    - flash is not supported iphone or ipad
 
 - The audio and video tags are supported by HTML5, but not in HTML4(Flash support is required)
-  LinkExam:
+  LinkExam:https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day2/audio.html
 
 #### CSS
 
