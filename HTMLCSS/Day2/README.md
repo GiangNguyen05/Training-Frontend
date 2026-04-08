@@ -43,3 +43,14 @@ This demo uses Forms tag and fileldset: https://github.com/GiangNguyen05/Trainin
 3. Text
    - control the choice of font, size, weight, style, aligh(left, right, center,..),..
    - control the space
+
+---
+
+#### EDX FRONTEND
+
+##### CSS Basic
+
+2.5 Activity - Adding your own properties
+link:
+
+-using some CSS properties
