@@ -1,0 +1,145 @@
+body {
+  width: 1241px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+#avt {
+  width: 100px;
+  height: 100px;
+  border-radius: 70%;
+  display: inline-block;
+}
+/* #name {
+  position: absolute;
+  top: 20px;
+  left: 200px;
+} */
+nav {
+  top: 20px;
+  margin-left: 100px;
+  display: inline-block;
+}
+.navBar {
+  list-style: none;
+}
+ul.navBar {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 120%;
+  font-weight: 300;
+}
+ul.navBar li {
+  display: inline-block;
+  padding: 5px 15px;
+}
+ul.navBar li:nth-child(6) {
+  border-style: groove;
+  border-radius: 10px;
+  /* visibility: hidden;  */
+}
+ul.navBar li a {
+  text-decoration: none;
+  color: black;
+}
+ul.navBar li:hover {
+  box-shadow: 5px 5px 5px #777777;
+}
+/* Main */
+/* footer {
+  height: 514px;
+  margin: 0 auto;
+  color: white;
+  background-color: #292a32;
+  padding: 55px 0px 0px 60px;
+  border-radius: 30px;
+}
+
+#conFooter {
+  width: 1121px;
+}
+#avtFooter {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+#navBarFooter {
+  display: inline-block;
+  font-size: 110%;
+  margin-left: 200px;
+  padding: 0px;
+}
+ul#navBarFooter li {
+  text-decoration: underline;
+}
+ul#navBarFooter li:hover {
+  box-shadow: none;
+}
+ul#navBarFooter li a {
+  color: white;
+}
+#contacts {
+  display: inline-block;
+  margin-left: 200px;
+  padding: 0px;
+}
+ul#contacts li {
+  width: 33px;
+  height: 33px;
+  margin-right: 20px;
+  background-color: white;
+  border-radius: 100%;
+  display: inline-block;
+  text-align: center;
+}
+ul#contacts li:nth-child(3) {
+  margin-right: 0px;
+}
+.size {
+  width: 15px;
+  height: 15px;
+  margin-top: 9px;
+}
+#contactsUs {
+  margin-top: 66px;
+  height: 185px;
+  border: 1px solid white;
+}
+#infor {
+  width: 332px;
+  height: 185px;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+#infor p {
+  width: 126px;
+  font-size: 26px;
+  margin: 0px 0px 27px 0px;
+  background-color: greenyellow;
+  border-radius: 7px;
+}
+#infor ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+#infor ul li {
+  margin-top: 20px;
+  font-size: 20px;
+}
+#formInfor {
+  width: 634px;
+  height: 185px;
+  display: inline-block;
+  background-color: white;
+}
+#email {
+  width: 285px;
+  height: 56px;
+  background-color: #777777;
+}
+#submit {
+  width: 249px;
+  height: 61px;
+  background-attachment: #292a32;
+} */

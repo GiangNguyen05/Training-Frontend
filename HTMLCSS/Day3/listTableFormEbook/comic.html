@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comic</title>
+    <link rel="stylesheet" href="comicCss.css" />
+  </head>
+  <body>
+    <h1>Comic</h1>
+    <p>List of most recently read series:</p>
+    <ul>
+      <li>Vạn cổ thần đế</li>
+      <li>Kinh thiên kiếm đế</li>
+      <li>Yên tĩnh sống chậm</li>
+      <li>Nhìn về phía trước</li>
+    </ul>
+    <table>
+      <tr class="country">
+        <th></th>
+        <th>Việt Nam</th>
+        <th>Nhật Bản</th>
+        <th>Trung Quốc</th>
+      </tr>
+      <tr>
+        <th>Truyện ngắn</th>
+        <td>5</td>
+        <td>3</td>
+        <td>2</td>
+      </tr>
+      <tr class="long">
+        <th>Truyện dài</th>
+        <td>5</td>
+        <td>3</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <th>Sách</th>
+        <td>3</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+    </table>
+    <form
+      action="http://127.0.0.1:5500/HTMLCSS/Day3/listTableFormEbook/comic.html"
+      method="get"
+    >
+      <fieldset>
+        <legend>Comic</legend>
+        <p>
+          <label class="title" for="name">Comic name:</label>
+          <input type="text" name="name" id="name" /><br />
+          <label class="title" for="email">Comic email:</label>
+          <input type="text" name="email" id="email" />
+        </p>
+        <p>
+          <label for="location" class="title"
+            >The best stories about the country:</label
+          >
+          <select name="location" id="location">
+            <option value="VN">Việt Nam</option>
+            <option value="CN">Trung Quốc</option>
+            <option value="JN">Nhật Bản</option>
+          </select>
+        </p>
+        <span class="title">Are you a member?</span>
+        <label><input type="radio" name="member" value="yes" /> Yes</label>
+        <label><input type="radio" name="member" value="no" /> No</label>
+      </fieldset>
+      <div class="submit"><input type="submit" value="OK" /></div>
+    </form>
+  </body>
+</html>
