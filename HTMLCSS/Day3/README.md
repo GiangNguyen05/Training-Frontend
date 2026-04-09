@@ -28,7 +28,7 @@ link:https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day3
   `display: inline;`: The element occupies only the width sufficient for the content, without line breaks.
   `display: inline-block;`: Combines the characteristics of both inline (no line breaks) and block (adjustable width/height).
   `display: none;`: Completely hides the element from the webpage without taking up space
-  link:
+  link:https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day3/boxEbook/boxes.html
 
   14.Lists, Tables and Forms:
   List:
@@ -38,4 +38,4 @@ link:https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day3
   Form
 - Used when it is necessary(cần) to collect user input data and send that data to a server for processing(Log in, register, search, contact, order, or filter data).
 - method: GET(search (short data)), POST(for high security or file download)
-  link:
+  link:https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day3/listTableFormEbook/comic.html
