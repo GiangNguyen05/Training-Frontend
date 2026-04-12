@@ -5,6 +5,7 @@
 body {
   width: 100vw;
   max-width: 1440px;
+  min-width: 768px;
   height: min-content;
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
@@ -12,14 +13,12 @@ body {
 /* header css */
 header {
   width: 100%;
-  min-width: 768px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 .header-1 {
   width: 100%;
-  min-width: 768px;
   height: 100vh;
   min-height: max-content;
   background-image: url("images/anh_bia.png");
@@ -61,7 +60,6 @@ header {
 }
 .text-header {
   width: 100%;
-  min-width: 768px;
   height: 40vh;
   display: flex;
   flex-flow: column;
@@ -152,7 +150,6 @@ a:hover {
 /* section css */
 section {
   width: 100%;
-  min-width: 768px;
   margin-top: 50px;
   height: max-content;
   background: #ffffff;
@@ -468,7 +465,6 @@ section {
 /* footer css */
 footer {
   width: 100%;
-  min-width: 768px;
   height: max-content;
   padding-top: 3rem;
   background: #f7f7f7;
@@ -499,6 +495,7 @@ footer {
   margin-top: 1rem;
   font-size: 0.8rem;
   opacity: 0.8;
+  padding-right: 4rem;
 }
 
 .list-contacts {
