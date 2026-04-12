@@ -3,7 +3,7 @@
 ### CSS BASIC EDX & EBOOK
 
 2. Read the edx documentation and ebook: how to set up flex and grid layouts.
-   link:
+   link:https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day6/Flex%26Grid/Furmiture.html
    ----->
    Flex: display: flex;
 
