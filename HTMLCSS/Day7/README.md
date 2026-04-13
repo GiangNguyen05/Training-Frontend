@@ -8,4 +8,4 @@ Complete Part 2 of HTML5 CSS Fundamentals
 - Read more about flex and grid.
 - Improved the Furniture page by using flex, grids, and more precise measurement units.
 
-Link:
+Link: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day7/furmiturePage/Furmiture.html
