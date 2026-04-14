@@ -8,7 +8,7 @@ linkDemo: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS
 
 #### EDX COURSE FRONTEND
 
-Read the section "Essentials and Best Practices in HTML5 Programming" on edx.
+Read the section "HTML5 coding Essentials And Best Pratices" on edx.
 
 The <video> element: To play and control the video, you can use the <video> tag and the Web Video API (controls the player such as play, pause, and skip to the next video).
 The <video> attribute:
