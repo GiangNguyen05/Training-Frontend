@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDX</title>
+    <link rel="stylesheet" href="index.css" />
+    <script>
+      var myVideo;
+      var currentVideo = 0;
+      var sources = [
+        "https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4",
+        "https://www.archive.org/download/AnimatedMechanicalArtPiecesAtMit/P1120973_512kb.mp4",
+      ];
+      function loadNextVideo() {
+        myVideo.src = sources[currentVideo % sources.length];
+        myVideo.load();
+        currentVideo++;
+      }
+      function loadAndplayNextVideo() {
+        console.log("playing " + sources[currentVideo % sources.length]);
+        loadNextVideo();
+        myVideo.play();
+      }
+      function init() {
+        myVideo = document.querySelector("#myVideo");
+        myVideo.addEventListener("ended", loadAndplayNextVideo, false);
+        loadNextVideo();
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <audio
+      src="videos/Dạo Bước Hongkong 1999 _ 漫步香港1999.mp3"
+      controls
+    ></audio>
+    <video id="myVideo" controls></video>
+    <details>
+      <summary>Hoat Hinh G</summary>
+      <ul>
+        <li>Van co Than De</li>
+        <li>Nguyen Ton</li>
+        <li>The Gioi Hoan My</li>
+        <li>Dau La Dai Luc</li>
+      </ul>
+    </details>
+    <video id="vid" controls>
+      <source src="videos/film121-2.mp4" type="video/mp4" />
+    </video>
+
+    <p>Example of custom controls:</p>
+    <button onclick="playVideo()">Play</button>
+    <button onclick="pauseVideo()">Pause</button>
+    <button onclick="rewindVideo()">Back to the beginning</button>
+    <script>
+      vid = document.querySelector("#vid");
+      function playVideo() {
+        vid.play();
+      }
+      function pauseVideo() {
+        vid.pause();
+      }
+      function rewindVideo() {
+        vid.currentTime = 0;
+      }
+    </script>
+  </body>
+</html>
