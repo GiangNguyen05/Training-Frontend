@@ -4,7 +4,7 @@ List Guidelines:
 1.CSS naming conventions:
 block-name(2 dau gach _)element-name(2 dau gach _)modifier-name (BEM)
 -->Edit the names already set in the Furniture demo page.
-linkDemo:
+linkDemo: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day8/furmiturePageBEM/Furmiture.html
 
 #### EDX COURSE FRONTEND
 
@@ -31,4 +31,4 @@ The <audio> attribute:
 - loop: Automatically restarts playback from the beginning.
 - mute: By default mutes playback.
 
-linkExam:
+linkExam: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day8/index.html
