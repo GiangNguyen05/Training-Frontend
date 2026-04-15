@@ -18,6 +18,8 @@ stop
 - A.getTracks()[0].stop(); (audio)
 - A.getTracks()[1].stop(); (video)
 
+linkndemo: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day9/photobooth.html
+
 2-RECORD
 
 step1: Create a mediaRecorder from a stream
