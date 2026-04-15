@@ -63,19 +63,17 @@
         //kiểm tra data có tồn tại hay không
         if (data) {
           const img = document.createElement("img"); //tạo một thẻ img trong bộ nhớ.
-          img.src = data; // Cách viết ngắn gọn thay cho setAttribute
+          img.src = data;
           img.style.width = "100px";
-          img.alt = "User photo"; // Nên thêm alt để tốt cho SEO và trợ năng
+          img.alt = "User photo"; //thêm alt để tốt cho SEO và trợ năng
           photos.appendChild(img); // gắn img vào id photos để hiển thị trên html
         }
-        //lấy anh về
-        // 1. Tạo một thẻ link ẩn
+        // Tạo một thẻ link ẩn
         const link = document.createElement("a");
-        // 2. Gán dữ liệu ảnh (Base64) vào thuộc tính href
         link.href = data;
-        // 3. Đặt tên cho file sẽ tải về theo thời gian
+        //Đặt tên cho file sẽ tải về theo thời gian
         link.download = "photo_" + new Date().getTime() + ".png";
-        // 4. Giả lập hành động click để trình duyệt tự tải file
+        //Giả lập hành động click để trình duyệt tự tải file
         link.click();
       });
 
@@ -83,7 +81,8 @@
           Người dùng bấm nút "Chụp".
           Hệ thống lấy hình từ Video vẽ sang Canvas.
           Chuyển Canvas thành chuỗi dữ liệu ảnh.
-          (Kết hợp với code trước) Tạo thẻ <img> và gán chuỗi dữ liệu đó vào để hiển thị kết quả.
+          Tạo thẻ <img> và gán chuỗi dữ liệu đó vào để hiển thị kết quả.
+          tự động tải về
         **/
     </script>
   </body>
