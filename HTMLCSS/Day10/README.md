@@ -2,7 +2,9 @@
 
 ### CSS BASIC EDX & EBOOK
 
-1. Process & Design
+1. demo Form: sử dụng flex, form, đặt tên BEM
+
+2. Process & Design
    - xác định thông tin:
      - đối tượng truy cập chính
      - mục tiêu của khách truy cập tới trang web của mình
@@ -29,7 +31,7 @@
        - context: cho biết người dùng đang ở đâu trên thanh điều hướng (css màu sắc, ...)
        - interactive: kích thước đủ lớn để người dùng tương tác
        - consistent: điều hướng chính nên giống nhau.
-2. SEO
+3. SEO
    - ON-PAGE techniques:
      - title
      - url/address
@@ -38,4 +40,3 @@
      - link text
      - images alt text
      - page descriptions: <meta>
-   -

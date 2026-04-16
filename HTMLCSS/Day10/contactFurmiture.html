@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FormBem</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="contact">
+      <div class="contact__container">
+        <h2 class="contact__title">Liên hệ với chúng tôi</h2>
+
+        <div class="contact__content">
+          <!-- Thông tin bên trái -->
+          <div class="contact__info">
+            <p class="contact__text">Địa chỉ: 123 Đường Nội Thất, TP.HCM</p>
+            <p class="contact__text">Hotline: 0900 123 456</p>
+          </div>
+
+          <!-- Form bên phải -->
+          <form class="contact__form form">
+            <div class="form__group">
+              <input
+                type="text"
+                class="form__input"
+                placeholder="Họ và tên"
+                required
+              />
+            </div>
+            <div class="form__group">
+              <input
+                type="email"
+                class="form__input"
+                placeholder="Email của bạn"
+                required
+              />
+            </div>
+            <button type="submit" class="form__submit">Gửi ngay</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

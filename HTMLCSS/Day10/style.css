@@ -1,0 +1,84 @@
+.contact {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.contact__title {
+  text-align: center;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+/* Chia bố cục Flexbox */
+.contact__content {
+  display: flex;
+  gap: 50px; /* Khoảng cách giữa 2 cột */
+  align-items: flex-start;
+}
+
+/* Cột thông tin bên trái */
+.contact__info {
+  flex: 1;
+}
+.contact__text {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Cột Form bên phải */
+.contact__form {
+  flex: 1;
+  background: #f7efef;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+/* CSS cho từng thành phần trong Form (chuẩn BEM) */
+.form__group {
+  margin-bottom: 20px;
+}
+
+.form__input {
+  width: 100%;
+  padding: 15px 0px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.form__input:focus {
+  border-color: #b88e2f; /* Màu vàng đồng đặc trưng ngành nội thất */
+  box-shadow: 0 0 5px rgba(184, 142, 47, 0.2);
+}
+.form__submit {
+  width: 100%;
+  padding: 15px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.form__submit:hover {
+  background-color: #b88e2f; /* Đổi màu khi di chuột vào */
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+  .contact__content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
