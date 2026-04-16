@@ -3,6 +3,7 @@
 ### CSS BASIC EDX & EBOOK
 
 1. demo Form: sử dụng flex, form, đặt tên BEM
+   link: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day10/contactFurmiture.html
 
 2. Process & Design
    - xác định thông tin:
