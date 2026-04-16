@@ -2,36 +2,40 @@
 
 ### CSS BASIC EDX & EBOOK
 
-1. demo Form: sử dụng flex, form, đặt tên BEM
+1. demo Form: use flex, form, set name BEM
    link: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day10/contactFurmiture.html
 
+EBOOK:
+
 2. Process & Design
-   - xác định thông tin:
-     - đối tượng truy cập chính
-     - mục tiêu của khách truy cập tới trang web của mình
-     - thông tin nào khách truy cập đang cần hướng tới
-     - chọn lọc đưa thông tin cần thiết nhất đến thông tin nền
-     - xác định tần suất truy cập --> xác định tần suất cập nhật trang
-   - sắp xếp thông tin
-     - nhóm các thông tin liên quan --> nhiều nhóm tạo thành sơ đồ --> site map
-       note: nhóm các thông tin theo khách truy cập mông muốn, không phải theo mong muốn người tạo trang
-   - thiết kế
-     - khung sườn: thiết kế bộ khung các phần
-     - sắp xếp nhóm thông tin theo độ ưu tiên
-     - thứ bậc thị giác
-       - size: kích thước lớn dễ gây chú ý trước
-       - color: màu nền và màu chữ đưa tới sự chú ý thông điệp chính. màu sáng chú ý hơn màu tối
-       - style: cùng kích thước cùng màu sắc nhưng áp dụng kiểu dáng khác sẽ gay chú ý hơn
-     - nhóm và sự tương đồng
-       - tính nhất quán: đọc một đoạn có thể suy ra ý nghĩa các mục khác trong hộp khi có cùng style
-       - tiêu đề: giúp xác định khối thông tin này có liên quan họ đến hay không.
-     - navigation design
-       - concise: giới hạn số lượng không quá 8 liên kết
-       - clear: chọn tử mô tả đơn lẻ thay vì các cụm từ
-       - selective: điều hướng các phần hoặc nội dung,...(đăng nhập, đăng ký nên phần khác )
-       - context: cho biết người dùng đang ở đâu trên thanh điều hướng (css màu sắc, ...)
-       - interactive: kích thước đủ lớn để người dùng tương tác
-       - consistent: điều hướng chính nên giống nhau.
+   - Identifying information:
+     - Main target audience
+     - Visitors' goals for your website
+     - What information visitors are looking for
+     - Selecting and presenting the most essential information in the background
+     - Determining visit frequency --> Determining page update frequency
+
+   - Organizing Information
+     - Group related information --> multiple groups form a diagram --> site map
+       Note: Group information according to the desired visitor, not the site creator's wishes.
+   - Design
+     - Framework: Designing the framework of the parts
+     - Grouping information by priority
+     - Visual hierarchy
+     - Size: Larger sizes attract attention first
+     - Color: Background and text colors draw attention to the main message. Brighter colors attract more attention than darker colors
+   - Style: Same size and color but with a different style will attract more attention
+     - Grouping and similarity
+     - Consistency: Reading a section allows one to infer the meaning of other items in the box when they share the same style.
+     - Title: Helps determine if this block of information is relevant to them.
+   - Navigation design
+     - Concise: Limit the number of links to no more than 8.
+     - Clear: Choose a single descriptive word instead of phrases.
+     - Selective: Navigate sections or content, etc. (Login, registration should be in a different section).
+     - Context: Indicates where the user is on the navigation bar (CSS, colors, etc.).
+     - Interactive: Large enough for user interaction.
+     - Consistent: Main navigation should be consistent.
+
 3. SEO
    - ON-PAGE techniques:
      - title
