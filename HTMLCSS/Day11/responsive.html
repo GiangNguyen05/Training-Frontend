@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>responsive</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header--title">
+        <div class="header__bar">
+          <div class="header__name"><h1>Panto</h1></div>
+          <ul class="header__nav" id="menu__bar--pc">
+            <li class="nav__item">
+              <a href="#" class="nav__item--menu">Furmiture</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__item--menu">Shop</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__item--menu">About Us</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__item--menu">Contact</a>
+            </li>
+          </ul>
+          <div class="header__bag">
+            <a href="#"
+              ><img
+                src="images/Bag.png"
+                alt="gio hang"
+                class="header__bag--mod"
+            /></a>
+          </div>
+        </div>
+        <!-- <div class="header__text">
+          <h2>Make your interior more <br />minimalistic & modern</h2>
+          <p>
+            Turn your room with panto into a lot more minimalist <br />
+            and modern with ease and speed
+          </p>
+          <div class="header__text--search">
+            <input
+              type="search"
+              name="s"
+              id="search-input"
+              placeholder="Search Fumiture"
+            />
+            <button type="submit" id="icon-search">
+              <img src="images/icons_search.png" alt="icon-search" />
+            </button>
+          </div>
+        </div> -->
+      </div>
+    </header>
+    <!-- tablet menu -->
+    <div class="mobile-header">
+      <input
+        type="checkbox"
+        name="menu-checkbox"
+        id="menu-checkbox"
+        class="menu-checkbox"
+        hidden
+      />
+      <label for="menu-checkbox">
+        <svg
+          id="menu-checkbox"
+          class="menu-header__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"
+        >
+          <path
+            fill="currentColor"
+            d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"
+          />
+        </svg>
+      </label>
+      <!-- overlay -->
+      <label for="menu-checkbox" class="menu-overlay"></label>
+      <div class="menu-wrap">
+        <div class="menu-wrap__top">
+          <label for="menu-checkbox">
+            <svg
+              class="close__menu"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <path
+                fill="currentColor"
+                d="M320 112C434.9 112 528 205.1 528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM231 231C221.6 240.4 221.6 255.6 231 264.9L286 319.9L231 374.9C221.6 384.3 221.6 399.5 231 408.8C240.4 418.1 255.6 418.2 264.9 408.8L319.9 353.8L374.9 408.8C384.3 418.2 399.5 418.2 408.8 408.8C418.1 399.4 418.2 384.2 408.8 374.9L353.8 319.9L408.8 264.9C418.2 255.5 418.2 240.3 408.8 231C399.4 221.7 384.2 221.6 374.9 231L319.9 286L264.9 231C255.5 221.6 240.3 221.6 231 231z"
+              />
+            </svg>
+          </label>
+        </div>
+        <ul id="menu__bar--mobile"></ul>
+        <script>
+          const navPc = document.querySelector(`#menu__bar--pc`);
+          const navMobile = document.querySelector(`#menu__bar--mobile`);
+          navMobile.innerHTML = navPc.innerHTML;
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
