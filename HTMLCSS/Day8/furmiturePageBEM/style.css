@@ -84,9 +84,8 @@ header {
   display: flex;
   align-items: center;
   border-radius: 28px;
-  margin-top: 20px;
-  padding: 0px 5px;
-  padding-left: 20px;
+  margin-top: 1.25rem;
+  padding: 0 0.3125rem 0 1.25rem;
   background-color: rgba(255, 255, 255, 0.3);
 }
 #search-input {
