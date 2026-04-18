@@ -212,6 +212,9 @@
   .footer__copy--privacy {
     text-align: center;
   }
+  .footer__copy a {
+    font-size: 1rem;
+  }
 }
 /* screen table small */
 @media (min-width: 640px) and (max-width: 767.98px) {
