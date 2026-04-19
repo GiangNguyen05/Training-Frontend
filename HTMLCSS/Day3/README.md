@@ -1,6 +1,4 @@
-### TRAIN FRONTEND
-
-### CSS BASIC EDX
+# CSS BASIC EDX
 
 2.7 Project - About me page
 link:https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day3/edx27/aboutmepage.html
