@@ -13,4 +13,6 @@
     - Navigation menu: The tablet is wide enough to display a tab bar or sidebar menu.
     - Images size: High quality -> avoid blurring and revealing flaws(mờ, lộ khuyết điểm)
 
+  linkdemo: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day13/tablet.html
+
 ## Obsidian
