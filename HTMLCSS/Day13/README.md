@@ -1,6 +1,6 @@
 # TRAIN FRONTEND
 
-## Responsive:
+## Responsive
 
 - Create a demo on a tablet screen.
   - Screen: 2-3 column layout
