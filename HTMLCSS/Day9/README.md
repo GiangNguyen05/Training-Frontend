@@ -8,11 +8,9 @@
   - start
     - After successfully retrieving the src, we attach the obtained src to the src-object of the video.(video.play(); chạy)
     - Take failure, run to find fault.
-
   - stop
     - A.getTracks()[0].stop(); (audio)
     - A.getTracks()[1].stop(); (video)
-
 linkndemo: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day9/photobooth.html
 
 ## RECORD
