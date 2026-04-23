@@ -1,5 +1,5 @@
 ## Code landing page
 
-### Home
+### Details
 
 link: https://github.com/GiangNguyen05/Training-Frontend/tree/master/HTMLCSS/Day16
