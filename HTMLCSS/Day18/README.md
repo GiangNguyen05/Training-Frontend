@@ -1,5 +1,5 @@
 ## Code landing page
 
-### Details
+### Reader page and responsive all page
 
-link: https://github.com/GiangNguyen05/Training-Frontend/tree/master/HTMLCSS/Day17
+link: https://github.com/GiangNguyen05/Training-Frontend/tree/master/HTMLCSS/Day18
