@@ -1,0 +1,90 @@
+.reader-head {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: rgba(11, 10, 20, 0.9);
+}
+.reader__logo {
+  display: flex;
+  align-items: center;
+}
+.reader__logo--name {
+  font-size: 1.25rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-family: "Playfair Display", serif;
+}
+.reader__setting {
+  color: #a39fc7;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  display: flex;
+  gap: 1rem;
+}
+.reader-content {
+  padding: 3rem 0 5rem;
+  min-height: 70vh;
+}
+.reader__wrap {
+  width: 70vw;
+  margin: 0 auto;
+}
+.reader__title {
+  text-align: center;
+}
+.reader__title p {
+  text-transform: uppercase;
+  margin: 0;
+  color: #a39fc7;
+}
+.reader__title h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 1rem 0 3rem;
+  line-height: 1.2;
+}
+.reader__text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #ece9ff;
+}
+.reader__text p {
+  margin: 0 0 1.4em;
+  text-align: justify;
+}
+.reader__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 3.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+.footer-copy {
+  text-align: center;
+}
+@media (max-width: 768px) and (min-width: 375px) {
+  .nav__item {
+    display: none;
+  }
+  .reader__logo--name {
+    font-size: 1rem;
+  }
+  .reader--btn {
+    font-size: 0.8rem;
+  }
+  .reader__title p {
+    font-size: 0.8rem;
+  }
+  .reader__title h1 {
+    font-size: 1.8rem;
+  }
+}
