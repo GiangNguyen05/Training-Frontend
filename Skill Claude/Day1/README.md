@@ -177,5 +177,3 @@ python scripts/migrate.py --verify --backup
 - Common pattern: Run validator → fix errors → repeat (cải thiện chất lượng đầu ra)
 
 linkAll: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices#workflows-and-feedback-loops
-
-## Content guidelines
