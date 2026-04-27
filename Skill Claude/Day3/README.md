@@ -29,11 +29,9 @@ For scanned PDFs requiring OCR, use pdf2image with pytesseract instead."
 
 ## Advanced: Skills with executable code
 
-The sections below focus on Skills that include executable scripts. If your Skill uses only markdown instructions, skip to [Checklist for effective Skills](#checklist-for-effective-skills).
+The sections below focus on Skills that include executable scripts.
 
 ### Solve, don't punt
-
-When writing scripts for Skills, handle error conditions rather than punting to Claude.
 
 **Good example: Handle errors explicitly:**
 
@@ -63,7 +61,7 @@ def process_file(path):
     return open(path).read()
 ```
 
-Configuration parameters should also be justified and documented to avoid "voodoo constants" (Ousterhout's law). If you don't know the right value, how will Claude determine it?
+Configuration parameters should also be justified and documented to avoid "voodoo constants" (Ousterhout's law).
 
 **Good example: Self-documenting:**
 
@@ -95,16 +93,12 @@ Even if Claude could write a script, pre-made scripts offer advantages:
 - Save time (no code generation required)
 - Ensure consistency across uses
 
-![Bundling executable scripts alongside instruction files](/docs/images/agent-skills-executable-scripts.png)
-
-The diagram above shows how executable scripts work alongside instruction files. The instruction file (forms.md) references the script, and Claude can execute it without loading its contents into context.
-
 **Important distinction:** Make clear in your instructions whether Claude should:
 
 - **Execute the script** (most common): "Run `analyze_form.py` to extract fields"
 - **Read it as reference** (for complex logic): "See `analyze_form.py` for the field extraction algorithm"
 
-For most utility scripts, execution is preferred because it's more reliable and efficient. See the [Runtime environment](#runtime-environment) section below for details on how script execution works.
+For most utility scripts, execution is preferred because it's more reliable and efficient.
 
 **Example:**
 
@@ -189,11 +183,9 @@ Skills run in the code execution environment with platform-specific limitations:
 - **claude.ai:** Can install packages from npm and PyPI and pull from GitHub repositories
 - **Claude API:** Has no network access and no runtime package installation
 
-List required packages in your SKILL.md and verify they're available in the [code execution tool documentation](/docs/en/agents-and-tools/tool-use/code-execution-tool).
-
 ### Runtime environment
 
-Skills run in a code execution environment with filesystem access, bash commands, and code execution capabilities. For the conceptual explanation of this architecture, see [The Skills architecture](/docs/en/agents-and-tools/agent-skills/overview#the-skills-architecture) in the overview.
+Skills run in a code execution environment with filesystem access, bash commands, and code execution capabilities.
 
 **How this affects your authoring:**
 
@@ -286,7 +278,8 @@ See the [Skills overview](/docs/en/agents-and-tools/agent-skills/overview#skill-
 
 ### Token budgets
 
-Keep SKILL.md body under 500 lines for optimal performance. If your content exceeds this, split it into separate files using the progressive disclosure patterns described earlier. For architectural details, see the [Skills overview](/docs/en/agents-and-tools/agent-skills/overview#how-skills-work).
+- Keep SKILL.md body under 500 lines for optimal performance.
+- If your content exceeds this, split it into separate files using the progressive disclosure patterns described earlier.
 
 ## Checklist for effective Skills
 
@@ -322,30 +315,4 @@ Before sharing a Skill, verify:
 - [ ] Tested with Haiku, Sonnet, and Opus
 - [ ] Tested with real usage scenarios
 - [ ] Team feedback incorporated (if applicable)
-
-## Next steps
-
-<CardGroup cols={2}>
-  <Card
-    title="Get started with Agent Skills"
-    icon="rocket"
-    href="/docs/en/agents-and-tools/agent-skills/quickstart"
-  >
-    Create your first Skill
-  </Card>
-  <Card
-    title="Use Skills in Claude Code"
-    icon="terminal"
-    href="https://code.claude.com/docs/en/skills"
-  >
-    Create and manage Skills in Claude Code
-  </Card>
-  <Card
-    title="Use Skills with the API"
-    icon="code"
-    href="/docs/en/build-with-claude/skills-guide"
-  >
-    Upload and use Skills programmatically
-  </Card>
-</CardGroup>
 ```
