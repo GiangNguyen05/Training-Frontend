@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NavBar - Tailwind</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <nav
+      class="flex items-center justify-between px-6 py-4 bg-gray-900 text-white shadow-md"
+    >
+      <!-- Logo  -->
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+        <span class="text-xl font-bold tracking-wider">NETCHILL</span>
+      </div>
+
+      <!-- Menu (Giữa) - Ẩn trên mobile, hiện trên laptop (md:) -->
+      <ul class="hidden md:flex items-center gap-8 font-medium text-gray-300">
+        <li class="hover:text-white cursor-pointer transition">Trang chủ</li>
+        <li class="hover:text-white cursor-pointer transition">Phim mới</li>
+        <li class="hover:text-white cursor-pointer transition">Thể loại</li>
+        <li class="hover:text-white cursor-pointer transition">Cá nhân</li>
+      </ul>
+
+      <!-- Search Bar (Giữa) - Sử dụng flex-1 và mx -->
+      <div class="flex-0.5 mx-5 max-w-xl hidden sm:block">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Tìm kiếm phim, diễn viên..."
+            class="w-full bg-gray-800 text-sm text-gray-300 rounded-full py-2 px-10 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          />
+          <!-- Icon Search (giả lập bằng dot) -->
+          <div
+            class="absolute left-3 top-2.5 w-4 h-4 border-2 border-gray-500 rounded-full"
+          ></div>
+        </div>
+      </div>
+      <!-- Actions (Phải) -->
+      <div class="flex items-center gap-4">
+        <button
+          class="px-4 py-2 text-sm font-semibold hover:bg-gray-800 rounded-lg transition"
+        >
+          Đăng nhập
+        </button>
+      </div>
+    </nav>
+  </body>
+</html>
