@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Đọc Truyện - Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Bỏ qua đến nội dung chính</a>
+
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand" aria-label="Trang chủ">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-name">TruyệnMây</span>
+        </div>
+
+        <nav class="nav-links" aria-label="Điều hướng chính">
+          <a href="#features">Tính năng</a>
+          <a href="#how">Cách đọc</a>
+          <a href="#testimonials">Cảm nhận</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button
+            class="icon-btn"
+            id="darkModeBtn"
+            type="button"
+            aria-label="Chuyển chế độ sáng tối"
+            title="Dark mode"
+          >
+            <span aria-hidden="true">🌙</span>
+          </button>
+          <a class="btn btn-ghost" href="#cta">Đăng ký</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="badge">
+              <span class="badge-chip">Miễn phí trải nghiệm</span>
+              <span class="badge-sep" aria-hidden="true">•</span>
+              <span class="badge-chip">Gợi ý theo gu</span>
+            </div>
+
+            <h1 id="heroTitle">
+              Đắm chìm trong <span class="grad-text">thế giới truyện</span> bạn
+              yêu thích
+            </h1>
+
+            <p class="subtitle">
+              TruyệnMây giúp bạn đọc nhanh, thoải mái và luôn được gợi ý đúng
+              “mood”. Giao diện sạch, tốc độ phản hồi nhanh, tối ưu cho điện
+              thoại.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#cta">Bắt đầu đọc ngay</a>
+              <a class="btn btn-ghost" href="#features">Xem tính năng</a>
+            </div>
+
+            <div class="trust-row" aria-label="Số liệu nổi bật">
+              <div class="trust-item">
+                <div class="trust-n">120k+</div>
+                <div class="trust-l">người đọc</div>
+              </div>
+              <div class="trust-item">
+                <div class="trust-n">1.5k+</div>
+                <div class="trust-l">đầu truyện</div>
+              </div>
+              <div class="trust-item">
+                <div class="trust-n">4.9/5</div>
+                <div class="trust-l">trải nghiệm</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Tóm tắt trải nghiệm đọc">
+            <div class="hero-card-top">
+              <div class="reading-now">
+                <div class="reading-title">Hôm nay bạn muốn</div>
+                <div class="reading-sub">đọc gì? (mood & lịch sử)</div>
+              </div>
+              <div class="reading-time" aria-label="Thời gian tìm truyện">
+                <div class="reading-n">18s</div>
+                <div class="reading-l">tìm được truyện</div>
+              </div>
+            </div>
+
+            <div class="hero-skill-list" id="skills">
+              <div class="mini-item">
+                <div class="tick" aria-hidden="true">✓</div>
+                <div>
+                  <b>Chọn nhanh</b>
+                  <span>Skills: phân loại theo thể loại, mức độ, vibe.</span>
+                </div>
+              </div>
+
+              <div class="mini-item">
+                <div class="tick" aria-hidden="true">✓</div>
+                <div>
+                  <b>Đọc thoải mái</b>
+                  <span
+                    >Chỉnh font/cỡ chữ, chế độ đêm, ngắt dòng thông minh.</span
+                  >
+                </div>
+              </div>
+
+              <div class="mini-item">
+                <div class="tick" aria-hidden="true">✓</div>
+                <div>
+                  <b>Tiếp tục ngay</b>
+                  <span
+                    >Nhớ vị trí đọc, đồng bộ nhiều thiết bị (tùy chọn).</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-card-foot">
+              <div class="hint">Tip: bật dark mode để đọc lâu vẫn dễ chịu.</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="section" id="features" aria-labelledby="featuresTitle">
+        <div class="section-head">
+          <h2 id="featuresTitle">Tính năng nổi bật</h2>
+          <p class="section-hint">
+            Bám theo kỹ năng: UI/UX rõ ràng, CTA mạnh, responsive mượt.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card feature-card">
+            <div class="card-icon" aria-hidden="true">🎯</div>
+            <h3>Gợi ý đúng gu</h3>
+            <p>
+              Đề xuất theo những gì bạn hay đọc. Không “spam”, không làm bạn bối
+              rối.
+            </p>
+          </article>
+
+          <article class="card feature-card">
+            <div class="card-icon" aria-hidden="true">🔎</div>
+            <h3>Tìm kiếm nhanh</h3>
+            <p>
+              Từ khóa rõ ràng, kết quả gọn gàng. Truy cập nhanh để bạn bắt đầu
+              đọc ngay.
+            </p>
+          </article>
+
+          <article class="card feature-card">
+            <div class="card-icon" aria-hidden="true">🌙</div>
+            <h3>Đọc ban đêm</h3>
+            <p>Dark mode, tương phản cao, tối ưu cho mắt khi đọc về khuya.</p>
+          </article>
+
+          <article class="card feature-card">
+            <div class="card-icon" aria-hidden="true">📚</div>
+            <h3>Thư viện cá nhân</h3>
+            <p>
+              Lưu truyện yêu thích và theo dõi tiến độ. Mỗi lần quay lại đều
+              “tiếp tục ngay”.
+            </p>
+          </article>
+
+          <article class="card feature-card">
+            <div class="card-icon" aria-hidden="true">🧩</div>
+            <h3>Gợi ý theo “mood”</h3>
+            <p>
+              Khi bạn đổi mood, app gợi ý phiên bản hợp tâm trạng (vui, nhẹ
+              nhàng, kịch tính...).
+            </p>
+          </article>
+
+          <article class="card feature-card">
+            <div class="card-icon" aria-hidden="true">⚡</div>
+            <h3>Trải nghiệm mượt</h3>
+            <p>
+              Tối ưu UI và tương tác để chuyển section/smooth scroll nhanh, phản
+              hồi tức thì.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section" id="how" aria-labelledby="howTitle">
+        <div class="section-head">
+          <h2 id="howTitle">Đọc theo 3 bước</h2>
+          <p class="section-hint">
+            Rõ ràng, dễ làm, đúng workflow frontend production.
+          </p>
+        </div>
+
+        <div class="step-grid">
+          <div class="step">
+            <div class="step-n">1</div>
+            <div class="step-b">
+              <h3>Chọn thể loại & vibe</h3>
+              <p>Skills: phân loại giúp bạn vào đúng truyện ngay từ đầu.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-n">2</div>
+            <div class="step-b">
+              <h3>Bắt đầu đọc thoải mái</h3>
+              <p>Chỉnh chữ, bật chế độ đêm, bố cục dễ theo dõi.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-n">3</div>
+            <div class="step-b">
+              <h3>Tiếp tục đúng vị trí</h3>
+              <p>Nhớ tiến độ để bạn quay lại không bị gián đoạn.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="section" id="testimonials" aria-labelledby="tTitle">
+        <div class="section-head">
+          <h2 id="tTitle">Cảm nhận người đọc</h2>
+          <p class="section-hint">Đặt trải nghiệm trước, lead gen sau.</p>
+        </div>
+
+        <div class="cards testimonials">
+          <article class="card quote-card">
+            <p class="quote">
+              “Mình thử 5 phút là nghiện. Dark mode đọc cực dễ chịu, tìm truyện
+              cũng nhanh.”
+            </p>
+            <div class="quote-meta">— Minh Anh</div>
+          </article>
+
+          <article class="card quote-card">
+            <p class="quote">
+              “Gợi ý đúng gu thật. Mỗi lần đổi mood là app đưa truyện hợp ngay.”
+            </p>
+            <div class="quote-meta">— Khoa</div>
+          </article>
+
+          <article class="card quote-card">
+            <p class="quote">
+              “Giao diện sạch, không rối. Nên đọc buổi tối không bị mỏi.”
+            </p>
+            <div class="quote-meta">— Thuỳ Trang</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PRICING (optional, but matches SaaS/landing patterns) -->
+      <section class="section" id="pricing" aria-labelledby="pTitle">
+        <div class="section-head">
+          <h2 id="pTitle">Gói đề xuất</h2>
+          <p class="section-hint">
+            Bạn có thể thay nội dung nếu cần theo dự án thật.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="card price-card">
+            <div class="price-head">
+              <h3>Miễn phí</h3>
+              <div class="price">0đ</div>
+              <div class="price-sub">Cho bạn trải nghiệm</div>
+            </div>
+            <ul class="list">
+              <li>Nội dung cơ bản</li>
+              <li>Dark mode</li>
+              <li>Tiếp tục vị trí</li>
+            </ul>
+            <a class="btn btn-ghost btn-full" href="#cta">Đăng ký</a>
+          </article>
+
+          <article class="card price-card featured">
+            <div class="price-badge">Phổ biến</div>
+            <div class="price-head">
+              <h3>Premium</h3>
+              <div class="price">49k/tháng</div>
+              <div class="price-sub">Cho trải nghiệm “mượt hơn”</div>
+            </div>
+            <ul class="list">
+              <li>Gợi ý nâng cao theo gu</li>
+              <li>Giao diện tối ưu đọc dài</li>
+              <li>Đồng bộ nhiều thiết bị</li>
+            </ul>
+            <a class="btn btn-primary btn-full" href="#cta">Nâng cấp</a>
+          </article>
+
+          <article class="card price-card">
+            <div class="price-head">
+              <h3>Team</h3>
+              <div class="price">Liên hệ</div>
+              <div class="price-sub">Cho nhóm/CLB</div>
+            </div>
+            <ul class="list">
+              <li>Gợi ý theo nhóm</li>
+              <li>Admin & quản lý</li>
+              <li>Báo cáo đọc (demo)</li>
+            </ul>
+            <a class="btn btn-ghost btn-full" href="#cta">Liên hệ</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq" aria-labelledby="faqTitle">
+        <div class="section-head">
+          <h2 id="faqTitle">FAQ</h2>
+          <p class="section-hint">Accordion để gọn, dễ đọc.</p>
+        </div>
+
+        <div class="faq" data-accordion>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Có cần đăng nhập để đọc không?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              Bạn vẫn có thể xem/bắt đầu đọc cơ bản. Đăng nhập để đồng bộ tiến
+              độ và nhận gợi ý cá nhân.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Dark mode có mượt không?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              Có. Chế độ tối được lưu trong `localStorage` để bạn không phải bật
+              lại mỗi lần mở trang.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Làm sao để app gợi ý đúng gu?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" hidden>
+              Ứng dụng học từ lịch sử đọc + lựa chọn thể loại/vibe của bạn. Bạn
+              càng “chọn đúng”, gợi ý càng sát.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta" id="cta" aria-labelledby="ctaTitle">
+        <div class="cta-panel">
+          <div class="cta-copy">
+            <h2 id="ctaTitle">Sẵn sàng đọc truyện theo cách của bạn?</h2>
+            <p class="cta-sub">
+              Nhận gợi ý đúng gu và đồng bộ tiến độ. Điền email (demo) để bắt
+              đầu.
+            </p>
+          </div>
+
+          <form class="cta-form" id="leadForm">
+            <label class="field">
+              <span class="field-label">Email</span>
+              <input
+                type="email"
+                name="email"
+                placeholder="ban@vi-du.com"
+                autocomplete="email"
+                required
+              />
+            </label>
+
+            <button class="btn btn-primary" type="submit">Bắt đầu ngay</button>
+
+            <p
+              class="form-note"
+              id="formNote"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>© <span id="year"></span> TruyệnMây. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#features">Tính năng</a>
+          <a href="#faq">FAQ</a>
+          <a href="#cta">Liên hệ</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="script.js"></script>
+</html>
