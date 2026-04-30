@@ -2,7 +2,7 @@
 
 List Guidelines:
 1.CSS naming conventions:
-block-name(2 dau gach _)element-name(2 dau gach _)modifier-name (BEM)
+block-name(2 dau gach \_)element-name(2 dau gach -)modifier-name (BEM)
 -->Edit the names already set in the Furniture demo page.
 linkDemo: https://github.com/GiangNguyen05/Training-Frontend/blob/master/HTMLCSS/Day8/furmiturePageBEM/Furmiture.html
 

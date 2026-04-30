@@ -12,11 +12,6 @@ Concise is key
 - Start up:
   - metadata(name and description) --> all Skills is pre-loaded --> later,
     Claude reads SKILL.md only when the Skill becomes relevant, and reads additional files only as needed
-- Only add context Claude doesn't already have. Challenge each piece of information:
-  - "Does Claude really need this explanation?"
-  - "Can I assume Claude knows this?"
-  - "Does this paragraph justify its token cost?"
-
 - Exam:
   - Good:
     Use pdfplumber for text extraction:
