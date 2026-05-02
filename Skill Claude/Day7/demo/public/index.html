@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAG-G</title>
+    <style>
+      body {
+        font-family: Arial;
+        max-width: 700px;
+        margin: auto;
+      }
+      #chat {
+        height: 400px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      .user {
+        text-align: right;
+        color: blue;
+      }
+      .ai {
+        text-align: left;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>RAG Chat</h2>
+
+    <input type="file" id="file" />
+    <button onclick="upload()">Upload</button>
+
+    <div id="chat"></div>
+
+    <input id="msg" />
+    <button onclick="send()">Send</button>
+
+    <script>
+      async function upload() {
+        const file = document.getElementById("file").files[0];
+        const form = new FormData();
+        form.append("file", file);
+
+        await fetch("/api/upload", { method: "POST", body: form });
+        alert("Uploaded!");
+      }
+
+      async function send() {
+        const msg = document.getElementById("msg").value;
+
+        add("user", msg);
+
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: msg }),
+        });
+
+        const data = await res.json();
+
+        add("ai", data.reply);
+      }
+
+      function add(role, text) {
+        const div = document.createElement("div");
+        div.className = role;
+        div.innerText = text;
+        document.getElementById("chat").appendChild(div);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+# Loại bỏ node_modules ở mọi nơi trong dự án
+node_modules/
+
+# Loại bỏ file chứa thông tin bảo mật (như API Key trong file .env của bạn)
+.env
