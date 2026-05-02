@@ -1,8 +1,8 @@
 # Skill Claude
 
-## Viết skil demo RAG
+## Viết skill demo RAG
 
-rag-app/
+demo/
 │
 ├── server/
 │ ├── server.js
