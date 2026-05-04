@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAG G</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Lora:ital,wght@0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-brand"><span class="dot"></span>RAG Studio</div>
+      <div class="nav-tabs">
+        <button class="nav-tab active" onclick="switchTab('upload')">
+          Tài liệu
+        </button>
+        <button class="nav-tab" onclick="switchTab('about')">Pipeline</button>
+      </div>
+      <div class="nav-status"><span id="doc-count">0 tài liệu</span></div>
+    </nav>
+
+    <div class="app">
+      <div class="left-panel">
+        <div class="view active" id="view-upload">
+          <div class="upload-header">
+            <h2>Kho tài liệu</h2>
+            <p>Tải lên để AI tìm kiếm & trả lời</p>
+          </div>
+          <div
+            class="drop-zone"
+            id="drop-zone"
+            onclick="document.getElementById('file-input').click()"
+          >
+            <input
+              type="file"
+              id="file-input"
+              multiple
+              accept=".txt,.md,.pdf"
+              onchange="handleFiles(this.files)"
+            />
+            <div class="drop-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+            </div>
+            <div class="drop-title">Kéo thả hoặc chọn file</div>
+            <div class="drop-sub">.txt · .md · .pdf (max 5MB)</div>
+            <button
+              class="drop-btn"
+              onclick="
+                event.stopPropagation();
+                document.getElementById('file-input').click();
+              "
+            >
+              Chọn file
+            </button>
+          </div>
+          <div class="file-list" id="file-list">
+            <div class="file-list-label">Tài liệu đã nạp</div>
+            <div id="file-items"></div>
+          </div>
+        </div>
+
+        <div class="view" id="view-about">
+          <div class="about-panel">
+            <div class="about-section">
+              <h3>RAG Pipeline</h3>
+              <div class="pipeline-step">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                  <div class="step-title">Ingestion — Nạp tài liệu</div>
+                  <div class="step-desc">
+                    File → tách thành chunks 500 ký tự → tạo TF-IDF index để tìm
+                    kiếm
+                  </div>
+                </div>
+              </div>
+              <div class="pipeline-step">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                  <div class="step-title">Retrieval — Truy xuất</div>
+                  <div class="step-desc">
+                    Query → tìm chunks liên quan bằng keyword + cosine
+                    similarity → xếp hạng top-K
+                  </div>
+                </div>
+              </div>
+              <div class="pipeline-step">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                  <div class="step-title">Generation — Sinh câu trả lời</div>
+                  <div class="step-desc">
+                    Context + Query → Claude API → câu trả lời có trích dẫn
+                    nguồn
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="about-section">
+              <h3>Công nghệ</h3>
+              <div class="tech-grid">
+                <div class="tech-card">
+                  <div class="tech-name">Claude claude-sonnet-4-20250514</div>
+                  <div class="tech-desc">LLM sinh câu trả lời</div>
+                </div>
+                <div class="tech-card">
+                  <div class="tech-name">TF-IDF Search</div>
+                  <div class="tech-desc">Retrieval trong browser</div>
+                </div>
+                <div class="tech-card">
+                  <div class="tech-name">Chunking</div>
+                  <div class="tech-desc">500 ký tự, overlap 50</div>
+                </div>
+                <div class="tech-card">
+                  <div class="tech-name">Cosine Similarity</div>
+                  <div class="tech-desc">Xếp hạng chunks</div>
+                </div>
+              </div>
+            </div>
+            <div class="about-section">
+              <h3>Hướng dẫn</h3>
+              <div class="pipeline-step">
+                <div class="step-body">
+                  <div class="step-desc">
+                    1. Tải lên file .txt, .md hoặc .pdf<br />2. Đợi file chuyển
+                    sang "sẵn sàng"<br />3. Đặt câu hỏi trong ô chat bên phải<br />4.
+                    AI tìm đoạn liên quan và trả lời dựa trên tài liệu
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="chat-header">
+          <div style="flex: 1">
+            <h2>AI Agent</h2>
+            <p>Tìm kiếm & trả lời dựa trên tài liệu của bạn</p>
+          </div>
+          <span class="model-badge">Claude claude-sonnet-4-20250514</span>
+        </div>
+
+        <div class="no-docs-warning" id="no-docs-warning">
+          Chưa có tài liệu nào. Hãy tải file lên trước để AI có thể tìm kiếm.
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-welcome" id="chat-welcome">
+            <div class="welcome-icon">🔍</div>
+            <h3>Hỏi về tài liệu của bạn</h3>
+            <p>
+              Tải file lên và đặt câu hỏi. AI sẽ tìm kiếm trong tài liệu và trả
+              lời chính xác.
+            </p>
+            <div class="suggestions">
+              <button class="suggestion-btn" onclick="sendSuggestion(this)">
+                Tài liệu này nói về chủ đề gì?
+              </button>
+              <button class="suggestion-btn" onclick="sendSuggestion(this)">
+                Tóm tắt nội dung chính
+              </button>
+              <button class="suggestion-btn" onclick="sendSuggestion(this)">
+                Các điểm quan trọng nhất là gì?
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-area">
+          <div class="input-wrapper">
+            <textarea
+              id="chat-input"
+              rows="1"
+              placeholder="Đặt câu hỏi về tài liệu..."
+              onkeydown="handleKey(event)"
+              oninput="autoResize(this)"
+            ></textarea>
+            <button class="send-btn" id="send-btn" onclick="sendMessage()">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            </button>
+          </div>
+          <div class="input-hint">Enter để gửi · Shift+Enter xuống dòng</div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
