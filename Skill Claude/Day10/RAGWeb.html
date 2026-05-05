@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAG G</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Lora:ital,wght@0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="brand"><span class="brand-dot"></span>RAG G</div>
+      <div class="nav-center">
+        <button class="ntab on" onclick="switchTab('docs')">Tài liệu</button>
+        <button class="ntab" onclick="switchTab('about')">Pipeline</button>
+      </div>
+      <div class="nav-right">
+        <button class="hist-toggle" id="hist-btn" onclick="toggleHist()">
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          Lịch sử
+        </button>
+        <span id="doc-badge">0 tài liệu</span>
+      </div>
+    </nav>
+
+    <!-- APP -->
+    <div class="app">
+      <!-- DOC PANEL -->
+      <div class="doc-panel" id="doc-panel">
+        <!-- docs view -->
+        <div class="dpview on" id="dpview-docs">
+          <div class="panel-head">
+            <h2>Kho tài liệu</h2>
+            <p>Tải lên để AI tìm kiếm & trả lời</p>
+          </div>
+          <div
+            class="dropzone"
+            id="dropzone"
+            onclick="document.getElementById('fi').click()"
+          >
+            <input
+              type="file"
+              id="fi"
+              multiple
+              accept=".txt,.md,.pdf"
+              onchange="handleFiles(this.files)"
+            />
+            <div class="dz-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+            </div>
+            <div class="dz-title">Kéo thả hoặc chọn file</div>
+            <div class="dz-sub">.txt · .md · .pdf · max 5MB</div>
+            <button
+              class="dz-btn"
+              onclick="
+                event.stopPropagation();
+                document.getElementById('fi').click();
+              "
+            >
+              Chọn file
+            </button>
+          </div>
+          <div class="flist">
+            <div class="flist-label">Đã nạp</div>
+            <div id="fitems"></div>
+          </div>
+        </div>
+
+        <!-- about view -->
+        <div class="dpview" id="dpview-about">
+          <div class="panel-head">
+            <h2>RAG Pipeline</h2>
+            <p>Kiến trúc hệ thống</p>
+          </div>
+          <div class="about-scroll">
+            <div class="ab-section">
+              <h3>3 bước xử lý</h3>
+              <div class="pipe-step">
+                <div class="pnum">01</div>
+                <div>
+                  <div class="ptitle">Ingestion</div>
+                  <div class="pdesc">File → chunk 500 ký tự → TF-IDF index</div>
+                </div>
+              </div>
+              <div class="pipe-step">
+                <div class="pnum">02</div>
+                <div>
+                  <div class="ptitle">Retrieval</div>
+                  <div class="pdesc">
+                    Query → cosine similarity → top-K chunks
+                  </div>
+                </div>
+              </div>
+              <div class="pipe-step">
+                <div class="pnum">03</div>
+                <div>
+                  <div class="ptitle">Generation</div>
+                  <div class="pdesc">
+                    Context + Query → Claude → câu trả lời
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ab-section">
+              <h3>Stack</h3>
+              <div class="tgrid">
+                <div class="tcard">
+                  <div class="tname">Claude claude-sonnet-4-20250514</div>
+                  <div class="tdesc">LLM sinh trả lời</div>
+                </div>
+                <div class="tcard">
+                  <div class="tname">TF-IDF</div>
+                  <div class="tdesc">Retrieval in-browser</div>
+                </div>
+                <div class="tcard">
+                  <div class="tname">Chunking</div>
+                  <div class="tdesc">500 ký tự, overlap 50</div>
+                </div>
+                <div class="tcard">
+                  <div class="tname">localStorage</div>
+                  <div class="tdesc">Lưu lịch sử chat</div>
+                </div>
+              </div>
+            </div>
+            <div class="ab-section">
+              <h3>Hướng dẫn</h3>
+              <div class="pipe-step">
+                <div class="pdesc" style="font-size: 10px">
+                  1. Upload file .txt / .md / .pdf<br />2. Chờ trạng thái "sẵn
+                  sàng"<br />3. Đặt câu hỏi bên phải<br />4. AI tìm chunks & trả
+                  lời kèm nguồn
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HISTORY PANEL -->
+      <div class="hist-panel" id="hist-panel">
+        <div class="hist-head">
+          <span class="hist-title">Lịch sử</span>
+          <button class="new-btn" onclick="newChat()">+ Mới</button>
+        </div>
+        <div class="hlist" id="hlist"></div>
+      </div>
+
+      <!-- CHAT PANEL -->
+      <div class="chat-panel">
+        <div class="chat-head">
+          <div style="flex: 1">
+            <h2>AI Agent</h2>
+            <p>Tìm kiếm & trả lời từ tài liệu của bạn</p>
+          </div>
+          <span class="mbadge">Claude claude-sonnet-4-20250514</span>
+        </div>
+        <div class="chat-msgs" id="chat-msgs">
+          <div class="welcome" id="welcome">
+            <div class="w-icon">🔍</div>
+            <h3>Hỏi về tài liệu của bạn</h3>
+            <p>
+              Tải file lên rồi đặt câu hỏi — AI sẽ tìm kiếm và trả lời chính
+              xác.
+            </p>
+          </div>
+        </div>
+        <div class="input-area">
+          <div class="input-wrap">
+            <textarea
+              id="chat-input"
+              rows="1"
+              placeholder="Đặt câu hỏi về tài liệu..."
+              onkeydown="onKey(event)"
+              oninput="autoH(this)"
+            ></textarea>
+            <button class="send-btn" id="send-btn" onclick="send()">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            </button>
+          </div>
+          <div class="input-hint">Enter gửi · Shift+Enter xuống dòng</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
