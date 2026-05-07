@@ -100,10 +100,10 @@ const name = ()=>{statement...}
 
 ## Tóm tắt
 
-Khái niệm -------------> Ý nghĩa
-Function --------------> Khối code tái sử dụng
-Global Scope ----------> Biến dùng được ở mọi nơi
-Function Scope --------> Biến chỉ sống trong function
-Block Scope -----------> let/const chỉ sống trong {}
-Closure ---------------> Hàm con nhớ biến của hàm cha
-Hoisting --------------> var(undefined) và function được đưa lên đầu
+- Khái niệm -------------> Ý nghĩa
+- Function --------------> Khối code tái sử dụng
+- Global Scope ----------> Biến dùng được ở mọi nơi
+- Function Scope --------> Biến chỉ sống trong function
+- Block Scope -----------> let/const chỉ sống trong {}
+- Closure ---------------> Hàm con nhớ biến của hàm cha
+- Hoisting --------------> var(undefined) và function được đưa lên đầu
