@@ -2,6 +2,8 @@
 
 ## Array
 
+- Array (mảng) là một cấu trúc dữ liệu dùng để lưu nhiều giá trị trong một biến duy nhất
+
 ### Tạo mảng
 
 ```js
