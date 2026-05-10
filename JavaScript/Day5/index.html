@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <h1>📝 Todo List</h1>
+      <p class="subtitle">
+        Ví dụ DOM JavaScript — thêm, tick hoàn thành, lọc, xóa
+      </p>
+
+      <!-- 1. INPUT: Thêm công việc mới -->
+      <div class="input-row">
+        <input id="todo-input" type="text" placeholder="Nhập công việc..." />
+        <button id="add-btn" class="btn-add">+ Thêm</button>
+      </div>
+
+      <!-- 2. FILTER: Lọc theo trạng thái -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Tất cả</button>
+        <button class="filter-btn" data-filter="pending">Chưa xong</button>
+        <button class="filter-btn" data-filter="done">Hoàn thành</button>
+      </div>
+
+      <!-- 3. LIST: Danh sách công việc -->
+      <ul id="todo-list"></ul>
+
+      <!-- 4. EMPTY STATE -->
+      <div id="empty-msg">✅ Không có công việc nào</div>
+
+      <!-- 5. STATS BAR -->
+      <div id="stats-bar">
+        <span id="stats-text"></span>
+        <button id="clear-done-btn" class="btn-clear">Xóa hoàn thành</button>
+      </div>
+    </div>
+
+    <script src="Dom.js"></script>
+  </body>
+</html>
