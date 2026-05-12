@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todolist</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="todolist.css" />
+  </head>
+  <body>
+    <div class="page">
+      <h1 class="logo">TodoList</h1>
+      <p class="subtitle">Minh họa Sync &amp; Async với Fake API</p>
+
+      <!-- API Status Bar -->
+      <div class="api-bar">
+        <div class="dot" id="api-dot"></div>
+        <span class="api-label" id="api-label"
+          >Fake API sẵn sàng · delay 800ms</span
+        >
+        <span
+          class="api-mode"
+          id="mode-toggle"
+          onclick="toggleMode()"
+          title="Đổi chế độ"
+        >
+          Đang dùng: <strong id="mode-text">async/await</strong>
+        </span>
+      </div>
+
+      <!-- Add Form -->
+      <div class="add-form">
+        <input
+          class="add-input"
+          id="add-input"
+          placeholder="Thêm việc cần làm..."
+          maxlength="100"
+          onkeydown="if (event.key === 'Enter') addTodo();"
+        />
+        <button class="add-btn" id="add-btn" onclick="addTodo()">
+          <span id="add-btn-text">+ Thêm</span>
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters">
+        <button class="filter-btn active" onclick="setFilter('all', this)">
+          Tất cả
+        </button>
+        <button class="filter-btn" onclick="setFilter('active', this)">
+          Chưa xong
+        </button>
+        <button class="filter-btn" onclick="setFilter('done', this)">
+          Xong
+        </button>
+        <span class="count" id="count"></span>
+      </div>
+
+      <!-- List -->
+      <div class="todo-list" id="todo-list"></div>
+
+      <!-- Log toggle -->
+      <div class="log-toggle" onclick="toggleLog()">
+        <span>▸</span> <span>Console log</span>
+      </div>
+      <div class="log-box" id="log-box"></div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script src="todolist.js"></script>
+  </body>
+</html>
