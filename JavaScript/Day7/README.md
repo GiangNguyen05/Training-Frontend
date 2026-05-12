@@ -33,15 +33,15 @@
 
 ```
 todolist/
-├── index.html       ← Giao diện + toàn bộ logic
-│
-├── Phần API (fake)  ← Giả lập server, delay 800ms
+├── index.html       ← Giao diện
+├── todolist.js      ← Giả lập server(API fake) + logic
+├── todolist.css     ← Custom css
 ├── Phần State       ← Mảng todos[], filter, useAsync flag
 ├── Phần Render      ← Hiển thị danh sách lên DOM
 └── Phần Actions     ← addTodo, saveEdit, deleteTodo, toggleTodo
 ```
 
-Dự án dùng **1 file HTML duy nhất**, không cần framework hay build tool. Toàn bộ logic nằm trong thẻ `<script>`.
+Dự án không cần framework hay build tool. Toàn bộ logic, api, data nằm trong file todolist.js.
 
 ---
 
