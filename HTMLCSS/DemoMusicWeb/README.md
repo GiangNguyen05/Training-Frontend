@@ -8,9 +8,9 @@
 
 | Breakpoint | Range          | Container               | Body font |
 | ---------- | -------------- | ----------------------- | --------- |
-| 📱 Mobile  | `< 768px`      | `100%` — padding `20px` | `15px`    |
-| 💻 Tablet  | `768 – 1023px` | `100%` — padding `32px` | `16px`    |
-| 🖥 Desktop | `>= 1024px`    | `max 1280px`            | `17px`    |
+| Mobile     | `< 768px`      | `100%` — padding `20px` | `15px`    |
+| Tablet     | `768 – 1023px` | `100%` — padding `32px` | `16px`    |
+| Desktop    | `>= 1024px`    | `max 1280px`            | `17px`    |
 
 ---
 
@@ -53,3 +53,74 @@
 | 5   | Features  | `2×2`                 | `4×1 row`                                                     | Hàng ngang đẹp hơn, scan nhanh hơn                  |
 | 6   | Pricing   | 3 cột flat            | 3 cột + featured `scale(1.05)` + glow                         | Wow effect; mobile/tablet không scale để tránh tràn |
 | 7   | Footer    | Row 4 phần đều        | Grid `2fr 1fr 1fr 1fr`                                        | Brand block nổi bật, sitemap gọn về phải            |
+
+## Chi tiết từng Block
+
+### Header
+
+| Property    | Mobile            | Tablet             | Desktop    |
+| ----------- | ----------------- | ------------------ | ---------- |
+| Nav links   | Ẩn                | `flex`, gap `28px` | Gap `36px` |
+| Hamburger   | Hiện              | Ẩn                 | Ẩn         |
+| CTA button  | Ẩn                | Hiện               | Hiện       |
+| Height      | `64px`            | `64px`             | `76px`     |
+| Mobile menu | Drawer dọc khi mở | Disabled           | Disabled   |
+
+---
+
+### Hero
+
+| Property    | Mobile                      | Tablet             | Desktop        |
+| ----------- | --------------------------- | ------------------ | -------------- |
+| Layout      | Stack dọc (`copy → player`) | Row flex `1.2 / 1` | Row gap `64px` |
+| Padding Y   | `48/64px`                   | `64/96px`          | `96/128px`     |
+| H1          | `clamp(28→72px)`            | `~8vw` tự scale    | Tự scale       |
+| Player card | Full width                  | Max `320px`        | Max `380px`    |
+| Sun bg      | Nhỏ, lệch                   | `360×360`          | `480×480`      |
+
+---
+
+### Featured Playlists
+
+| Property | Mobile                                 | Tablet         | Desktop      |
+| -------- | -------------------------------------- | -------------- | ------------ |
+| Layout   | Scroll-snap rail ngang (`1.3` card hé) | Grid `3 cột`   | Grid `4 cột` |
+| Mục đích | Swipe quen tay native                  | Preview đầy đủ | Catalog rộng |
+
+---
+
+### Genres
+
+| Property     | Mobile | Tablet | Desktop |
+| ------------ | ------ | ------ | ------- |
+| Cột          | `2`    | `4`    | `6`     |
+| Aspect ratio | `16/9` | `16/9` | `16/9`  |
+| Gap          | `12px` | `12px` | `16px`  |
+
+---
+
+### Features (USP)
+
+| Property     | Mobile          | Tablet               | Desktop       |
+| ------------ | --------------- | -------------------- | ------------- |
+| Cột          | `1` (stack)     | `2 × 2`              | `4 × 1` hàng  |
+| Section-head | Căn trái, stack | Row, `space-between` | Row, gap rộng |
+
+---
+
+### Pricing
+
+| Property     | Mobile        | Tablet            | Desktop                          |
+| ------------ | ------------- | ----------------- | -------------------------------- |
+| Cột          | `1` stack     | `3` cột bằng nhau | `3` cột + featured `scale(1.05)` |
+| Padding card | `28px`        | `28px`            | `36/28px`                        |
+| Featured nổi | Border + glow | Cùng cấp          | `scale(1.05)` nhô lên            |
+
+---
+
+### Footer
+
+| Property   | Mobile        | Tablet              | Desktop    |
+| ---------- | ------------- | ------------------- | ---------- |
+| Grid       | `1` cột stack | `2fr 1fr 1fr 1fr`   | Gap `64px` |
+| Bottom bar | Stack dọc     | Row `space-between` | Row        |
