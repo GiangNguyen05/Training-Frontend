@@ -44,8 +44,6 @@
 
 ### Desktop
 
-# Desktop Layout Structure
-
 | #   | Block     | TABLET (≥768px)       | ➜ DESKTOP (≥1024px) đổi thành                                 | Lý do                                               |
 | --- | --------- | --------------------- | ------------------------------------------------------------- | --------------------------------------------------- |
 | 1   | Header    | Nav ngang, gap `28px` | Gap `36px`, hover underline neon                              | Thoáng hơn, có chuột → cần hover affordance         |
