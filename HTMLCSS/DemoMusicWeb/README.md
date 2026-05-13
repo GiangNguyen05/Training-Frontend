@@ -124,3 +124,19 @@
 | ---------- | ----------- | ----------------- | -------- |
 | Grid       | 1 cột stack | 2fr 1fr 1fr 1fr   | Gap 64px |
 | Bottom bar | Stack dọc   | Row space-between | Row      |
+
+## Các điểm chung
+
+### Design Token
+
+### Font
+
+### Layout primitives
+
+### Button
+
+### Text
+
+### Card
+
+### Responsive
