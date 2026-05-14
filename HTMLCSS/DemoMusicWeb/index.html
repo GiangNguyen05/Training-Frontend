@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MucsicWeb</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <div class="nav-logo">
+          <a href="#"><span class="logo-text">MusivWeb</span></a>
+        </div>
+        <nav class="nav-links">
+          <a href="#">PlayLists</a>
+          <a href="#">Genres</a>
+          <a href="#">Features</a>
+          <a href="#">Pricing</a>
+        </nav>
+        <div class="nav-cta">
+          <a href="#" class="btn btn-ghost">Sing in</a>
+          <a href="#" class="btn btn-primary">Get Premium</a>
+        </div>
+        <button
+          class="hamburger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          id="hamburger"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu" hidden>
+        <a href="#playlists">Playlists</a>
+        <a href="#genres">Genres</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#" class="btn btn-ghost">Sign in</a>
+        <a href="#pricing" class="btn btn-primary">Get Premium</a>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container hero-wrap">
+          <div class="hero-copy">
+            <span class="eyebrow">◆ New - HEUTHUHAI</span>
+            <h1 class="hero-title">
+              Stream the <span class="grad">future of sound</span>.
+            </h1>
+            <p class="lead">
+              Retro neon playlists, lossless audio và visualizer thời gian thực
+              — đắm chìm trong vũ trụ âm nhạc của riêng bạn.
+            </p>
+            <div class="hero-actions">
+              <a href="#pricing" class="btn btn-primary btn-lg"
+                >▶ Listen free</a
+              >
+              <a href="#features" class="btn btn-outline btn-lg"
+                >Explore features</a
+              >
+            </div>
+            <ul class="hero-stats" role="list">
+              <li><strong>50M+</strong><span>Listeners</span></li>
+              <li><strong>100K</strong><span>Artists</span></li>
+              <li><strong>4.9★</strong><span>App rating</span></li>
+            </ul>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="player-card">
+              <div class="player-cover">
+                <div class="cover-art"></div>
+                <!-- <div class="equalizer">
+                  <span></span><span></span><span></span><span></span
+                  ><span></span>
+                </div> -->
+              </div>
+              <div class="player-meta">
+                <p class="track">Không thể say</p>
+                <p class="artist">HIEUTHUHAI</p>
+              </div>
+              <div class="player-bar">
+                <div class="player-progress"><span></span></div>
+                <div class="player-time">
+                  <span>1:42</span><span>3:58</span>
+                </div>
+              </div>
+              <div class="player-controls">
+                <button aria-label="Shuffle">⇄</button>
+                <button aria-label="Previous">⏮</button>
+                <button class="play" aria-label="Play">▶</button>
+                <button aria-label="Next">⏭</button>
+                <button aria-label="Repeat">↻</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="playlists" class="section">
+        <div class="container">
+          <header class="section-head">
+            <div>
+              <span class="eyebrow">— Featured</span>
+              <h2>Playlists đang <span class="grad">bùng nổ</span></h2>
+            </div>
+            <a href="#" class="link-arrow">Xem tất cả →</a>
+          </header>
+          <div class="card-rail">
+            <article class="playlist-card">
+              <div class="card-art"><span class="art-tag">HOT</span></div>
+              <h3>Không thể say</h3>
+              <p>HIEUTHUHAI</p>
+            </article>
+            <article class="playlist-card">
+              <div class="card-art"></div>
+              <h3>Ngủ một mình</h3>
+              <p>HIEUTHUHAI</p>
+            </article>
+            <article class="playlist-card">
+              <div class="card-art"></div>
+              <h3>Người im lặng gặp người hay nói</h3>
+              <p>HIEUTHUHAI</p>
+            </article>
+            <article class="playlist-card">
+              <div class="card-art"></div>
+              <h3>Trình</h3>
+              <p>HIEUTHUHAI</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const ham = document.getElementById("hamburger");
+      const menu = document.getElementById("mobileMenu");
+      ham.addEventListener("click", () => {
+        const open = menu.hasAttribute("hidden") ? false : true;
+        if (open) {
+          menu.setAttribute("hidden", "");
+          ham.setAttribute("aria-expanded", "false");
+          ham.classList.remove("is-open");
+        } else {
+          menu.removeAttribute("hidden");
+          ham.setAttribute("aria-expanded", "true");
+          ham.classList.add("is-open");
+        }
+      });
+      menu.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          menu.setAttribute("hidden", "");
+          ham.setAttribute("aria-expanded", "false");
+          ham.classList.remove("is-open");
+        }),
+      );
+    </script>
+  </body>
+</html>
