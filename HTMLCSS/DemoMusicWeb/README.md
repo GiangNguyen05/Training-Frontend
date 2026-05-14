@@ -129,14 +129,182 @@
 
 ### Design Token
 
+| Nhóm           | Token                      | Giá trị                          | Dùng ở                                 |
+| -------------- | -------------------------- | -------------------------------- | -------------------------------------- |
+| **Background** | `--bg`                     | `#07021a`                        | body base                              |
+|                | `--bg-2`                   | `#0d0428`                        | layered backgrounds                    |
+|                | `--surface`                | `#14072e`                        | tất cả card (playlist, feature, price) |
+|                | `--surface-2`              | `#1c0a3d`                        | elevated surfaces, player card         |
+| **Text**       | `--text`                   | `#f5e9ff`                        | body, headings                         |
+|                | `--muted`                  | `#a99dc8`                        | description, meta, footer links        |
+| **Accent**     | `--pink`                   | `#ff2bd6`                        | primary brand, CTA chính               |
+|                | `--purple`                 | `#7a00ff`                        | hero glow, gradient mid-stop           |
+|                | `--cyan`                   | `#00e5ff`                        | eyebrow, link-arrow, feature accent    |
+|                | `--amber`                  | `#ffb800`                        | sun, sunset gradient                   |
+| **Gradient**   | `--grad-primary`           | pink → purple → cyan 135°        | logo, button-primary, `.grad` text     |
+|                | `--grad-sun`               | amber → pink → purple 180°       | hero sun                               |
+| **Effect**     | `--shadow-glow`            | dual neon shadow (pink + purple) | button hover, featured card, player    |
+|                | `--grid`                   | `rgba(255,43,214,.35)`           | hero perspective grid lines            |
+| **Layout**     | `--radius` / `--radius-sm` | `16px` / `10px`                  | card / pill / chip                     |
+|                | `--container`              | `1280px`                         | max width desktop                      |
+
+> Cách dùng: `var(--xxx)`
+
 ### Font
+
+| Font         | Weights               | Vai trò                                                               |
+| ------------ | --------------------- | --------------------------------------------------------------------- |
+| **Orbitron** | 600 / 800 / 900       | H1–H4, logo, eyebrow, stats numbers, badges → cảm giác synthwave/tech |
+| **Inter**    | 400 / 500 / 600 / 700 | Body, paragraph, button, nav, link                                    |
 
 ### Layout primitives
 
+#### `.container` — Wrapper cố định
+
+```css
+width: 100%;
+max-width: var(--container); /* 1280px */
+margin: 0 auto;
+padding: 0 20px; /* 32px ở tablet+ */
+```
+
+→ Dùng trong **mọi** section (header, hero, sections, footer).
+
+#### `.section` — Vertical rhythm
+
+```css
+padding: 64px 0; /* mobile */
+padding: 80px 0; /* tablet */
+padding: 112px 0; /* desktop */
+```
+
+→ Khoảng cách dọc nhất quán giữa các block.
+
+#### `.section-head` — Header chung cho mọi section
+
+```html
+<header class="section-head">
+  <div>
+    <span class="eyebrow">— Featured</span>
+    <h2>Title <span class="grad">highlight</span></h2>
+    <p class="section-sub">subtitle (optional)</p>
+  </div>
+  <a class="link-arrow">Xem tất cả →</a>
+</header>
+```
+
+- Mobile: `flex-direction: column` (stack)
+- Tablet+: `flex-direction: row; justify-content: space-between`
+- Modifier `.center`: căn giữa cho features + pricing
+
+---
+
 ### Button
+
+| Modifier       | Style                                                  | Use case                                   |
+| -------------- | ------------------------------------------------------ | ------------------------------------------ |
+| `.btn` (base)  | pill 999px, padding 10×18, transition transform+shadow | mọi button                                 |
+| `.btn-primary` | gradient + neon glow shadow                            | CTA chính (hero, premium card, header)     |
+| `.btn-outline` | border pink 50% transparent                            | CTA phụ (free, family, "Explore features") |
+| `.btn-ghost`   | trong suốt, hover pink                                 | nav links phụ ("Sign in")                  |
+| `.btn-lg`      | padding 14×26, font 15px                               | hero CTA                                   |
+| `.btn-block`   | width 100%                                             | trong card pricing                         |
 
 ### Text
 
+| Class         | Tác dụng                                                   | Dùng ở                      |
+| ------------- | ---------------------------------------------------------- | --------------------------- |
+| `.eyebrow`    | Tag chip uppercase, cyan, letter-spacing 3px               | mọi section header + hero   |
+| `.grad`       | Gradient text + drop-shadow neon (`background-clip: text`) | keyword nổi bật trong H1/H2 |
+| `.link-arrow` | Cyan link "Xem tất cả →" với hover glow                    | section-head right side     |
+
+```css
+.grad {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 16px rgba(255, 43, 214, 0.4));
+}
+```
+
 ### Card
 
+Playlist · Feature · Price — đều theo cùng anatomy:
+
+```text
+┌─────────────────────────────┐
+│ background: var(--surface)  │
+│ border: 1px solid (theme)   │
+│ border-radius: var(--radius)│
+│ padding: 14–28px            │
+│                             │
+│ [icon/cover/badge optional] │
+│ <h3> title                  │
+│ <p> description (muted)     │
+│ [CTA optional]              │
+└─────────────────────────────┘
+```
+
+**Hover chung**: `transform: translateY(-4px)` + border accent + glow shadow.
+
+**Khác biệt**: chỉ ở **accent color** của border:
+
+- Playlist → pink theme
+- Feature → cyan theme
+- Price → pink (featured) / pink-subtle (others)
+
 ### Responsive
+
+### Breakpoint cascade
+
+```css
+/* base = mobile (360–767px) */
+@media (min-width: 768px) {
+  /* tablet upgrades */
+}
+@media (min-width: 1024px) {
+  /* desktop upgrades */
+}
+```
+
+Chỉ 2 breakpoints. Không dùng `max-width` queries.
+
+### Grid pattern (1 → 2 → 4 cols hoặc 2 → 4 → 6)
+
+Áp dụng cho **playlist · feature · genre · footer**:
+
+```css
+.x-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 768px) {
+  .x-grid {
+    grid-template-columns: repeat(N, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .x-grid {
+    grid-template-columns: repeat(M, 1fr);
+  }
+}
+```
+
+### Scroll-snap rail (mobile-only carousel)
+
+Dùng cho **playlist mobile** (sau đó upgrade thành grid):
+
+```css
+display: flex;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+/* mỗi card */
+flex: 0 0 75%;
+scroll-snap-align: start;
+```
+
+Negative margin trick `margin: 0 -20px; padding: 0 20px` → card chạm sát mép màn hình.
+
+---
