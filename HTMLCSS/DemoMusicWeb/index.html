@@ -4,23 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MucsicWeb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <header class="header">
+    <header class="header-wrap">
       <div class="container nav">
         <div class="nav-logo">
           <a href="#"><span class="logo-text">MusivWeb</span></a>
         </div>
         <nav class="nav-links">
-          <a href="#">PlayLists</a>
-          <a href="#">Genres</a>
-          <a href="#">Features</a>
-          <a href="#">Pricing</a>
+          <a href="#playlists">PlayLists</a>
+          <a href="#genres">Genres</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
         </nav>
         <div class="nav-cta">
-          <a href="#" class="btn btn-ghost">Sing in</a>
-          <a href="#" class="btn btn-primary">Get Premium</a>
+          <a href="#" class="btn btn-ghost">Sign in</a>
+          <a href="#pricing" class="btn btn-primary">Get Premium</a>
         </div>
         <button
           class="hamburger"
@@ -129,7 +135,172 @@
           </div>
         </div>
       </section>
+      <section class="section" id="genres">
+        <div class="container">
+          <header class="section-head">
+            <div>
+              <span class="eyebrow">— Browse</span>
+              <h2>Khám phá <span class="grad">thể loại</span></h2>
+            </div>
+          </header>
+          <div class="genre-grid">
+            <a class="genre genre-item1">Synthwave</a>
+            <a class="genre genre-item2">Outrun</a>
+            <a class="genre genre-item3">Chillwave</a>
+            <a class="genre genre-item4">Darksynth</a>
+            <a class="genre genre-item5">Vaporwave</a>
+            <a class="genre genre-item6">Cyberpunk</a>
+            <a class="genre genre-item7">Lo-Fi</a>
+            <a class="genre genre-item8">Electronica</a>
+            <a class="genre genre-item9">Future Funk</a>
+            <a class="genre genre-item10">Ambient</a>
+            <a class="genre genre-item11">Dream Pop</a>
+            <a class="genre genre-item12">Witch House</a>
+          </div>
+        </div>
+      </section>
+      <section id="features" class="section section-dark">
+        <div class="container">
+          <header class="section-head center">
+            <div>
+              <span class="eyebrow">— Why NEONWAVE</span>
+              <h2>Trải nghiệm <span class="grad">vượt thời gian</span></h2>
+              <p class="section-sub">
+                Mọi thứ bạn cần để đắm chìm vào vũ trụ âm nhạc — không quảng
+                cáo, không gián đoạn.
+              </p>
+            </div>
+          </header>
+          <div class="feature-grid">
+            <article class="feature">
+              <div class="feature-icon">⚡</div>
+              <h3>Hi-Fi Lossless</h3>
+              <p>
+                Chất âm 24-bit/192kHz, gấp 4 lần CD. Nghe rõ từng sóng synth.
+              </p>
+            </article>
+            <article class="feature">
+              <div class="feature-icon">⬇</div>
+              <h3>Offline Mode</h3>
+              <p>
+                Tải playlist không giới hạn, nghe mọi lúc kể cả khi mất mạng.
+              </p>
+            </article>
+            <article class="feature">
+              <div class="feature-icon">◈</div>
+              <h3>Visualizer</h3>
+              <p>Hiệu ứng neon thời gian thực, đồng bộ từng nhịp đập.</p>
+            </article>
+            <article class="feature">
+              <div class="feature-icon">♥</div>
+              <h3>AI Curation</h3>
+              <p>Gợi ý cá nhân hoá học từ gu nghe của bạn mỗi ngày.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="pricing">
+        <div class="container">
+          <header class="section-head center">
+            <div>
+              <span class="eyebrow">— Pricing</span>
+              <h2>Chọn <span class="grad">gói của bạn</span></h2>
+              <p class="section-sub">Huỷ bất cứ lúc nào. Không phí ẩn.</p>
+            </div>
+          </header>
+          <div class="pricing-grid">
+            <article class="pricing-card">
+              <h3>Free</h3>
+              <p class="pricing"><span>$0</span>/tháng</p>
+              <ul>
+                <li>✓ Nghe có quảng cáo</li>
+                <li>✓ Chất lượng 128kbps</li>
+                <li>✓ Skip 6 lần / giờ</li>
+                <li class="off">— Tải offline</li>
+                <li class="off">— Hi-Fi lossless</li>
+              </ul>
+              <a href="#" class="btn btn-outline btn-pricing"
+                >Bắt đầu miễn phí</a
+              >
+            </article>
+            <article class="pricing-card featured">
+              <span class="badge">PHỔ BIẾN</span>
+              <h3>Premium</h3>
+              <p class="pricing"><span>$9.99</span>/tháng</p>
+              <ul>
+                <li>✓ Không quảng cáo</li>
+                <li>✓ Hi-Fi lossless 24-bit</li>
+                <li>✓ Skip không giới hạn</li>
+                <li>✓ Tải offline</li>
+                <li>✓ Visualizer cao cấp</li>
+              </ul>
+              <a href="#" class="btn btn-primary btn-pricing"
+                >Dùng thử 30 ngày</a
+              >
+            </article>
+            <article class="pricing-card">
+              <h3>Family</h3>
+              <p class="pricing"><span>$14.99</span>/tháng</p>
+              <ul>
+                <li>✓ 6 tài khoản Premium</li>
+                <li>✓ Kid-safe mode</li>
+                <li>✓ Family Mix playlist</li>
+                <li>✓ Tất cả tính năng Premium</li>
+                <li>✓ Hỗ trợ ưu tiên</li>
+              </ul>
+              <a href="#" class="btn btn-outline btn-pricing">Chọn Family</a>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
+    <footer class="footer-wrap">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <span class="logo-text">MusicWeb</span>
+          </a>
+          <p>Stream the future of sound. Made with neon and synth waves.</p>
+          <div class="socials">
+            <a href="#" aria-label="Twitter">𝕏</a>
+            <a href="#" aria-label="Instagram">◉</a>
+            <a href="#" aria-label="YouTube">▶</a>
+            <a href="#" aria-label="TikTok">♪</a>
+          </div>
+        </div>
+        <div class="footer-bar">
+          <h4>Sản phẩm</h4>
+          <ul>
+            <li><a href="#">Web Player</a></li>
+            <li><a href="#">iOS App</a></li>
+            <li><a href="#">Android App</a></li>
+            <li><a href="#">Desktop</a></li>
+          </ul>
+        </div>
+        <div class="footer-bar">
+          <h4>Công ty</h4>
+          <ul>
+            <li><a href="#">Về chúng tôi</a></li>
+            <li><a href="#">Tuyển dụng</a></li>
+            <li><a href="#">Báo chí</a></li>
+            <li><a href="#">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-bar">
+          <h4>Hỗ trợ</h4>
+          <ul>
+            <li><a href="#">Trung tâm trợ giúp</a></li>
+            <li><a href="#">Cộng đồng</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© MucsicWeb.</p>
+        <p>Design Lovable.</p>
+      </div>
+    </footer>
 
     <script>
       const ham = document.getElementById("hamburger");

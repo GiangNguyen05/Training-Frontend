@@ -132,19 +132,13 @@
 | Nhóm           | Token                      | Giá trị                          | Dùng ở                                 |
 | -------------- | -------------------------- | -------------------------------- | -------------------------------------- |
 | **Background** | `--bg`                     | `#07021a`                        | body base                              |
-|                | `--bg-2`                   | `#0d0428`                        | layered backgrounds                    |
 |                | `--surface`                | `#14072e`                        | tất cả card (playlist, feature, price) |
-|                | `--surface-2`              | `#1c0a3d`                        | elevated surfaces, player card         |
 | **Text**       | `--text`                   | `#f5e9ff`                        | body, headings                         |
 |                | `--muted`                  | `#a99dc8`                        | description, meta, footer links        |
 | **Accent**     | `--pink`                   | `#ff2bd6`                        | primary brand, CTA chính               |
-|                | `--purple`                 | `#7a00ff`                        | hero glow, gradient mid-stop           |
 |                | `--cyan`                   | `#00e5ff`                        | eyebrow, link-arrow, feature accent    |
-|                | `--amber`                  | `#ffb800`                        | sun, sunset gradient                   |
 | **Gradient**   | `--grad-primary`           | pink → purple → cyan 135°        | logo, button-primary, `.grad` text     |
-|                | `--grad-sun`               | amber → pink → purple 180°       | hero sun                               |
 | **Effect**     | `--shadow-glow`            | dual neon shadow (pink + purple) | button hover, featured card, player    |
-|                | `--grid`                   | `rgba(255,43,214,.35)`           | hero perspective grid lines            |
 | **Layout**     | `--radius` / `--radius-sm` | `16px` / `10px`                  | card / pill / chip                     |
 |                | `--container`              | `1280px`                         | max width desktop                      |
 
