@@ -1,6 +1,8 @@
 # Music Landing Page · Design & UI Documentation
 
-[Template](https://www.figma.com/design/cDHO3ya1mLZmpvKCluUomp/Template-MusicWeb?node-id=0-1&p=f&t=dGVrfq1gxY2lguPv-0)
+[Link-Template](https://www.figma.com/design/cDHO3ya1mLZmpvKCluUomp/Template-MusicWeb?node-id=0-1&p=f&t=dGVrfq1gxY2lguPv-0)
+
+[lINK-DeployGitAction](https://giangnguyen05.github.io/Training-Frontend/HTMLCSS/DemoMusicWeb/)
 
 ## Tổng quan
 
