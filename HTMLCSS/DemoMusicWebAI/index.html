@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="vi" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoundWave</title>
+    <meta
+      name="description"
+      content="Nghe nhạc không giới hạn. Playlist tuyển chọn, chất lượng lossless."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+
+    <script>
+      (function () {
+        const s = localStorage.getItem("theme");
+        if (s) document.documentElement.setAttribute("data-theme", s);
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════════════════ -->
+    <header class="site-header" role="banner">
+      <div class="container">
+        <div class="header-inner">
+          <a href="/" class="logo" aria-label="SoundWave">SoundWave</a>
+
+          <nav class="nav-links" aria-label="Navigation chính">
+            <a href="#playlists" class="active">Khám phá</a>
+            <a href="#genres">Thể loại</a>
+            <a href="#features">Tính năng</a>
+            <a href="#pricing">Bảng giá</a>
+          </nav>
+
+          <div class="header-actions">
+            <button class="btn btn-ghost btn-sm" id="sign-in-btn">
+              Đăng nhập
+            </button>
+            <button class="btn btn-primary btn-sm" id="open-player-btn">
+              ▶ Mở Player
+            </button>
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Chuyển chủ đề"
+            >
+              <svg id="icon-sun" viewBox="0 0 24 24">
+                <path
+                  d="M12 4.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 12 4.5zm0 13.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 12 18zm7.5-6a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 .75.75zM6 12a.75.75 0 0 1-.75.75H3.75a.75.75 0 0 1 0-1.5H5.25A.75.75 0 0 1 6 12zm10.773-6.773a.75.75 0 0 1 0 1.06l-1.06 1.061a.75.75 0 1 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0zM9.348 16.712a.75.75 0 0 1 0 1.061l-1.06 1.06a.75.75 0 1 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0zm8.425 1.06a.75.75 0 1 1-1.06 1.061l-1.061-1.06a.75.75 0 0 1 1.06-1.061l1.061 1.06zM7.288 7.288a.75.75 0 1 1-1.06 1.061L5.166 7.288a.75.75 0 0 1 1.061-1.06l1.06 1.06zM12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5z"
+                />
+              </svg>
+              <svg id="icon-moon" viewBox="0 0 24 24" style="display: none">
+                <path
+                  d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 2.25 12c0 5.385 4.365 9.75 9.75 9.75 4.284 0 7.96-2.759 9.252-6.748z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="header-mobile-right">
+            <button
+              class="hamburger"
+              id="hamburger"
+              aria-label="Mở menu"
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+            >
+              <span></span><span></span><span></span>
+              <span class="sr-only">Menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav
+      class="mobile-nav"
+      id="mobile-nav"
+      aria-hidden="true"
+      aria-label="Navigation mobile"
+    >
+      <a href="#playlists">Khám phá</a>
+      <a href="#genres">Thể loại</a>
+      <a href="#features">Tính năng</a>
+      <a href="#pricing">Bảng giá</a>
+      <div class="mobile-actions">
+        <button class="btn btn-primary" id="open-player-mobile">
+          ▶ Mở Player
+        </button>
+        <button
+          class="theme-toggle"
+          id="theme-toggle-mobile"
+          aria-label="Chuyển chủ đề"
+        >
+          <svg id="icon-sun-m" viewBox="0 0 24 24">
+            <path
+              d="M12 4.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 12 4.5zm0 13.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 12 18zm7.5-6a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 .75.75zM6 12a.75.75 0 0 1-.75.75H3.75a.75.75 0 0 1 0-1.5H5.25A.75.75 0 0 1 6 12zm10.773-6.773a.75.75 0 0 1 0 1.06l-1.06 1.061a.75.75 0 1 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0zM9.348 16.712a.75.75 0 0 1 0 1.061l-1.06 1.06a.75.75 0 1 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0zm8.425 1.06a.75.75 0 1 1-1.06 1.061l-1.061-1.06a.75.75 0 0 1 1.06-1.061l1.061 1.06zM7.288 7.288a.75.75 0 1 1-1.06 1.061L5.166 7.288a.75.75 0 0 1 1.061-1.06l1.06 1.06zM12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5z"
+            />
+          </svg>
+          <svg id="icon-moon-m" viewBox="0 0 24 24" style="display: none">
+            <path
+              d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 2.25 12c0 5.385 4.365 9.75 9.75 9.75 4.284 0 7.96-2.759 9.252-6.748z"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     LANDING PAGE
+═══════════════════════════════════════════════════════════════ -->
+    <main id="main-content">
+      <!-- HERO -->
+      <section class="hero section" aria-labelledby="hero-heading">
+        <div class="container">
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <span class="eyebrow">— Trải nghiệm âm nhạc mới</span>
+              <h1 id="hero-heading">
+                Stream<br />Your World<br />Without Limits
+              </h1>
+              <p>
+                Hàng triệu bài hát, playlist tuyển chọn bởi DJ chuyên nghiệp.
+                Chất lượng lossless 24-bit. Nghe offline bất kỳ đâu.
+              </p>
+              <div class="hero-cta">
+                <button class="btn btn-primary btn-lg" id="hero-open-player">
+                  ▶ Nghe nhạc ngay
+                </button>
+                <a href="#features" class="btn btn-outline btn-lg"
+                  >Tìm hiểu thêm</a
+                >
+              </div>
+              <div class="hero-stats">
+                <div class="stat">
+                  <div class="stat-value" id="stat-tracks">—</div>
+                  <div class="stat-label">Bài hát</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">24bit</div>
+                  <div class="stat-label">Lossless</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value" id="stat-conn">—</div>
+                  <div class="stat-label">Trạng thái</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live mini player card in hero -->
+            <div class="hero-player">
+              <div class="player-card">
+                <div class="rp-header">
+                  <div class="rp-cover" id="hero-cover">🎵</div>
+                  <div style="flex: 1; min-width: 0">
+                    <div class="rp-title" id="hero-title">Chưa phát</div>
+                    <div class="rp-artist" id="hero-artist">—</div>
+                  </div>
+                  <button class="rp-like" id="hero-like" aria-label="Yêu thích">
+                    ♡
+                  </button>
+                </div>
+
+                <div class="rp-wave" id="hero-wave"></div>
+
+                <div class="rp-prog">
+                  <div class="prog-track" id="hero-prog-track">
+                    <div
+                      class="prog-fill"
+                      id="hero-prog-fill"
+                      style="width: 0%"
+                    ></div>
+                  </div>
+                  <div class="prog-times">
+                    <span id="hero-time-cur">0:00</span>
+                    <span id="hero-time-dur">0:00</span>
+                  </div>
+                </div>
+
+                <div class="rp-ctrls">
+                  <button class="rp-btn" id="hero-shuffle" title="Shuffle">
+                    ⇌
+                  </button>
+                  <button class="rp-btn" id="hero-prev" title="Bài trước">
+                    ⏮
+                  </button>
+                  <button
+                    class="rp-play pulse"
+                    id="hero-playpause"
+                    title="Play/Pause"
+                  >
+                    ▶
+                  </button>
+                  <button class="rp-btn" id="hero-next" title="Bài tiếp">
+                    ⏭
+                  </button>
+                  <button class="rp-btn" id="hero-repeat" title="Lặp">↻</button>
+                </div>
+
+                <div class="rp-status">
+                  <span class="conn-dot off" id="hero-conn-dot"></span>
+                  <span class="rp-status-text" id="hero-conn-text"
+                    >Đang kết nối server...</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLAYLISTS -->
+      <section
+        class="section"
+        id="playlists"
+        aria-labelledby="playlists-heading"
+      >
+        <div class="container">
+          <header class="section-head">
+            <div>
+              <span class="eyebrow">— Được tuyển chọn</span>
+              <h2 id="playlists-heading">Playlist Nổi bật</h2>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="open-player-pl">
+              Xem tất cả →
+            </button>
+          </header>
+          <div class="scroll-rail" role="list">
+            <article
+              class="playlist-card"
+              role="listitem"
+              data-reveal
+              tabindex="0"
+            >
+              <div
+                class="playlist-thumb"
+                style="background: linear-gradient(135deg, #1e0a42, #7b2fbe)"
+              >
+                🌃
+                <div class="playlist-overlay">▶</div>
+              </div>
+              <div class="playlist-info">
+                <h3>Synthwave Nights</h3>
+                <p>Retro-futuristic cho đêm muộn</p>
+                <div class="playlist-meta">
+                  <span class="playlist-tag">Electronic</span
+                  ><span style="font-size: 0.75rem; color: var(--muted)"
+                    >24 bài</span
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="playlist-card"
+              role="listitem"
+              data-reveal
+              tabindex="0"
+            >
+              <div
+                class="playlist-thumb"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #07021a,
+                    rgba(0, 229, 255, 0.2)
+                  );
+                "
+              >
+                ☁️
+                <div class="playlist-overlay">▶</div>
+              </div>
+              <div class="playlist-info">
+                <h3>Lo-fi Chill</h3>
+                <p>Nhẹ nhàng cho giờ học và làm việc</p>
+                <div class="playlist-meta">
+                  <span class="playlist-tag">Lo-fi</span
+                  ><span style="font-size: 0.75rem; color: var(--muted)"
+                    >48 bài</span
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="playlist-card"
+              role="listitem"
+              data-reveal
+              tabindex="0"
+            >
+              <div
+                class="playlist-thumb"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(255, 43, 214, 0.3),
+                    #ff2bd6
+                  );
+                "
+              >
+                🎤
+                <div class="playlist-overlay">▶</div>
+              </div>
+              <div class="playlist-info">
+                <h3>Neon Pop</h3>
+                <p>Những hit pop sôi động nhất hiện nay</p>
+                <div class="playlist-meta">
+                  <span class="playlist-tag">Pop</span
+                  ><span style="font-size: 0.75rem; color: var(--muted)"
+                    >36 bài</span
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="playlist-card"
+              role="listitem"
+              data-reveal
+              tabindex="0"
+            >
+              <div
+                class="playlist-thumb"
+                style="background: linear-gradient(135deg, #14072e, #1e0a42)"
+              >
+                🧘
+                <div class="playlist-overlay">▶</div>
+              </div>
+              <div class="playlist-info">
+                <h3>Deep Focus</h3>
+                <p>Ambient & Binaural cho sự tập trung</p>
+                <div class="playlist-meta">
+                  <span class="playlist-tag">Ambient</span
+                  ><span style="font-size: 0.75rem; color: var(--muted)"
+                    >20 bài</span
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- GENRES -->
+      <section
+        class="section genres-bg"
+        id="genres"
+        aria-labelledby="genres-heading"
+      >
+        <div class="container">
+          <header class="section-head center">
+            <span class="eyebrow">— Đa dạng thể loại</span>
+            <h2 id="genres-heading">Tìm Âm nhạc của bạn</h2>
+          </header>
+          <div class="genre-grid" role="list">
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🎸</div>
+              <div class="genre-name">Rock</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🎹</div>
+              <div class="genre-name">Classical</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🎷</div>
+              <div class="genre-name">Jazz</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🎧</div>
+              <div class="genre-name">Electronic</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🎤</div>
+              <div class="genre-name">Pop</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🥁</div>
+              <div class="genre-name">Hip-hop</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🌊</div>
+              <div class="genre-name">Lo-fi</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🌍</div>
+              <div class="genre-name">World</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🎻</div>
+              <div class="genre-name">Indie</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">⚡</div>
+              <div class="genre-name">Metal</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🌙</div>
+              <div class="genre-name">R&amp;B</div>
+            </div>
+            <div class="genre-pill" data-reveal tabindex="0">
+              <div class="genre-icon">🏖️</div>
+              <div class="genre-name">Reggae</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="section" id="features" aria-labelledby="features-heading">
+        <div class="container">
+          <header class="section-head center">
+            <span class="eyebrow">— Tại sao chọn chúng tôi</span>
+            <h2 id="features-heading">Tính năng Đẳng cấp</h2>
+            <p
+              class="text-muted"
+              style="margin-top: 12px; max-width: 520px; line-height: 1.7"
+            >
+              Được xây dựng cho người yêu âm nhạc thực sự.
+            </p>
+          </header>
+          <div class="features-grid">
+            <div class="feature-card" data-reveal>
+              <div class="feature-icon">🎵</div>
+              <h3>Lossless 24-bit</h3>
+              <p>
+                Chất lượng âm thanh studio ngay trên tai nghe của bạn. Hỗ trợ
+                FLAC, WAV, và ALAC.
+              </p>
+            </div>
+            <div class="feature-card" data-reveal>
+              <div class="feature-icon">📶</div>
+              <h3>Offline Mode</h3>
+              <p>
+                Tải xuống tới 10,000 bài hát. Nghe không cần internet trên mọi
+                thiết bị.
+              </p>
+            </div>
+            <div class="feature-card" data-reveal>
+              <div class="feature-icon">🤖</div>
+              <h3>AI Curation</h3>
+              <p>
+                Playlist tự động được tạo từ AI dựa trên mood, thời tiết, và
+                lịch sử nghe của bạn.
+              </p>
+            </div>
+            <div class="feature-card" data-reveal>
+              <div class="feature-icon">🔗</div>
+              <h3>Local Server</h3>
+              <p>
+                Lưu nhạc trực tiếp trên máy tính của bạn. Upload, quản lý và
+                phát nhạc cá nhân.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section
+        class="section pricing-bg"
+        id="pricing"
+        aria-labelledby="pricing-heading"
+      >
+        <div class="container">
+          <header class="section-head center">
+            <span class="eyebrow">— Linh hoạt cho mọi nhu cầu</span>
+            <h2 id="pricing-heading">Chọn Gói phù hợp</h2>
+            <div class="pricing-toggle">
+              <span>Hàng tháng</span>
+              <label class="toggle-sw"
+                ><input type="checkbox" id="billing-toggle" /><span
+                  class="toggle-track"
+                ></span
+              ></label>
+              <span>Hàng năm <span class="badge-save">−30%</span></span>
+            </div>
+          </header>
+          <div class="pricing-grid">
+            <div class="pricing-card" data-reveal>
+              <div class="pricing-tier">Free</div>
+              <div class="pricing-price">
+                <sup>₫</sup
+                ><span class="price-val" data-m="0" data-a="0">0</span>
+              </div>
+              <div class="pricing-period">Mãi mãi miễn phí</div>
+              <ul class="pricing-features">
+                <li class="pricing-feature">
+                  <span class="ck">✓</span>80M+ bài hát
+                </li>
+                <li class="pricing-feature">
+                  <span class="ck">✓</span>Chất lượng 128kbps
+                </li>
+                <li class="pricing-feature">
+                  <span class="cx">✗</span>Nghe offline
+                </li>
+                <li class="pricing-feature">
+                  <span class="cx">✗</span>Lossless audio
+                </li>
+              </ul>
+              <button
+                class="btn btn-outline"
+                style="width: 100%; justify-content: center"
+                onclick="openPlayer()"
+              >
+                Bắt đầu miễn phí
+              </button>
+            </div>
+            <div class="pricing-card featured" data-reveal>
+              <div class="pricing-badge">⭐ PHỔ BIẾN NHẤT</div>
+              <div class="pricing-tier">Pro</div>
+              <div class="pricing-price">
+                <sup>₫</sup
+                ><span class="price-val" data-m="79" data-a="55">79</span>K
+              </div>
+              <div class="pricing-period">
+                / tháng
+                <span id="pro-save" style="display: none; color: var(--cyan)">
+                  • tiết kiệm 30%</span
+                >
+              </div>
+              <ul class="pricing-features">
+                <li class="pricing-feature">
+                  <span class="ck">✓</span>Tất cả tính năng Free
+                </li>
+                <li class="pricing-feature">
+                  <span class="ck">✓</span>Không có quảng cáo
+                </li>
+                <li class="pricing-feature">
+                  <span class="ck">✓</span>Nghe offline 10,000 bài
+                </li>
+                <li class="pricing-feature">
+                  <span class="ck">✓</span>Chất lượng 320kbps
+                </li>
+                <li class="pricing-feature">
+                  <span class="cx">✗</span>Lossless 24-bit
+                </li>
+              </ul>
+              <button
+                class="btn btn-primary"
+                style="width: 100%; justify-content: center"
+                onclick="openPlayer()"
+              >
+                Dùng thử 30 ngày
+              </button>
+            </div>
+            <div class="pricing-card" data-reveal>
+              <div class="pricing-tier">Studio</div>
+              <div class="pricing-price">
+                <sup>₫</sup
+                ><span class="price-val" data-m="149" data-a="104">149</span>K
+              </div>
+              <div class="pricing-period">
+                / tháng
+                <span
+                  id="studio-save"
+                  style="display: none; color: var(--cyan)"
+                >
+                  • tiết kiệm 30%</span
+                >
+              </div>
+              <ul class="pricing-features">
+                <li class="pricing-feature">
+                  <span class="ck">✓</span>Tất cả tính năng Pro
+                </li>
+                <li class="pricing-feature">
+                  <span class="ck">✓</span>Lossless 24-bit / FLAC
+                </li>
+                <li class="pricing-feature">
+                  <span class="ck">✓</span>6 tài khoản phụ
+                </li>
+                <li class="pricing-feature">
+                  <span class="ck">✓</span>DJ mixing tools
+                </li>
+              </ul>
+              <button
+                class="btn btn-outline"
+                style="width: 100%; justify-content: center"
+                onclick="openPlayer()"
+              >
+                Nâng cấp Studio
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <div class="logo" style="font-size: 1.4rem">SoundWave</div>
+            <p>
+              Trải nghiệm âm nhạc không giới hạn. Được làm với ❤️ tại Việt Nam.
+            </p>
+            <div class="social-links" style="margin-top: 20px">
+              <a href="#" class="social-link">f</a>
+              <a href="#" class="social-link">𝕏</a>
+              <a href="#" class="social-link">◎</a>
+              <a href="#" class="social-link">▶</a>
+            </div>
+          </div>
+          <div class="footer-links-row">
+            <nav class="footer-col">
+              <h4>Sản phẩm</h4>
+              <ul>
+                <li><a href="#">iOS App</a></li>
+                <li><a href="#">Android App</a></li>
+                <li><a href="#">Web Player</a></li>
+              </ul>
+            </nav>
+            <nav class="footer-col">
+              <h4>Hỗ trợ</h4>
+              <ul>
+                <li><a href="#">Trợ giúp</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </nav>
+            <nav class="footer-col">
+              <h4>Pháp lý</h4>
+              <ul>
+                <li><a href="#">Điều khoản</a></li>
+                <li><a href="#">Bảo mật</a></li>
+                <li><a href="#">Cookie</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 SoundWave. All rights reserved.</p>
+          <p>Made with Synthwave vibes 🌃</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     FULL-SCREEN PLAYER MODAL (React)
+═══════════════════════════════════════════════════════════════ -->
+    <div
+      class="player-modal"
+      id="player-modal"
+      role="dialog"
+      aria-label="Music Player"
+      aria-modal="true"
+    >
+      <div id="react-player" style="display: contents"></div>
+    </div>
+
+    <!-- Toasts (shared) -->
+    <div class="toast-wrap" id="toast-wrap"></div>
+
+    <!-- React CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+
+    <script>
+      /* ── Shared global audio engine (used by hero card + full player) ── */
+      const AudioEngine = (() => {
+        const audio = new Audio();
+        let tracks = [];
+        let currentIdx = -1;
+        let shuffle = false;
+        let repeat = "none"; // none | all | one
+        const listeners = {};
+
+        function on(event, fn) {
+          if (!listeners[event]) listeners[event] = [];
+          listeners[event].push(fn);
+        }
+        function off(event, fn) {
+          if (listeners[event])
+            listeners[event] = listeners[event].filter((f) => f !== fn);
+        }
+        function emit(event, data) {
+          (listeners[event] || []).forEach((fn) => fn(data));
+        }
+
+        audio.addEventListener("timeupdate", () =>
+          emit("timeupdate", {
+            current: audio.currentTime,
+            duration: audio.duration || 0,
+          }),
+        );
+        audio.addEventListener("ended", () => {
+          handleEnded();
+        });
+        audio.addEventListener("play", () => emit("play"));
+        audio.addEventListener("pause", () => emit("pause"));
+        audio.addEventListener("loadedmetadata", () =>
+          emit("duration", audio.duration),
+        );
+        audio.addEventListener("error", () => emit("error"));
+
+        function handleEnded() {
+          if (repeat === "one") {
+            audio.currentTime = 0;
+            audio.play();
+            return;
+          }
+          const len = tracks.length;
+          if (!len) return;
+          if (shuffle) {
+            play(Math.floor(Math.random() * len));
+            return;
+          }
+          if (currentIdx < len - 1) {
+            play(currentIdx + 1);
+          } else if (repeat === "all") {
+            play(0);
+          } else {
+            emit("ended");
+          }
+        }
+
+        function play(idx) {
+          if (idx < 0 || idx >= tracks.length) return;
+          const t = tracks[idx];
+          const src = "http://localhost:3001" + t.url;
+          currentIdx = idx;
+          if (audio.src !== src) {
+            audio.src = src;
+            audio.load();
+          }
+          audio.play().catch(() => emit("error"));
+          emit("track", { track: t, idx });
+        }
+
+        function togglePlay() {
+          if (!tracks.length) return;
+          if (currentIdx < 0) {
+            play(0);
+            return;
+          }
+          if (audio.paused) audio.play().catch(() => {});
+          else audio.pause();
+        }
+
+        function seek(pct) {
+          if (audio.duration) audio.currentTime = pct * audio.duration;
+        }
+        function setVol(v) {
+          audio.volume = Math.max(0, Math.min(1, v));
+          emit("volume", audio.volume);
+        }
+        function next() {
+          const l = tracks.length;
+          if (!l) return;
+          shuffle
+            ? play(Math.floor(Math.random() * l))
+            : play((currentIdx + 1) % l);
+        }
+        function prev() {
+          if (audio.currentTime > 3) {
+            audio.currentTime = 0;
+            return;
+          }
+          const l = tracks.length;
+          if (!l) return;
+          play((currentIdx - 1 + l) % l);
+        }
+        function setTracks(t) {
+          tracks = t;
+          emit("tracks", t);
+        }
+        function setShuffle(v) {
+          shuffle = v;
+          emit("shuffle", v);
+        }
+        function setRepeat(v) {
+          repeat = v;
+          emit("repeat", v);
+        }
+        function getState() {
+          return {
+            currentIdx,
+            shuffle,
+            repeat,
+            paused: audio.paused,
+            volume: audio.volume,
+            tracks,
+          };
+        }
+
+        return {
+          on,
+          off,
+          play,
+          togglePlay,
+          seek,
+          setVol,
+          next,
+          prev,
+          setTracks,
+          setShuffle,
+          setRepeat,
+          getState,
+        };
+      })();
+
+      /* ── Toast ── */
+      function showToast(msg, type = "info") {
+        const wrap = document.getElementById("toast-wrap");
+        const el = document.createElement("div");
+        el.className = `toast ${type}`;
+        el.textContent = msg;
+        wrap.appendChild(el);
+        setTimeout(() => {
+          el.style.opacity = "0";
+          el.style.transition = "opacity .3s";
+          setTimeout(() => el.remove(), 300);
+        }, 3000);
+      }
+
+      /* ── Format time ── */
+      function fmtTime(s) {
+        if (!s || isNaN(s)) return "0:00";
+        return `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+      }
+
+      /* ── API ── */
+      const API_BASE = "http://localhost:3001/api";
+      async function apiFetch(method, path, body) {
+        const opts = { method, headers: {} };
+        if (body instanceof FormData) {
+          opts.body = body;
+        } else if (body) {
+          opts.headers["Content-Type"] = "application/json";
+          opts.body = JSON.stringify(body);
+        }
+        const res = await fetch(API_BASE + path, opts);
+        if (!res.ok) throw new Error(await res.text());
+        return res.json();
+      }
+
+      /* ── Load data on boot ── */
+      let allTracks = [],
+        allPlaylists = [],
+        serverOnline = false;
+      async function loadServerData() {
+        try {
+          const [t, p] = await Promise.all([
+            apiFetch("GET", "/tracks"),
+            apiFetch("GET", "/playlists"),
+          ]);
+          allTracks = t;
+          allPlaylists = p;
+          serverOnline = true;
+          AudioEngine.setTracks(t);
+
+          // Update hero stats
+          document.getElementById("stat-tracks").textContent = t.length + "+";
+          document.getElementById("stat-conn").textContent = "Online";
+          document.getElementById("hero-conn-dot").className = "conn-dot on";
+          document.getElementById("hero-conn-text").textContent =
+            `${t.length} bài hát • localhost:3001`;
+          return true;
+        } catch {
+          serverOnline = false;
+          document.getElementById("stat-conn").textContent = "Offline";
+          document.getElementById("hero-conn-dot").className = "conn-dot off";
+          document.getElementById("hero-conn-text").textContent =
+            "Chạy: node server.js";
+          return false;
+        }
+      }
+      loadServerData();
+
+      /* ══════════════════════════════════════════════════
+   HERO MINI PLAYER (vanilla JS)
+══════════════════════════════════════════════════ */
+      (function heroPlayer() {
+        const progTrack = document.getElementById("hero-prog-track");
+        const progFill = document.getElementById("hero-prog-fill");
+        const timeCur = document.getElementById("hero-time-cur");
+        const timeDur = document.getElementById("hero-time-dur");
+        const ppBtn = document.getElementById("hero-playpause");
+        const titleEl = document.getElementById("hero-title");
+        const artistEl = document.getElementById("hero-artist");
+        const likeBtn = document.getElementById("hero-like");
+        let currentTrack = null;
+        let shuffleOn = false;
+        let repeatMode = "none";
+
+        // Build waveform
+        const wave = document.getElementById("hero-wave");
+        const heights = [
+          20, 35, 55, 70, 45, 80, 60, 40, 75, 50, 30, 65, 85, 45, 35, 60, 75,
+          50, 40, 70, 55, 30, 65, 45, 80, 60, 35, 50, 70, 40,
+        ];
+        heights.forEach((h, i) => {
+          const b = document.createElement("div");
+          b.className = "wbar" + (i < 12 ? " active" : "");
+          b.style.height = h + "%";
+          wave.appendChild(b);
+        });
+
+        AudioEngine.on("track", ({ track }) => {
+          currentTrack = track;
+          titleEl.textContent = track.title;
+          artistEl.textContent = track.artist;
+          likeBtn.className = "rp-like" + (track.liked ? " liked" : "");
+          likeBtn.textContent = track.liked ? "♥" : "♡";
+          ppBtn.textContent = "⏸";
+          ppBtn.classList.add("pulse");
+        });
+        AudioEngine.on("play", () => {
+          ppBtn.textContent = "⏸";
+          ppBtn.classList.add("pulse");
+        });
+        AudioEngine.on("pause", () => {
+          ppBtn.textContent = "▶";
+          ppBtn.classList.remove("pulse");
+        });
+        AudioEngine.on("timeupdate", ({ current, duration }) => {
+          const pct = duration > 0 ? (current / duration) * 100 : 0;
+          progFill.style.width = pct + "%";
+          timeCur.textContent = fmtTime(current);
+          timeDur.textContent = fmtTime(duration);
+          // animate waveform bars
+          const bars = wave.querySelectorAll(".wbar");
+          const active = Math.floor((pct / 100) * bars.length);
+          bars.forEach((b, i) => b.classList.toggle("active", i < active));
+        });
+
+        ppBtn.addEventListener("click", AudioEngine.togglePlay);
+        document
+          .getElementById("hero-next")
+          .addEventListener("click", AudioEngine.next);
+        document
+          .getElementById("hero-prev")
+          .addEventListener("click", AudioEngine.prev);
+        document
+          .getElementById("hero-shuffle")
+          .addEventListener("click", function () {
+            shuffleOn = !shuffleOn;
+            AudioEngine.setShuffle(shuffleOn);
+            this.classList.toggle("active", shuffleOn);
+          });
+        document
+          .getElementById("hero-repeat")
+          .addEventListener("click", function () {
+            repeatMode =
+              repeatMode === "none"
+                ? "all"
+                : repeatMode === "all"
+                  ? "one"
+                  : "none";
+            AudioEngine.setRepeat(repeatMode);
+            this.classList.toggle("active", repeatMode !== "none");
+            this.textContent = repeatMode === "one" ? "🔂" : "↻";
+          });
+        progTrack.addEventListener("click", (e) => {
+          const rect = progTrack.getBoundingClientRect();
+          AudioEngine.seek((e.clientX - rect.left) / rect.width);
+        });
+        likeBtn.addEventListener("click", async () => {
+          if (!currentTrack) return;
+          try {
+            const updated = await apiFetch(
+              "PATCH",
+              `/tracks/${currentTrack.id}`,
+              { liked: !currentTrack.liked },
+            );
+            currentTrack = updated;
+            allTracks = allTracks.map((t) =>
+              t.id === updated.id ? updated : t,
+            );
+            AudioEngine.setTracks(allTracks);
+            likeBtn.className = "rp-like" + (updated.liked ? " liked" : "");
+            likeBtn.textContent = updated.liked ? "♥" : "♡";
+          } catch {}
+        });
+      })();
+
+      /* ══════════════════════════════════════════════════
+   PLAYER MODAL OPEN / CLOSE
+══════════════════════════════════════════════════ */
+      const playerModal = document.getElementById("player-modal");
+      let playerMounted = false;
+
+      function openPlayer() {
+        playerModal.classList.add("open");
+        document.body.style.overflow = "hidden";
+        if (!playerMounted) {
+          mountReactPlayer();
+          playerMounted = true;
+        }
+        // Notify React to refresh data
+        window.__playerRefresh && window.__playerRefresh();
+      }
+      function closePlayer() {
+        playerModal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      [
+        "open-player-btn",
+        "hero-open-player",
+        "open-player-pl",
+        "open-player-mobile",
+      ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener("click", openPlayer);
+      });
+      document
+        .getElementById("hero-open-player")
+        .addEventListener("click", openPlayer);
+
+      /* ══════════════════════════════════════════════════
+   LANDING PAGE JS
+══════════════════════════════════════════════════ */
+      // Scroll reveal
+      const revealObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              revealObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll("[data-reveal]")
+        .forEach((el) => revealObs.observe(el));
+
+      // Active nav
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-links a");
+      const secObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting)
+              navLinks.forEach((a) =>
+                a.classList.toggle(
+                  "active",
+                  a.getAttribute("href") === "#" + e.target.id,
+                ),
+              );
+          });
+        },
+        { threshold: 0.4 },
+      );
+      sections.forEach((s) => secObs.observe(s));
+
+      // Theme toggle
+      function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        const d = theme === "dark";
+        ["icon-sun", "icon-sun-m"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.style.display = d ? "" : "none";
+        });
+        ["icon-moon", "icon-moon-m"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.style.display = d ? "none" : "";
+        });
+      }
+      function toggleTheme() {
+        applyTheme(
+          document.documentElement.getAttribute("data-theme") === "light"
+            ? "dark"
+            : "light",
+        );
+      }
+      document
+        .getElementById("theme-toggle")
+        .addEventListener("click", toggleTheme);
+      document
+        .getElementById("theme-toggle-mobile")
+        .addEventListener("click", toggleTheme);
+      applyTheme(document.documentElement.getAttribute("data-theme") || "dark");
+
+      // Hamburger
+      const hamburger = document.getElementById("hamburger");
+      const mobileNav = document.getElementById("mobile-nav");
+      let navOpen = false;
+      function openNav() {
+        navOpen = true;
+        hamburger.setAttribute("aria-expanded", "true");
+        mobileNav.classList.add("open");
+        mobileNav.setAttribute("aria-hidden", "false");
+        mobileNav.querySelector("a")?.focus();
+      }
+      function closeNav() {
+        navOpen = false;
+        hamburger.setAttribute("aria-expanded", "false");
+        mobileNav.classList.remove("open");
+        mobileNav.setAttribute("aria-hidden", "true");
+        hamburger.focus();
+      }
+      hamburger.addEventListener("click", () =>
+        navOpen ? closeNav() : openNav(),
+      );
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          if (navOpen) closeNav();
+          else if (playerModal.classList.contains("open")) closePlayer();
+        }
+      });
+      mobileNav
+        .querySelectorAll("a")
+        .forEach((a) => a.addEventListener("click", closeNav));
+
+      // Pricing toggle
+      document
+        .getElementById("billing-toggle")
+        .addEventListener("change", function () {
+          const annual = this.checked;
+          document
+            .querySelectorAll(".price-val")
+            .forEach(
+              (el) => (el.textContent = annual ? el.dataset.a : el.dataset.m),
+            );
+          document.getElementById("pro-save").style.display = annual
+            ? "inline"
+            : "none";
+          document.getElementById("studio-save").style.display = annual
+            ? "inline"
+            : "none";
+        });
+
+      // Playlist cards → open player
+      document.querySelector(".scroll-rail").addEventListener("click", (e) => {
+        const card = e.target.closest(".playlist-card");
+        if (!card) return;
+        openPlayer();
+      });
+
+      // Genre pills → open player
+      document.querySelector(".genre-grid").addEventListener("click", (e) => {
+        if (!e.target.closest(".genre-pill")) return;
+        openPlayer();
+      });
+
+      document
+        .getElementById("sign-in-btn")
+        .addEventListener("click", () =>
+          showToast("Tính năng đang phát triển!"),
+        );
+    </script>
+  </body>
+</html>
