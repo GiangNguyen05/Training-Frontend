@@ -1,0 +1,22 @@
+body {
+  text-align: center;
+}
+#list {
+  width: 100vw;
+  height: max-content;
+  border-collapse: collapse;
+}
+#list th,
+td {
+  padding: 1rem 2rem;
+}
+#list th {
+  color: white;
+  background-color: #04aa6d;
+}
+#list tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+#list tr:hover {
+  background-color: #ddd;
+}
