@@ -491,5 +491,3 @@ Project này giúp hiểu:
 - cách dùng async/await
 - cách thao tác DOM
 - cách hoạt động của REST API
-
-Đây là nền tảng cực quan trọng trước khi học React.
