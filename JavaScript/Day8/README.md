@@ -451,37 +451,6 @@ main.js
 
 ---
 
-## Bài tập nên làm thêm
-
-### CRUD đầy đủ
-
-- PUT
-- PATCH
-
-### Search blog
-
-### Pagination
-
-### Loading state
-
-### Edit blog
-
-### Toast notification
-
----
-
-## Tech Stack tiếp theo nên học
-
-Sau bài này nên học:
-
-- Vite
-- React
-- Component
-- State management
-- Modular architecture
-
----
-
 ## Tổng kết
 
 Project này giúp hiểu:
