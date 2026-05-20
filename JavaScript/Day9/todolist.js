@@ -2,9 +2,6 @@ const API = "http://localhost:8000";
 const newTbody = document.querySelector("#list tbody");
 const blogs = document.querySelector("#blogsForm");
 
-const escape = (str) =>
-  str?.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") ?? "";
-
 const tableList = async () => {
   const res = await fetch(`${API}/blogs`);
   const data = await res.json();
@@ -14,9 +11,9 @@ const tableList = async () => {
       (e) => `
     <tr>
       <td>${e.id}</td>
-      <td>${escape(e.title)}</td>
-      <td>${escape(e.author)}</td>
-      <td>${escape(e.content)}</td>
+      <td>${e.title}</td>
+      <td>${e.author}</td>
+      <td>${e.content}</td>
       <td><button class="btnDel" data-id="${e.id}">Del</button></td>
     </tr>
   `,

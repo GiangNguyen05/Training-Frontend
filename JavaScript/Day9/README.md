@@ -1,4 +1,4 @@
-# 📘 Javascript
+# 📘Phân tích chi tiết todolist
 
 ## 📋 Mục Lục
 
@@ -12,9 +12,8 @@
 8. [Template Literals - Tạo chuỗi HTML linh hoạt](#8-template-literals)
 9. [Event Delegation - Xử lý sự kiện thông minh hơn](#9-event-delegation)
 10. [Try / Catch - Xử lý lỗi an toàn](#10-try--catch)
-11. [Bảo mật XSS - Bảo vệ khỏi mã độc](#11-bảo-mật-xss)
-12. [Hằng số (Constants) - Viết code dễ bảo trì](#12-hằng-số)
-13. [Sơ đồ luồng hoạt động](#13-sơ-đồ-tổng-quát)
+11. [Hằng số (Constants) - Viết code dễ bảo trì](#12-hằng-số)
+12. [Sơ đồ luồng hoạt động](#13-sơ-đồ-tổng-quát)
 
 ---
 
@@ -59,8 +58,6 @@ const blogs = document.querySelector("#blogsForm");
 ### Kết quả được lưu vào đâu?
 
 Kết quả được lưu vào **biến** (`const`). Sau đó, ta dùng biến này để thao tác tiếp mà không phải tìm kiếm lại trên DOM nhiều lần — vừa tiết kiệm tài nguyên, vừa dễ đọc.
-
-> 💡 **Hình dung:** Giống như bạn ghi địa chỉ nhà vào sổ tay một lần, rồi sau đó cứ nhìn sổ mà đến, không cần hỏi đường lại mỗi lần.
 
 ---
 
@@ -333,7 +330,7 @@ try {
 
 ---
 
-## 12. Hằng Số
+## 11. Hằng Số
 
 ### Tại sao cần tách URL ra hằng số?
 
@@ -351,7 +348,15 @@ fetch(`${API}/blogs/${id}`);
 
 Bây giờ khi cần thay đổi, chỉ cần **sửa một chỗ duy nhất**.
 
-## 13. Sơ Đồ Tổng Quát
+### Nguyên tắc DRY
+
+Đây là áp dụng của nguyên tắc lập trình **DRY** — _Don't Repeat Yourself_ (Đừng lặp lại chính mình). Mọi thông tin chỉ nên xuất hiện ở **một nơi** trong code.
+
+> 💡 **Hình dung:** Giống như lưu số điện thoại vào danh bạ thay vì nhớ thuộc lòng. Khi số thay đổi, chỉ cần cập nhật danh bạ một lần — không phải thông báo cho từng người.
+
+---
+
+## 12. Sơ Đồ Tổng Quát
 
 Dưới đây là luồng hoạt động đầy đủ của ứng dụng:
 
@@ -400,4 +405,7 @@ Dưới đây là luồng hoạt động đầy đủ của ứng dụng:
 | **Template Literals** | Tạo HTML động có chèn biến, dễ đọc                   |
 | **Event Delegation**  | Gắn 1 listener cho nhiều nút con được tạo động       |
 | **Try/Catch**         | Xử lý lỗi mạng, tránh crash ứng dụng                 |
+| **Escape XSS**        | Vô hiệu hóa mã độc người dùng nhập vào               |
 | **Hằng số API**       | Tập trung URL, dễ thay đổi, không lặp lại            |
+
+---
