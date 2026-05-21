@@ -42,5 +42,49 @@
       "content": "Learn FE",
       "id": 6
     }
+  ],
+  "playlist": [
+    {
+      "id": 1,
+      "title": "Hãy Trao Cho Anh",
+      "artist": "Sơn Tùng M-TP",
+      "album": "Sky Tour",
+      "year": 2019
+    },
+    {
+      "id": 2,
+      "title": "Chạy Ngay Đi",
+      "artist": "Sơn Tùng M-TP",
+      "album": "Single",
+      "year": 2018
+    },
+    {
+      "id": 3,
+      "title": "Người Lạ Ơi",
+      "artist": "Karik",
+      "album": "Người Lạ Ơi",
+      "year": 2017
+    },
+    {
+      "id": 4,
+      "title": "Có Chắc Yêu Là Đây",
+      "artist": "Sơn Tùng M-TP",
+      "album": "Single",
+      "year": 2020
+    },
+    {
+      "title": "Không thể say",
+      "artist": "HIEUTHUHAI",
+      "album": "1",
+      "year": 2020,
+      "id": 5
+    },
+    {
+      "title": "A",
+      "artist": "A",
+      "album": "A",
+      "year": 2020,
+      "id": 6
+    }
   ]
 }

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playlist</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Header -->
+      <div class="header">
+        <div class="header-top">
+          <h1 class="title">MY<br /><span>PLAY</span>LIST</h1>
+          <span class="track-count" id="track-count">— tracks</span>
+        </div>
+        <div class="divider"></div>
+      </div>
+
+      <!-- API base URL config -->
+      <div class="api-config">
+        <label>BASE URL</label>
+        <input
+          id="base-url"
+          value="http://localhost:3000/playlist"
+          spellcheck="false"
+        />
+        <button class="reload-btn" onclick="loadSongs()">↻ Reload</button>
+      </div>
+
+      <!-- Status bar -->
+      <div class="status-bar">
+        <div class="dot" id="dot"></div>
+        <span class="status-text" id="status-text">Đang kết nối...</span>
+        <span class="http-badge" id="http-badge">GET</span>
+      </div>
+
+      <!-- Form thêm -->
+      <div class="form-card">
+        <div class="form-label">Thêm bài hát mới</div>
+        <div class="form-grid">
+          <div class="field">
+            <span class="field-label">Tên bài hát *</span>
+            <input
+              id="f-title"
+              placeholder="Blinding Lights..."
+              maxlength="100"
+            />
+          </div>
+          <div class="field">
+            <span class="field-label">Ca sĩ / Ban nhạc</span>
+            <input id="f-artist" placeholder="The Weeknd..." maxlength="80" />
+          </div>
+          <div class="field">
+            <span class="field-label">Album</span>
+            <input id="f-album" placeholder="After Hours..." maxlength="80" />
+          </div>
+          <div class="field">
+            <span class="field-label">Năm</span>
+            <input
+              id="f-year"
+              placeholder="2024"
+              type="number"
+              min="1900"
+              max="2099"
+              maxlength="4"
+            />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-ghost" onclick="clearForm()">Xoá form</button>
+          <button class="btn btn-primary" id="add-btn" onclick="addSong()">
+            <span id="add-btn-text">+ Thêm bài hát</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- List header -->
+      <div class="list-header">
+        <span>#</span>
+        <span>Tên bài hát</span>
+        <span class="lh-artist">Ca sĩ</span>
+        <span class="lh-year">Năm</span>
+        <span></span>
+      </div>
+
+      <!-- Song list -->
+      <div class="song-list" id="song-list"></div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script src="playlist.js"></script>
+  </body>
+</html>
