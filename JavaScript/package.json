@@ -1,7 +1,7 @@
 {
-  "name": "02-backend-json-server-hoidanit",
+  "name": "Music-App",
   "version": "1.0.0",
-  "description": "fake backend for series typescript pro @hoidanit",
+  "description": "playlist",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,8 +15,8 @@
     "server"
   ],
   "author": {
-    "name": "Hỏi Dân IT vs Eric",
-    "url": "https://hoidanit.vn"
+    "name": "Giang",
+    "url": "https://www.facebook.com/GN285"
   },
   "license": "ISC",
   "dependencies": {
