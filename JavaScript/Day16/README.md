@@ -2,7 +2,7 @@
 
 ## Tổng quan
 
-File JavaScript này là phần logic của một **demo app** minh họa các tính năng ES6 và ES2022. Toàn bộ code chia làm 4 nhóm chức năng:
+**demo app** logic minh họa các tính năng ES6 và ES2022. Toàn bộ code chia làm 4 nhóm chức năng:
 
 | Nhóm               | Functions                          | Mục đích                |
 | ------------------ | ---------------------------------- | ----------------------- |
