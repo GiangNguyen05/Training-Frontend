@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo use ES6</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-title">ES6→ES2025<br />Feature Demo</div>
+
+        <div class="nav-group">
+          <div class="nav-label">ES6</div>
+          <button class="nav-btn active" onclick="show('class-es6')">
+            Class & Object
+          </button>
+          <button class="nav-btn" onclick="show('destructure')">
+            Destructuring
+          </button>
+          <button class="nav-btn" onclick="show('promise-es6')">Promise</button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-label">ES2022</div>
+          <button class="nav-btn" onclick="show('private')">
+            Private # & at()
+          </button>
+          <button class="nav-btn" onclick="show('error-cause')">
+            Error Cause
+          </button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-label">ES2023</div>
+          <button class="nav-btn" onclick="show('immutable')">
+            Immutable Array
+          </button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-label">ES2024</div>
+          <button class="nav-btn" onclick="show('groupby')">
+            Object.groupBy()
+          </button>
+          <button class="nav-btn" onclick="show('resolvers')">
+            withResolvers()
+          </button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-label">ES2025</div>
+          <button class="nav-btn" onclick="show('set-methods')">
+            Set Methods
+          </button>
+          <button class="nav-btn" onclick="show('promise-try')">
+            Promise.try()
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="main">
+        <!-- ══ ES6: Class & Object ══ -->
+        <section class="section active" id="s-class-es6">
+          <div class="section-header">
+            <span class="section-tag">ES6 — 2015</span>
+            <h1 class="section-title">Class & Object</h1>
+            <p class="section-desc">
+              Tạo nhiều object từ cùng một blueprint. Constructor nhận tham số,
+              method chia sẻ hành vi.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              Thêm học sinh <span class="badge badge-6">ES6 class</span
+              ><span class="badge badge-6">constructor</span
+              ><span class="badge badge-6">method</span>
+            </div>
+            <div class="row">
+              <input id="es6-name" type="text" placeholder="Tên học sinh..." />
+              <input
+                id="es6-score"
+                type="number"
+                placeholder="Điểm (0-10)"
+                min="0"
+                max="10"
+                step="0.1"
+                style="max-width: 150px"
+              />
+              <button class="btn" onclick="es6Add()">+ Thêm</button>
+            </div>
+            <div class="list" id="es6-list">
+              <div class="empty">Thêm học sinh để xem kết quả</div>
+            </div>
+            <div class="output" id="es6-out">
+              <span class="muted">// output...</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══ ES6: Destructuring ══ -->
+        <section class="section" id="s-destructure">
+          <div class="section-header">
+            <span class="section-tag">ES6 — 2015</span>
+            <h1 class="section-title">Destructuring &<br />Spread / Rest</h1>
+            <p class="section-desc">
+              Lấy giá trị từ object/array gọn, trải mảng, gom tham số.
+            </p>
+          </div>
+          <div class="grid2">
+            <div class="card">
+              <div class="card-title">
+                Object Destructuring <span class="badge badge-6">ES6</span>
+              </div>
+              <input
+                id="d-json"
+                type="text"
+                placeholder='{"name":"An","score":8.5}'
+                style="margin-bottom: 8px"
+              />
+              <button
+                class="btn outline"
+                onclick="runDestructure()"
+                style="width: 100%"
+              >
+                Run
+              </button>
+              <div class="output" id="d-out">
+                <span class="muted">// output...</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">
+                Spread & Rest <span class="badge badge-6">ES6</span>
+              </div>
+              <input
+                id="s-input"
+                type="text"
+                placeholder="Nhập tên, cách nhau bằng dấu phẩy"
+              />
+              <button
+                class="btn outline"
+                onclick="runSpread()"
+                style="width: 100%; margin-top: 8px"
+              >
+                Run
+              </button>
+              <div class="output" id="s-out">
+                <span class="muted">// output...</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══ ES6: Promise ══ -->
+        <section class="section" id="s-promise-es6">
+          <div class="section-header">
+            <span class="section-tag">ES6 — 2015</span>
+            <h1 class="section-title">Promise &<br />Async/Await</h1>
+            <p class="section-desc">
+              Xử lý bất đồng bộ không block UI. Promise chain và async/await.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              Mô phỏng fetch API <span class="badge badge-6">Promise</span
+              ><span class="badge badge-6">async/await</span>
+            </div>
+            <div class="tabs">
+              <button class="tab active" onclick="setFetchMode('ok', this)">
+                Thành công
+              </button>
+              <button class="tab" onclick="setFetchMode('fail', this)">
+                Thất bại
+              </button>
+              <button class="tab" onclick="setFetchMode('multi', this)">
+                Promise.all
+              </button>
+            </div>
+            <button class="btn" onclick="runFetch()" id="fetch-btn">
+              ▶ Run
+            </button>
+            <div class="output" id="fetch-out" style="margin-top: 12px">
+              <span class="muted">// Nhấn Run...</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
