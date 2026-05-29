@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demo use ES6</title>
+    <title>Demo use ES2022</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -63,7 +63,7 @@
 
       <!-- Main -->
       <main class="main">
-        <!-- ══ ES6: Class & Object ══ -->
+        <!-- ES6: Class & Object -->
         <section class="section active" id="s-class-es6">
           <div class="section-header">
             <span class="section-tag">ES6 — 2015</span>
@@ -101,7 +101,7 @@
           </div>
         </section>
 
-        <!-- ══ ES6: Destructuring ══ -->
+        <!-- ES6: Destructuring -->
         <section class="section" id="s-destructure">
           <div class="section-header">
             <span class="section-tag">ES6 — 2015</span>
@@ -155,7 +155,7 @@
           </div>
         </section>
 
-        <!-- ══ ES6: Promise ══ -->
+        <!-- ES6: Promise -->
         <section class="section" id="s-promise-es6">
           <div class="section-header">
             <span class="section-tag">ES6 — 2015</span>
@@ -185,6 +185,101 @@
             </button>
             <div class="output" id="fetch-out" style="margin-top: 12px">
               <span class="muted">// Nhấn Run...</span>
+            </div>
+          </div>
+        </section>
+        <!-- ES2022: Private # + at() -->
+        <section class="section" id="s-private">
+          <div class="section-header">
+            <span class="section-tag">ES2022</span>
+            <h1 class="section-title">Private # &<br />Array.at()</h1>
+            <p class="section-desc">
+              <code>#field</code> thật sự private — không truy cập được từ
+              ngoài. <code>at(-1)</code> lấy phần tử cuối gọn hơn.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              Quản lý giỏ hàng
+              <span class="badge badge-22">ES2022 #private</span
+              ><span class="badge badge-22">at()</span>
+            </div>
+            <div class="row">
+              <input id="cart-name" placeholder="Tên sản phẩm..." />
+              <input
+                id="cart-price"
+                type="number"
+                placeholder="Giá"
+                style="max-width: 120px"
+              />
+              <button class="btn" onclick="cartAdd()">+ Thêm</button>
+            </div>
+            <div class="list" id="cart-list">
+              <div class="empty">Thêm sản phẩm</div>
+            </div>
+            <div class="output" id="cart-out">
+              <span class="muted">// output...</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ES2022: Error Cause -->
+        <section class="section" id="s-error-cause">
+          <div class="section-header">
+            <span class="section-tag">ES2022</span>
+            <h1 class="section-title">Error Cause</h1>
+            <p class="section-desc">
+              Giữ lỗi gốc khi wrap error. <code>err.cause</code> giúp debug dễ
+              hơn.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              Fetch với Error Cause <span class="badge badge-22">ES2022</span>
+            </div>
+            <div class="tabs">
+              <button class="tab active" onclick="setErrMode('network', this)">
+                Network Error
+              </button>
+              <button class="tab" onclick="setErrMode('http', this)">
+                HTTP 404
+              </button>
+              <button class="tab" onclick="setErrMode('ok', this)">
+                Thành công
+              </button>
+            </div>
+            <button class="btn" onclick="runErrorCause()">▶ Run</button>
+            <div class="output" id="err-out" style="margin-top: 12px">
+              <span class="muted">// output...</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ES2023: Immutable Array -->
+        <section class="section" id="s-immutable">
+          <div class="section-header">
+            <span class="section-tag">ES2023</span>
+            <h1 class="section-title">Immutable Array</h1>
+            <p class="section-desc">
+              <code>toSorted()</code>, <code>toReversed()</code>,
+              <code>with()</code>, <code>findLast()</code> — không mutate mảng
+              gốc.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              So sánh mutate vs immutable
+              <span class="badge badge-23">ES2023</span>
+            </div>
+            <div class="row">
+              <input
+                id="imm-input"
+                placeholder="Nhập số cách nhau bằng dấu phẩy (vd: 5,2,8,1,9)"
+              />
+              <button class="btn" onclick="runImmutable()">Run</button>
+            </div>
+            <div class="output" id="imm-out">
+              <span class="muted">// output...</span>
             </div>
           </div>
         </section>

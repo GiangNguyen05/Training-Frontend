@@ -1,5 +1,5 @@
 // HELPERS
-// ══════════════════════════════════════════════════════
+
 function out(id, lines) {
   document.getElementById(id).innerHTML = lines
     .map((l) => `<div>${l}</div>`)
@@ -20,6 +20,9 @@ function fakeDelay(ms, fail = false) {
     setTimeout(() => (fail ? rej(new Error("Network Error")) : res()), ms),
   );
 }
+
+// NAVIGATION
+
 function show(id) {
   document
     .querySelectorAll(".section")
@@ -31,7 +34,8 @@ function show(id) {
   document.querySelector(`[onclick="show('${id}')"]`)?.classList.add("active");
 }
 
-// ES6 CLASS & OBJECT
+// ES6 — CLASS & OBJECT
+
 // ES6: class với constructor, method, template literal, arrow function
 class Student {
   constructor(id, name, score) {
@@ -148,7 +152,7 @@ function runSpread() {
 }
 
 // ES6 — PROMISE / ASYNC
-// ══════════════════════════════════════════════════════
+
 let fetchMode = "ok";
 function setFetchMode(m, btn) {
   fetchMode = m;
@@ -194,7 +198,8 @@ async function runFetch() {
   out("fetch-out", logs);
 }
 
-//ES2022
+// ES2022 — PRIVATE # + Array.at()
+
 // ES2022: class với private fields & methods
 class Cart {
   #items = [];
@@ -280,6 +285,7 @@ function cartRemove(id) {
 }
 
 // ES2022 — ERROR CAUSE
+
 let errMode = "network";
 function setErrMode(m, btn) {
   errMode = m;
@@ -316,155 +322,9 @@ async function runErrorCause() {
   }
   out("err-out", logs);
 }
+
 // ES2023 — IMMUTABLE ARRAY
-function runImmutable() {
-  const raw = document.getElementById("imm-input").value || "5,2,8,1,9,3";
-  const arr = raw
-    .split(",")
-    .map(Number)
-    .filter((n) => !isNaN(n));
-  if (!arr.length) return;
 
-  // ES2023: toSorted, toReversed, with, findLast
-  const sorted = arr.toSorted((a, b) => a - b);
-  const reversed = arr.toReversed();
-  const replaced = arr.with(0, 99); // Thay index 0 = 99
-  const findLast = arr.findLast((n) => n < 5); // ES2023: findLast
-
-  out("imm-out", [
-    line(`// ES2023: Immutable array — gốc không đổi`, "muted"),
-    `${line("gốc", "key")}:          ${line(JSON.stringify(arr), "val")}`,
-    `${line("toSorted()", "key")}:   ${line(JSON.stringify(sorted), "ok")}`,
-    `${line("toReversed()", "key")}: ${line(JSON.stringify(reversed), "ok")}`,
-    `${line("with(0,99)", "key")}:   ${line(JSON.stringify(replaced), "ok")}`,
-    `${line("findLast(<5)", "key")}: ${line(findLast, "ok")}`,
-    line(`// gốc vẫn là: ${JSON.stringify(arr)}  ✓`, "muted"),
-  ]);
-}
-
-//ES2022
-// ES2022: class với private fields & methods
-class Cart {
-  #items = [];
-  #nextId = 1;
-
-  #total() {
-    // private method
-    return this.#items.reduce((s, i) => s + i.price, 0);
-  }
-
-  add(name, price) {
-    this.#items.push({ id: this.#nextId++, name, price });
-    return this;
-  }
-  remove(id) {
-    this.#items = this.#items.filter((i) => i.id !== id);
-  }
-
-  get last() {
-    return this.#items.at(-1);
-  } // ES2022: at()
-  get first() {
-    return this.#items.at(0);
-  }
-  get total() {
-    return this.#total();
-  }
-  get all() {
-    return [...this.#items];
-  }
-  get count() {
-    return this.#items.length;
-  }
-}
-
-const cart = new Cart();
-
-function cartAdd() {
-  const name = document.getElementById("cart-name").value.trim();
-  const price = parseFloat(document.getElementById("cart-price").value);
-  if (!name || isNaN(price)) return;
-
-  cart.add(name, price);
-  renderCart();
-
-  // ES2022: Object.hasOwn()
-  const item = cart.last;
-  out("cart-out", [
-    line(`// ES2022: #private + at() + Object.hasOwn()`, "muted"),
-    `${line("cart.last", "key")}: ${line(`"${item?.name}"`, "val")}  ${line("// at(-1)", "muted")}`,
-    `${line("cart.first", "key")}: ${line(`"${cart.first?.name}"`, "val")}  ${line("// at(0)", "muted")}`,
-    `${line("cart.total", "key")}: ${line(cart.total.toLocaleString("vi-VN") + " đ", "val")}`,
-    `${line('hasOwn(item,"name")', "key")}: ${line(Object.hasOwn(item, "name"), "val")}`, // ES2022
-    `${line('hasOwn(item,"qty")', "key")}: ${line(Object.hasOwn(item, "qty"), "val")}`,
-    line(`// cart.#items → SyntaxError (private!)`, "muted"),
-  ]);
-  document.getElementById("cart-name").value = "";
-  document.getElementById("cart-price").value = "";
-}
-function renderCart() {
-  const list = document.getElementById("cart-list");
-  if (!cart.count) {
-    list.innerHTML = '<div class="empty">Giỏ trống</div>';
-    return;
-  }
-  list.innerHTML = cart.all
-    .map(
-      (item, i) => `
-    <div class="list-item">
-      <span class="list-num">${String(i + 1).padStart(2, "0")}</span>
-      <div class="list-main">
-        <div class="list-title">${item.name}</div>
-        <div class="list-sub">${item.price.toLocaleString("vi-VN")} đ</div>
-      </div>
-      <button class="btn outline sm" onclick="cartRemove(${item.id})">✕</button>
-    </div>`,
-    )
-    .join("");
-}
-function cartRemove(id) {
-  cart.remove(id);
-  renderCart();
-}
-
-// ES2022 — ERROR CAUSE
-let errMode = "network";
-function setErrMode(m, btn) {
-  errMode = m;
-  document
-    .querySelectorAll("#s-error-cause .tab")
-    .forEach((t) => t.classList.remove("active"));
-  btn.classList.add("active");
-}
-
-async function runErrorCause() {
-  async function fetchData(mode) {
-    try {
-      if (mode === "network") throw new Error("Failed to fetch");
-      if (mode === "http")
-        throw Object.assign(new Error("Not Found"), { status: 404 });
-      return { id: 1, name: "An", score: 8.5 };
-    } catch (err) {
-      // ES2022: Error cause — giữ lỗi gốc
-      throw new Error("Không thể tải dữ liệu học sinh", { cause: err });
-    }
-  }
-
-  const logs = [line(`// ES2022: Error Cause`, "muted")];
-  try {
-    const data = await fetchData(errMode);
-    logs.push(line(`✓ data: ${JSON.stringify(data)}`, "ok"));
-  } catch (err) {
-    logs.push(
-      `${line("err.message", "key")}: ${line(`"${err.message}"`, "err")}`,
-    );
-    logs.push(
-      `${line("err.cause", "key")}:   ${line(`"${err.cause?.message}"`, "val")}  ${line("← lỗi gốc còn đây!", "muted")}`,
-    );
-  }
-  out("err-out", logs);
-}
-// ES2023 — IMMUTABLE ARRAY
 function runImmutable() {
   const raw = document.getElementById("imm-input").value || "5,2,8,1,9,3";
   const arr = raw
