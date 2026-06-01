@@ -1,4 +1,4 @@
-# JavaScript Modules
+# JavaScript Modules (P1)
 
 ## Mục lục
 
@@ -341,7 +341,5 @@ export default function UserCard({ user }) { ... }
 // services/AuthService.js
 export default class AuthService { ... }
 ```
-
-**Best practice thực tế:** Nhiều team và linter (Airbnb style guide) khuyến nghị **ưu tiên named export** để tránh tên không nhất quán. Default export chỉ dùng cho React components theo convention.
 
 ---
