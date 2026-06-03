@@ -21,12 +21,6 @@
 
 **NPM** viết tắt của **Node Package Manager** — hiểu đơn giản là một **kho ứng dụng khổng lồ dành cho lập trình viên JavaScript**.
 
-Hãy tưởng tượng:
-
-> App Store trên iPhone có hàng triệu ứng dụng. Bạn muốn dùng app nào, chỉ cần tìm và cài. NPM cũng vậy — nhưng thay vì app cho người dùng cuối, đây là **thư viện code** dành cho lập trình viên.
-
-Hiện tại NPM có hơn **2 triệu packages** — từ thư viện tính toán toán học, xử lý ngày tháng, tạo biểu đồ, cho đến framework xây dựng website hoàn chỉnh.
-
 ### Ba thứ cùng tên "npm"
 
 | Cái                | Là gì                                                      |
