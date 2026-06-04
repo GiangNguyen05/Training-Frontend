@@ -6,7 +6,7 @@ Học các khái niệm cốt lõi không bao giờ lỗi thời: variables, fun
 
 ## Giai đoạn 2 — Modern JS + Tooling (3-4 tuần)
 
-`ES2022-2025 features, modules, npm ecosystem, Git, VS Code với AI extensions (GitHub Copilot hoặc Claude). Học cách prompt AI hiệu quả để viết code, giải thích code, và review code của chính bạn.`
+`ES2022-20 25 features, modules, npm ecosystem, Git, VS Code với AI extensions (GitHub Copilot hoặc Claude). Học cách prompt AI hiệu quả để viết code, giải thích code, và review code của chính bạn.`
 
 Đây là giai đoạn bạn học JavaScript "hiện đại" — tức là cách JS được viết trong thực tế năm 2026, không phải cú pháp cũ từ 10 năm trước. Cụ thể bạn sẽ học:
 
@@ -14,6 +14,8 @@ Học các khái niệm cốt lõi không bao giờ lỗi thời: variables, fun
 - `Modules` — cách chia code thành nhiều file và import/export giữa chúng, nền tảng của mọi dự án thực tế
 
 - `npm ecosystem` — cách cài và quản lý thư viện, hiểu package.json, biết dùng Vite để tạo project
+- `TypeScript cơ bản` - Chỉ cần học phần cơ bản: types, interfaces, generics đơn giản
+- `Browser DevTools` + `Linting & Formatting`
 - `Git` — version control cơ bản, không có Git thì không làm việc được với team hay deploy lên đâu cả
 - `VS Code + AI extensions` — thiết lập môi trường làm việc chuẩn với GitHub Copilot hoặc Claude, học cách prompt AI để giải thích code, debug, và gợi ý cải thiện
 
