@@ -1,4 +1,4 @@
-# TypeScript Cơ Bản
+# TypeScript Cơ Bản (P1)
 
 ## TypeScript là gì? Tại sao cần học?
 
@@ -13,7 +13,7 @@ JavaScript  →  chạy  →  lỗi  →  tìm bug  →  sửa
 TypeScript  →  gõ code  →  lỗi hiện ngay  →  sửa luôn
 ```
 
-## Phần 1 — Types (Kiểu dữ liệu)
+## Types (Kiểu dữ liệu)
 
 Đây là khái niệm cốt lõi của TypeScript. **Type** là cách bạn nói với TypeScript: "biến này chứa loại dữ liệu gì."
 
@@ -53,7 +53,7 @@ city = 123; // ❌ Error: Type 'number' is not assignable to type 'string'
 
 ---
 
-## Phần 2 — Functions (Hàm)
+## Functions (Hàm)
 
 Với TypeScript, bạn khai báo rõ hàm nhận vào cái gì và trả về cái gì.
 
