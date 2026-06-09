@@ -512,8 +512,3 @@ Set methods (2025)      → Thay spread + filter thủ công của ES6
 Promise.try (2025)      → Thống nhất sync/async error handling
 Iterator helpers (2025) → Lazy, ES6 phải spread thành mảng trước
 ```
-
-### Một câu để nhớ
-
-> **ES6** thay đổi _cách viết_ JavaScript — từ ES5 cồng kềnh sang cú pháp hiện đại.
-> **ES2022–2025** thay đổi _chất lượng_ code — an toàn hơn, ngắn hơn, ít bug hơn.

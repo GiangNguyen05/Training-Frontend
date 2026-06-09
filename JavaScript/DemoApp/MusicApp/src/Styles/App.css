@@ -1,0 +1,65 @@
+.app-container {
+  min-height: 100vh;
+  background: #121212;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+   Header
+   */
+.app-header {
+  padding: 32px 32px 0;
+}
+
+.app-header__title {
+  color: #1db954;
+  margin: 0 0 4px;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+/* 
+   Genre Filter
+    */
+.genre-filter {
+  display: flex;
+  gap: 8px;
+  padding: 20px 32px;
+}
+
+.genre-filter__btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: #2a2a2a;
+  color: #aaa;
+  font-weight: 400;
+  font-size: 13px;
+  transition: all 0.15s;
+}
+
+.genre-filter__btn.is-active {
+  background: #1db954;
+  color: #000;
+  font-weight: 700;
+}
+
+/* 
+   Song List
+   */
+.song-list-container {
+  flex: 1;
+  padding: 0 32px;
+  overflow-y: auto;
+}
+
+.song-list__count {
+  margin-bottom: 8px;
+  color: #666;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

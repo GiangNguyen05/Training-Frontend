@@ -5,7 +5,6 @@ export interface Song {
   artist: string;
   duration: number; // giây
   genre: string;
-  cover: string; // emoji thay cho ảnh
   url: string;
 }
 
