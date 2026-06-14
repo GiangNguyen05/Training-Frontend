@@ -678,16 +678,3 @@ Transform data   →  useMemo hoặc tính thẳng trong render
 Reset state      →  đổi key prop thay vì useEffect
 Handle event     →  xử lý trong event handler
 ```
-
----
-
-### Checklist
-
-```
-□ Deps đủ — không thiếu, không thừa
-□ Object/Array trong deps → destructure ra primitive
-□ Function trong deps → định nghĩa trong effect hoặc useCallback
-□ Có cleanup nếu dùng event listener / timer / subscription / fetch
-□ Gọi API có thể race → AbortController
-□ Không dùng effect để transform data hoặc handle event
-```
