@@ -15,8 +15,6 @@ Cuộn trang     → onScroll
 
 React lắng nghe các hành động này và chạy hàm bạn chỉ định — gọi là **event handler**.
 
----
-
 ## Cú pháp cơ bản
 
 HTML thông thường dùng chuỗi string:
@@ -42,8 +40,6 @@ onchange        →  onChange
 onsubmit        →  onSubmit
 "handleClick()" →  {handleClick}   ← truyền hàm, không gọi ngay
 ```
-
----
 
 ## Cách viết event handler
 
@@ -75,8 +71,6 @@ function App() {
 Logic đơn giản, không cần tham số  →  handleClick (cách 1)
 Cần truyền tham số vào hàm         →  () => handleClick(id) (cách 2)
 ```
-
----
 
 ## Event Object
 
@@ -129,8 +123,6 @@ function Cha() {
 // Không stopPropagation: In ra "Con" rồi "Cha"
 // Có stopPropagation: Chỉ in ra "Con"
 ```
-
----
 
 ## Event thường gặp nhất
 
@@ -250,8 +242,6 @@ function Input() {
 }
 ```
 
----
-
 ## Truyền tham số vào handler
 
 Hay gặp khi render list — cần biết item nào được bấm:
@@ -282,8 +272,6 @@ function DanhSach() {
 }
 ```
 
----
-
 ## Điểm hay nhầm nhất
 
 **Gọi hàm thay vì truyền hàm:**
@@ -298,8 +286,6 @@ function DanhSach() {
 // ✅ Khi cần truyền tham số — bọc trong arrow function
 <button onClick={() => xoaItem(item.id)}>Xóa</button>
 ```
-
----
 
 ## Tóm tắt
 
