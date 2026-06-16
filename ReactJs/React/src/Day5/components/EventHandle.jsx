@@ -29,7 +29,7 @@ export default function App() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Escape" && setInput("")}
-          placeholder="Nhập việc cần làm... (Esc để xóa)"
+          placeholder="Nhập công việc ..."
         />
         <button type="submit">Thêm</button>
       </form>
