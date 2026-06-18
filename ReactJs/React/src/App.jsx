@@ -2,7 +2,8 @@
 // import UseEffectApp from "./Day3/components/UseEffectApp.jsx";
 // import ListKey from "./Day4/components/ListKey.jsx";
 // import EvenHandle from "./Day5/components/EventHandle.jsx";
-import CondiRender from "./Day6/components/CondiRender.jsx";
+// import CondiRender from "./Day6/components/CondiRender.jsx";
+import LRef from "./Day7/components/LRef.jsx";
 export default function App() {
   return (
     <>
@@ -10,7 +11,8 @@ export default function App() {
       {/* <UseEffectApp /> */}
       {/* <ListKey /> */}
       {/* <EvenHandle /> */}
-      <CondiRender />
+      {/* <CondiRender /> */}
+      <LRef />
     </>
   );
 }

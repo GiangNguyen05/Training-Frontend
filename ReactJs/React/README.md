@@ -311,18 +311,633 @@ function ThongBao({ coThongBao }) {
 
 ---
 
-## Giai đoạn 4 — React trung cấp (4–5 tuần)
+### useRef — Truy cập DOM trực tiếp
 
-**Mục tiêu:** Xây dựng được web app nhiều trang, có đăng nhập, gọi API thật.
+`useRef` giữ một giá trị **không gây re-render** khi thay đổi, thường dùng để trỏ đến DOM element.
 
-- **useContext** — Chia sẻ state không cần truyền qua nhiều tầng props
-- **useReducer** — Quản lý state phức tạp, nhiều actions
-- **React Router** — Điều hướng giữa các trang (`/home`, `/about`, `/login`)
-- **Custom hooks** — Tái sử dụng logic giữa nhiều components
-- **Gọi API (fetch/axios)** — Lấy dữ liệu từ backend thật
-- **Form handling** — Controlled components, validation
+```jsx
+import { useRef } from "react";
+
+function AutoFocus() {
+  const inputRef = useRef(null);
+
+  function handleClick() {
+    inputRef.current.focus(); // Truy cập DOM trực tiếp
+  }
+
+  return (
+    <>
+      <input ref={inputRef} placeholder="Nhập gì đó..." />
+      <button onClick={handleClick}>Focus vào input</button>
+    </>
+  );
+}
+```
+
+**2 use case chính:**
+
+- Truy cập DOM: focus input, play/pause video, đo kích thước element
+- Lưu giá trị không gây re-render: timer ID, giá trị trước đó
 
 ---
+
+### Lifting State Up — Chia sẻ state giữa các component
+
+Khi 2 component anh em cần dùng chung dữ liệu → **đưa state lên component cha**, cha truyền xuống qua props.
+
+```jsx
+// ❌ Hai component anh em không chia sẻ state được trực tiếp
+function NhietKe() { const [nhiet, setNhiet] = useState(0) ... }
+function HienThi() { /* không đọc được nhiet của NhietKe */ }
+
+// ✅ Đưa state lên cha
+function App() {
+  const [nhiet, setNhiet] = useState(0) // State ở cha
+
+  return (
+    <>
+      <NhietKe nhiet={nhiet} onChange={setNhiet} /> {/* Con 1 */}
+      <HienThi nhiet={nhiet} />                     {/* Con 2 */}
+    </>
+  )
+}
+```
+
+Đây là pattern nền tảng — hiểu rõ trước khi học `useContext` ở giai đoạn sau.
+
+---
+
+## Giai đoạn 4 — React Trung Cấp (4–5 tuần)
+
+**Mục tiêu:** Xây dựng web app nhiều trang, có đăng nhập, gọi API thật, quản lý state phức tạp.
+
+---
+
+### 1. useContext — Chia sẻ state không qua props
+
+**Vấn đề — Prop drilling:**
+
+Khi state cần truyền qua quá nhiều tầng component trung gian không cần dùng nó:
+
+```
+App (có state user)
+└── Layout
+    └── Sidebar
+        └── UserInfo  ← cần user, nhưng Layout và Sidebar phải "chuyển tiếp"
+```
+
+```jsx
+// ❌ Prop drilling — Layout và Sidebar truyền user mà không dùng
+function App() {
+  const [user] = useState({ ten: "Giang" });
+  return <Layout user={user} />;
+}
+function Layout({ user }) {
+  return <Sidebar user={user} />; // Không dùng user, chỉ chuyển tiếp
+}
+function Sidebar({ user }) {
+  return <UserInfo user={user} />; // Không dùng user, chỉ chuyển tiếp
+}
+function UserInfo({ user }) {
+  return <p>{user.ten}</p>; // Mới thực sự dùng
+}
+```
+
+**Giải pháp — useContext:**
+
+```jsx
+import { createContext, useContext, useState } from "react";
+
+// Bước 1 — Tạo context
+const UserContext = createContext(null);
+
+// Bước 2 — Bọc Provider ở cha, truyền value
+function App() {
+  const [user] = useState({ ten: "Giang" });
+  return (
+    <UserContext.Provider value={user}>
+      <Layout /> {/* Không cần truyền user xuống nữa */}
+    </UserContext.Provider>
+  );
+}
+
+// Bước 3 — Đọc ở bất kỳ component con nào cần
+function UserInfo() {
+  const user = useContext(UserContext); // Lấy trực tiếp — không qua props
+  return <p>{user.ten}</p>;
+}
+
+// Layout và Sidebar không cần biết đến user
+function Layout() {
+  return <Sidebar />;
+}
+function Sidebar() {
+  return <UserInfo />;
+}
+```
+
+**Khi nào dùng useContext:**
+
+```
+Lifting State Up đang qua 3+ tầng trung gian  → useContext
+Dữ liệu toàn cục: user đăng nhập, theme, ngôn ngữ  → useContext
+State thay đổi thường xuyên, nhiều component đọc   → Redux (giai đoạn sau)
+```
+
+> useContext không thay thế hoàn toàn props. Với dữ liệu chỉ dùng trong 1-2 tầng → vẫn dùng props.
+
+---
+
+### 2. useReducer — Quản lý state phức tạp
+
+Khi state có nhiều actions liên quan, `useState` trở nên rối:
+
+```jsx
+// ❌ Nhiều state liên quan, khó quản lý
+const [items, setItems] = useState([]);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
+const [page, setPage] = useState(1);
+// Mỗi action phải set nhiều state cùng lúc → dễ quên, dễ sai
+```
+
+`useReducer` gom tất cả vào một chỗ:
+
+```jsx
+import { useReducer } from "react";
+
+// State ban đầu
+const initialState = {
+  items: [],
+  loading: false,
+  error: null,
+  page: 1,
+};
+
+// Reducer — hàm xử lý từng action
+function reducer(state, action) {
+  switch (action.type) {
+    case "FETCH_START":
+      return { ...state, loading: true, error: null };
+
+    case "FETCH_SUCCESS":
+      return { ...state, loading: false, items: action.payload };
+
+    case "FETCH_ERROR":
+      return { ...state, loading: false, error: action.payload };
+
+    case "NEXT_PAGE":
+      return { ...state, page: state.page + 1 };
+
+    default:
+      return state;
+  }
+}
+
+function DanhSach() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { items, loading, error, page } = state;
+
+  function layDuLieu() {
+    dispatch({ type: "FETCH_START" });
+    fetch(`/api/items?page=${page}`)
+      .then((res) => res.json())
+      .then((data) => dispatch({ type: "FETCH_SUCCESS", payload: data }))
+      .catch((err) => dispatch({ type: "FETCH_ERROR", payload: err.message }));
+  }
+
+  if (loading) return <p>Đang tải...</p>;
+  if (error) return <p>Lỗi: {error}</p>;
+
+  return (
+    <>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.ten}</li>
+        ))}
+      </ul>
+      <button onClick={() => dispatch({ type: "NEXT_PAGE" })}>
+        Trang tiếp
+      </button>
+    </>
+  );
+}
+```
+
+**useState vs useReducer:**
+
+|              | useState                | useReducer                              |
+| ------------ | ----------------------- | --------------------------------------- |
+| Khi nào dùng | State đơn giản, độc lập | State phức tạp, nhiều actions liên quan |
+| Cập nhật     | `setValue(newValue)`    | `dispatch({ type, payload })`           |
+| Logic xử lý  | Rải rác trong component | Tập trung trong reducer                 |
+
+---
+
+### 3. React Router — Điều hướng nhiều trang
+
+React mặc định là Single Page App — một trang duy nhất. React Router giả lập nhiều trang mà không reload.
+
+```bash
+npm install react-router-dom
+```
+
+**Cấu hình cơ bản:**
+
+```jsx
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
+
+function App() {
+  return (
+    <BrowserRouter>
+      {/* Menu điều hướng */}
+      <nav>
+        <Link to="/">Trang chủ</Link>
+        <Link to="/san-pham">Sản phẩm</Link>
+        <Link to="/lien-he">Liên hệ</Link>
+      </nav>
+
+      {/* Định nghĩa các route */}
+      <Routes>
+        <Route path="/" element={<TrangChu />} />
+        <Route path="/san-pham" element={<SanPham />} />
+        <Route path="/san-pham/:id" element={<ChiTietSanPham />} />{" "}
+        {/* Dynamic route */}
+        <Route path="/lien-he" element={<LienHe />} />
+        <Route path="*" element={<Trang404 />} /> {/* Không tìm thấy */}
+      </Routes>
+    </BrowserRouter>
+  );
+}
+```
+
+**Lấy params từ URL:**
+
+```jsx
+function ChiTietSanPham() {
+  const { id } = useParams(); // Lấy :id từ URL /san-pham/123
+
+  return <p>Sản phẩm ID: {id}</p>;
+}
+```
+
+**Chuyển trang bằng code:**
+
+```jsx
+function FormDangNhap() {
+  const navigate = useNavigate();
+
+  function handleSubmit() {
+    // Sau khi đăng nhập thành công
+    navigate("/trang-chu"); // Chuyển trang
+    navigate(-1); // Quay lại trang trước
+    navigate("/login", { replace: true }); // Thay thế history (không back được)
+  }
+}
+```
+
+**Protected Route — Chặn trang khi chưa đăng nhập:**
+
+```jsx
+function ProtectedRoute({ children }) {
+  const daDangNhap = checkAuth(); // Kiểm tra đăng nhập
+  if (!daDangNhap) return <Navigate to="/login" />;
+  return children;
+}
+
+// Dùng
+<Route
+  path="/dashboard"
+  element={
+    <ProtectedRoute>
+      <Dashboard />
+    </ProtectedRoute>
+  }
+/>;
+```
+
+---
+
+### 4. Custom Hooks — Tái sử dụng logic
+
+Custom hook là hàm bắt đầu bằng `use` — bên trong có thể dùng các hook khác. Dùng để tái sử dụng logic giữa nhiều component.
+
+**Ví dụ — useFetch:**
+
+```jsx
+// Trước — logic lặp lại ở mọi component gọi API
+function ComponentA() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    /* fetch logic */
+  }, []);
+}
+
+function ComponentB() {
+  const [data, setData] = useState(null); // Lặp lại!
+  const [loading, setLoading] = useState(true); // Lặp lại!
+  const [error, setError] = useState(null); // Lặp lại!
+  useEffect(() => {
+    /* fetch logic */
+  }, []); // Lặp lại!
+}
+```
+
+```jsx
+// ✅ Tách ra custom hook — dùng lại ở mọi nơi
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setLoading(true);
+
+    fetch(url, { signal: controller.signal })
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+
+    return () => controller.abort();
+  }, [url]);
+
+  return { data, loading, error };
+}
+
+// Dùng lại ở mọi component
+function DanhSachUser() {
+  const { data, loading, error } = useFetch("/api/users");
+  if (loading) return <p>Đang tải...</p>;
+  if (error) return <p>Lỗi: {error}</p>;
+  return (
+    <ul>
+      {data.map((u) => (
+        <li key={u.id}>{u.ten}</li>
+      ))}
+    </ul>
+  );
+}
+
+function DanhSachSanPham() {
+  const { data, loading, error } = useFetch("/api/san-pham");
+  // Logic giống hệt, không cần viết lại
+}
+```
+
+**Ví dụ — useLocalStorage:**
+
+```jsx
+function useLocalStorage(key, defaultValue) {
+  const [value, setValue] = useState(() => {
+    const saved = localStorage.getItem(key);
+    return saved ? JSON.parse(saved) : defaultValue;
+  });
+
+  function set(newValue) {
+    setValue(newValue);
+    localStorage.setItem(key, JSON.stringify(newValue));
+  }
+
+  return [value, set];
+}
+
+// Dùng như useState nhưng tự lưu vào localStorage
+const [theme, setTheme] = useLocalStorage("theme", "light");
+```
+
+**Quy tắc Custom Hook:**
+
+- Tên bắt đầu bằng `use` — bắt buộc
+- Bên trong có thể gọi các hook khác
+- Return bất cứ thứ gì cần thiết — object, array, giá trị đơn
+
+---
+
+### 5. useCallback & useMemo — Tối ưu hiệu năng
+
+#### useMemo — Cache kết quả tính toán
+
+```jsx
+// ❌ Tính lại mỗi lần render dù items không đổi
+function DanhSach({ items, boLoc }) {
+  const ketQua = items.filter((item) => item.loai === boLoc); // Nặng nếu items dài
+
+  return (
+    <ul>
+      {ketQua.map((item) => (
+        <li key={item.id}>{item.ten}</li>
+      ))}
+    </ul>
+  );
+}
+
+// ✅ Chỉ tính lại khi items hoặc boLoc thay đổi
+function DanhSach({ items, boLoc }) {
+  const ketQua = useMemo(
+    () => items.filter((item) => item.loai === boLoc),
+    [items, boLoc],
+  );
+
+  return (
+    <ul>
+      {ketQua.map((item) => (
+        <li key={item.id}>{item.ten}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+#### useCallback — Cache địa chỉ hàm
+
+```jsx
+// ❌ xuLy tạo mới mỗi render → Con re-render dù không có gì thay đổi
+function Cha() {
+  const [dem, setDem] = useState(0);
+  const xuLy = () => console.log("click"); // Địa chỉ mới mỗi lần
+
+  return <Con onClick={xuLy} />;
+}
+
+// ✅ Giữ nguyên địa chỉ hàm nếu deps không đổi
+function Cha() {
+  const [dem, setDem] = useState(0);
+  const xuLy = useCallback(() => console.log("click"), []); // Địa chỉ cố định
+
+  return <Con onClick={xuLy} />;
+}
+```
+
+**Khi nào dùng:**
+
+```
+useMemo     → Tính toán nặng (filter/sort mảng lớn, parse dữ liệu phức tạp)
+useCallback → Hàm truyền vào component con có React.memo
+Chưa có vấn đề hiệu năng thực sự → Không cần dùng
+```
+
+---
+
+### 6. Gọi API thực tế — Axios & Pattern chuẩn
+
+```bash
+npm install axios
+```
+
+**Tại sao Axios hơn fetch:**
+
+- Tự parse JSON
+- Interceptor — xử lý token, lỗi tập trung
+- Timeout dễ cấu hình
+- Xử lý lỗi rõ ràng hơn
+
+**Cấu hình instance:**
+
+```jsx
+// api/axiosInstance.js
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "https://api.example.com",
+  timeout: 10000,
+});
+
+// Tự động đính kèm token vào mọi request
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
+// Xử lý lỗi tập trung
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Token hết hạn → redirect về login
+      window.location.href = "/login";
+    }
+    return Promise.reject(error);
+  },
+);
+
+export default api;
+```
+
+**Dùng trong component:**
+
+```jsx
+import api from "./api/axiosInstance";
+
+function UserList() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    api
+      .get("/users")
+      .then((res) => {
+        setUsers(res.data);
+        setLoading(false);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+}
+```
+
+---
+
+### 7. Form nâng cao — Validation
+
+Validation thủ công nhanh chóng trở nên cồng kềnh. Dùng **React Hook Form** hoặc **Formik**.
+
+```bash
+npm install react-hook-form
+```
+
+```jsx
+import { useForm } from "react-hook-form";
+
+function FormDangKy() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  function onSubmit(data) {
+    console.log(data); // { ten: 'Giang', email: '...', matKhau: '...' }
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        {...register("ten", { required: "Vui lòng nhập tên" })}
+        placeholder="Họ tên"
+      />
+      {errors.ten && <p>{errors.ten.message}</p>}
+
+      <input
+        {...register("email", {
+          required: "Vui lòng nhập email",
+          pattern: { value: /\S+@\S+\.\S+/, message: "Email không hợp lệ" },
+        })}
+        placeholder="Email"
+      />
+      {errors.email && <p>{errors.email.message}</p>}
+
+      <input
+        type="password"
+        {...register("matKhau", {
+          required: "Vui lòng nhập mật khẩu",
+          minLength: { value: 6, message: "Tối thiểu 6 ký tự" },
+        })}
+        placeholder="Mật khẩu"
+      />
+      {errors.matKhau && <p>{errors.matKhau.message}</p>}
+
+      <button type="submit">Đăng ký</button>
+    </form>
+  );
+}
+```
+
+---
+
+## Checklist hoàn thành Giai đoạn 4
+
+```
+□ Hiểu prop drilling, giải quyết bằng useContext
+□ Dùng useReducer cho state phức tạp nhiều actions
+□ Cấu hình React Router: Routes, Link, useParams, useNavigate
+□ Xây Protected Route chặn trang chưa đăng nhập
+□ Viết Custom Hook tái sử dụng logic (useFetch, useLocalStorage)
+□ Dùng useMemo và useCallback đúng chỗ — không lạm dụng
+□ Cấu hình Axios instance với interceptor
+□ Xây form validation với React Hook Form
+```
+
+**Dự án thực hành đề xuất:**
+
+1. App ghi chú — useContext (theme sáng/tối), React Router, CRUD
+2. App quản lý sản phẩm — useReducer, Axios, React Hook Form
+3. App clone đơn giản (Twitter feed, Trello board) — kết hợp tất cả
 
 ## Giai đoạn 5 — React nâng cao (4–6 tuần)
 
