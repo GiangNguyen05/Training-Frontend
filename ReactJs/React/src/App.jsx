@@ -3,7 +3,8 @@
 // import ListKey from "./Day4/components/ListKey.jsx";
 // import EvenHandle from "./Day5/components/EventHandle.jsx";
 // import CondiRender from "./Day6/components/CondiRender.jsx";
-import LRef from "./Day7/components/LRef.jsx";
+// import LRef from "./Day7/components/LRef.jsx";
+import UseContext from "./Day8/components/UseContext.jsx";
 export default function App() {
   return (
     <>
@@ -12,7 +13,8 @@ export default function App() {
       {/* <ListKey /> */}
       {/* <EvenHandle /> */}
       {/* <CondiRender /> */}
-      <LRef />
+      {/* <LRef /> */}
+      <UseContext />
     </>
   );
 }

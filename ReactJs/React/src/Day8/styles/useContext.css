@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app {
+  width: 360px;
+  padding: 28px;
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.app.light {
+  background: white;
+  color: #111;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.app.dark {
+  background: #1f2937;
+  color: white;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.app h2 {
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+}

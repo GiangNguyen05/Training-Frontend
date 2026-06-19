@@ -1,0 +1,13 @@
+.sidebar {
+  padding: 14px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 1.5px dashed currentColor;
+  opacity: 0.85;
+}
+
+.sidebar p {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}

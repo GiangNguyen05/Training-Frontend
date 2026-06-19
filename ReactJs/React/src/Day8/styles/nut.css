@@ -1,0 +1,14 @@
+.nut-theme {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #63e8f1;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+.nut-theme:hover {
+  background: #4690e5;
+}
