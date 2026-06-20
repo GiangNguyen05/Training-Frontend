@@ -4,7 +4,8 @@
 // import EvenHandle from "./Day5/components/EventHandle.jsx";
 // import CondiRender from "./Day6/components/CondiRender.jsx";
 // import LRef from "./Day7/components/LRef.jsx";
-import UseContext from "./Day8/components/UseContext.jsx";
+// import UseContext from "./Day8/components/UseContext.jsx";
+import UseReducer from "./Day9/components/UseReducer.jsx";
 export default function App() {
   return (
     <>
@@ -14,7 +15,8 @@ export default function App() {
       {/* <EvenHandle /> */}
       {/* <CondiRender /> */}
       {/* <LRef /> */}
-      <UseContext />
+      {/* <UseContext /> */}
+      <UseReducer />
     </>
   );
 }
