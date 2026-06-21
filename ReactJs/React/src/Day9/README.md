@@ -8,7 +8,7 @@ Khi một component có **nhiều state liên quan với nhau**, và **một hà
 
 ## Khái niệm
 
-### Reducer là gì?
+### Reducer
 
 **Reducer** là một hàm nhận vào **trạng thái hiện tại** và **một yêu cầu thay đổi**, rồi trả về **trạng thái mới**. Reducer không tự ý thay đổi gì — nó chỉ tính toán và trả về kết quả mới.
 
@@ -16,7 +16,7 @@ Khi một component có **nhiều state liên quan với nhau**, và **một hà
 Trạng thái hiện tại + Yêu cầu thay đổi  →  Reducer  →  Trạng thái mới
 ```
 
-### Action là gì?
+### Action
 
 **Action** là một object mô tả "chuyện gì vừa xảy ra" — không phải cách xử lý, chỉ là mô tả sự kiện.
 
@@ -26,7 +26,7 @@ Trạng thái hiện tại + Yêu cầu thay đổi  →  Reducer  →  Trạng 
 
 `type` là bắt buộc — cho biết loại hành động. `payload` là tùy chọn — dữ liệu đi kèm hành động đó.
 
-### Dispatch là gì?
+### Dispatch
 
 **Dispatch** là hàm dùng để **gửi action** đến reducer. Gọi `dispatch(action)` tương đương với việc nói "hãy xử lý sự kiện này", reducer sẽ tính ra trạng thái mới.
 
