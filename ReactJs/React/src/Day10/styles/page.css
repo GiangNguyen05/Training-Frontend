@@ -1,0 +1,140 @@
+.page {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.page h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+}
+.page h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111;
+}
+.page p {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+.page.center {
+  align-items: center;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  align-self: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border-radius: 12px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+.thumb {
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  background: #ede9fe;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ten {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111;
+}
+.sub {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+.arrow {
+  margin-left: auto;
+  color: #9ca3af;
+}
+
+.back {
+  background: none;
+  border: none;
+  color: #6366f1;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.88rem;
+  padding: 0;
+  align-self: flex-start;
+}
+.detail {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+.big-thumb {
+  font-size: 3rem;
+  width: 80px;
+  height: 80px;
+  background: #ede9fe;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.player {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.player button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #f4f4f5;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.player .play {
+  background: #6366f1;
+  color: white;
+  width: 48px;
+  height: 48px;
+  font-size: 1.2rem;
+}

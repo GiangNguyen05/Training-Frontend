@@ -5,7 +5,9 @@
 // import CondiRender from "./Day6/components/CondiRender.jsx";
 // import LRef from "./Day7/components/LRef.jsx";
 // import UseContext from "./Day8/components/UseContext.jsx";
-import UseReducer from "./Day9/components/UseReducer.jsx";
+// import UseReducer from "./Day9/components/UseReducer.jsx";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./Day10/Router.jsx";
 export default function App() {
   return (
     <>
@@ -16,7 +18,10 @@ export default function App() {
       {/* <CondiRender /> */}
       {/* <LRef /> */}
       {/* <UseContext /> */}
-      <UseReducer />
+      {/* <UseReducer /> */}
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </>
   );
 }
