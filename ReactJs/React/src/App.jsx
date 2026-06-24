@@ -8,7 +8,8 @@
 // import UseReducer from "./Day9/components/UseReducer.jsx";
 // import { BrowserRouter } from "react-router-dom";
 // import Router from "./Day10/Router.jsx";
-import CustomHook from "./Day11/components/CusTomHook.jsx";
+// import CustomHook from "./Day11/components/CusTomHook.jsx";
+import CustomHook from "./Day12/components/CustomHook.jsx";
 export default function App() {
   return (
     <>
@@ -23,6 +24,7 @@ export default function App() {
       {/* <BrowserRouter>
         <Router />
       </BrowserRouter> */}
+      {/* <CustomHook /> */}
       <CustomHook />
     </>
   );

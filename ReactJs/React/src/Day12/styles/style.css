@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  background: #f3f8fa;
+  min-height: 100vh;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 340px;
+  margin: 0 auto;
+  background: #f6f9fc;
+}
+h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+}
+.sub {
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+.card {
+  background: #f7f6f6;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+.count {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3ec3f8;
+  transition: color 0.3s;
+}
+.count.do {
+  color: #f3f714;
+}
+.done {
+  font-size: 0.85rem;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.btns {
+  display: flex;
+  gap: 8px;
+}
+button {
+  padding: 8px 18px;
+  background: #f32424;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+button.outline {
+  background: white;
+  color: #a8a8d3;
+  border: 1.5px solid #6366f1;
+}
