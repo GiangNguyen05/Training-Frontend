@@ -9,7 +9,8 @@
 // import { BrowserRouter } from "react-router-dom";
 // import Router from "./Day10/Router.jsx";
 // import CustomHook from "./Day11/components/CusTomHook.jsx";
-import CustomHook from "./Day12/components/CustomHook.jsx";
+// import CustomHook from "./Day12/components/CustomHook.jsx";
+import UseMain from "./Day13/components/UseMain.jsx";
 export default function App() {
   return (
     <>
@@ -25,7 +26,8 @@ export default function App() {
         <Router />
       </BrowserRouter> */}
       {/* <CustomHook /> */}
-      <CustomHook />
+      {/* <CustomHook /> */}
+      <UseMain />
     </>
   );
 }
