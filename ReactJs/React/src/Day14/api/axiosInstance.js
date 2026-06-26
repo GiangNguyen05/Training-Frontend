@@ -5,14 +5,14 @@ const api = axios.create({
   timeout: 8000,
 });
 
-// Request — tự đính token nếu có
+// Request
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
 
-// Response — xử lý lỗi tập trung
+// Response
 api.interceptors.response.use(
   (res) => res,
   (err) => {
