@@ -18,10 +18,9 @@ Mục tiêu:
 - Disable button
 - Show / Hide password
 
----
-
 ## Cấu trúc project
 
+```
 src
 
 │
@@ -49,31 +48,33 @@ src
 └── styles
 │
 └── login.css
+```
 
 ### Ý nghĩa
 
+```
 components
 
 - Chứa phần giao diện.
+```
 
----
-
+```
 hooks
 
 - Chứa logic xử lý.
+```
 
----
-
+```
 schema
 
 - Chứa rule validation.
 
-Email phải đúng format.
+    + Email phải đúng format.
 
-Password tối thiểu 6 ký tự.
+    + Password tối thiểu 6 ký tự.
+```
 
----
-
+```
 services
 
 - Chứa API.
@@ -81,69 +82,55 @@ services
 login()
 register()
 logout()
+```
 
----
-
+```
 styles
 
 - Chứa CSS.
+```
 
 ## Cài đặt
 
+```
 npm install react-hook-form
 
 npm install zod
 
 npm install @hookform/resolvers
-
----
+```
 
 ## Luồng hoạt động
 
+```
 User nhập dữ liệu
 
         |
         v
-
 LoginForm.jsx
-
         |
         v
-
 useLogin.js
-
         |
         +------ React Hook Form
-
-
         |
         v
-
 Zod Schema
-
         |
         +------ Sai
         |
         v
-
 Hiển thị errors
-
         |
         v
-
 Submit
-
         |
         v
-
 auth.service.js
-
         |
         v
-
 Backend API
-
----
+```
 
 ## login.schema.js
 
