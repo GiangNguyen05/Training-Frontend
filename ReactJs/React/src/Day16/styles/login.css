@@ -1,0 +1,113 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #dcdfeb, #4b95a2, #9bee9b);
+  background-size: 300% 300%;
+  animation: bgMove 8s ease infinite;
+}
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.form {
+  width: 380px;
+  padding: 40px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  animation: showForm 0.6s ease;
+}
+@keyframes showForm {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.form h2 {
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+.form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  margin-top: 8px;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  transition: 0.3s;
+}
+.form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.form input:focus {
+  background: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.form label {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+.form p {
+  color: #ffdede;
+  font-size: 13px;
+  margin: 5px 0;
+}
+.form button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form button[type="button"] {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+.form button[type="button"]:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+.form button[type="submit"] {
+  width: 100%;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+.form button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 114, 255, 0.5);
+}
+.form button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+  transform: none;
+}
+@media (max-width: 450px) {
+  .form {
+    width: 100%;
+    padding: 25px;
+  }
+}
