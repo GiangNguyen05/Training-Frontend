@@ -5,7 +5,6 @@ import "../styles/login.css";
 
 export default function LoginForm() {
   const { register, submit, errors, isValid, isSubmitting } = useLogin();
-
   const [showPassword, setShowPassword] = useState(false);
 
   return (
