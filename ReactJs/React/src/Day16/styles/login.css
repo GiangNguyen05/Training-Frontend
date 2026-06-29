@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px; */
   background: linear-gradient(135deg, #dcdfeb, #4b95a2, #9bee9b);
   background-size: 300% 300%;
   animation: bgMove 8s ease infinite;
