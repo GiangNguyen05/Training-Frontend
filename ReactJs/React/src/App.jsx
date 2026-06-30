@@ -13,7 +13,8 @@
 // import UseMain from "./Day13/components/UseMain.jsx";
 // import UseApi from "./Day14/components/UseApi.jsx";
 // import Form from "./Day15/components/Form.jsx";
-import LoginForm from "./Day16/components/LoginForm.jsx";
+// import LoginForm from "./Day16/components/LoginForm.jsx";
+import MainNote from "./NoteApp/components/MainNote.jsx";
 export default function App() {
   return (
     <>
@@ -33,7 +34,8 @@ export default function App() {
       {/* <UseMain /> */}
       {/* <UseApi /> */}
       {/* <Form /> */}
-      <LoginForm />
+      {/* <LoginForm /> */}
+      <MainNote />
     </>
   );
 }
