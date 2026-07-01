@@ -8,12 +8,12 @@
 
 **Công nghệ sử dụng**
 
-| Công nghệ       | Phiên bản | Mục đích                 |
-| --------------- | --------- | ------------------------ |
-| React           | 18.x      | UI framework             |
-| Vite            | 5.x       | Build tool, dev server   |
-| react-hook-form | 7.x       | Quản lý và validate form |
-| lucide-react    | 0.383.x   | Icon                     |
+| Công nghệ       | Mục đích                 |
+| --------------- | ------------------------ |
+| React           | UI framework             |
+| Vite            | Build tool, dev server   |
+| react-hook-form | Quản lý và validate form |
+| lucide-react    | Icon                     |
 
 **Tính năng chính**
 
