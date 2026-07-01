@@ -351,17 +351,16 @@ NotesProvider unmount → toàn bộ notes bị xoá khỏi memory
 
 ## Danh sách file và vai trò
 
-| File                           | Loại        | Vai trò                                                                             |
-| ------------------------------ | ----------- | ----------------------------------------------------------------------------------- |
-| `src/main.jsx`                 | Entry point | Mount React app vào `#root`                                                         |
-| `src/App.jsx`                  | Component   | Ghép `AuthProvider` + `AppRouter`, điều hướng Login ↔ Notes                         |
-| `src/context/AuthContext.jsx`  | Context     | Lưu `user` state, cung cấp `login()` và `logout()`, export `useAuth()`              |
-| `src/context/NotesContext.jsx` | Context     | Lưu `notes` state qua `useReducer`, cung cấp 3 action function, export `useNotes()` |
-| `src/context/notesReducer.js`  | Logic       | Reducer thuần xử lý ADD / UPDATE / DELETE, chứa màu sắc và dữ liệu mẫu              |
-| `src/hooks/useNoteSearch.js`   | Hook        | Nhận `notes`, trả về danh sách đã lọc + state ô tìm kiếm                            |
-| `src/components/LoginPage.jsx` | Component   | Form đăng nhập với react-hook-form, toggle mật khẩu, hiển thị 2 tầng lỗi            |
-| `src/components/Header.jsx`    | Component   | Logo app, tên người dùng đang đăng nhập, nút Đăng xuất                              |
-| `src/components/NoteForm.jsx`  | Component   | Form dùng chung cho Create và Update, dùng react-hook-form                          |
-| `src/components/NoteList.jsx`  | Component   | Ô tìm kiếm + lưới ghi chú, trạng thái rỗng                                          |
-| `src/components/NoteCard.jsx`  | Component   | Hiển thị 1 ghi chú, nút sửa/xoá, confirm bar trước khi xoá                          |
-| `src/styles/index.css`         | Style       | Toàn bộ CSS, dùng CSS variables, không phụ thuộc thư viện ngoài                     |
+| File                           | Loại      | Vai trò                                                                             |
+| ------------------------------ | --------- | ----------------------------------------------------------------------------------- |
+| `src/context/AuthContext.jsx`  | Context   | Lưu `user` state, cung cấp `login()` và `logout()`, export `useAuth()`              |
+| `src/context/NotesContext.jsx` | Context   | Lưu `notes` state qua `useReducer`, cung cấp 3 action function, export `useNotes()` |
+| `src/context/notesReducer.js`  | Logic     | Reducer thuần xử lý ADD / UPDATE / DELETE, chứa màu sắc và dữ liệu mẫu              |
+| `src/hooks/useNoteSearch.js`   | Hook      | Nhận `notes`, trả về danh sách đã lọc + state ô tìm kiếm                            |
+| `src/components/MainNote.jsx`  | Component | Ghép `AuthProvider` + `AppRouter`, điều hướng Login ↔ Notes                         |
+| `src/components/LoginPage.jsx` | Component | Form đăng nhập với react-hook-form, toggle mật khẩu, hiển thị 2 tầng lỗi            |
+| `src/components/Header.jsx`    | Component | Logo app, tên người dùng đang đăng nhập, nút Đăng xuất                              |
+| `src/components/NoteForm.jsx`  | Component | Form dùng chung cho Create và Update, dùng react-hook-form                          |
+| `src/components/NoteList.jsx`  | Component | Ô tìm kiếm + lưới ghi chú, trạng thái rỗng                                          |
+| `src/components/NoteCard.jsx`  | Component | Hiển thị 1 ghi chú, nút sửa/xoá, confirm bar trước khi xoá                          |
+| `src/styles/noteApp.css`       | Style     | Toàn bộ CSS, dùng CSS variables, không phụ thuộc thư viện ngoài                     |
