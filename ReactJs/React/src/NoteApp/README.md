@@ -50,7 +50,7 @@ notes-app/
     │   ├── NoteList.jsx
     │   └── NoteCard.jsx
     └── styles/
-        └── index.css
+        └── noteApp.css
 ```
 
 **Nguyên tắc tổ chức**
