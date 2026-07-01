@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { AuthProvider, useAuth } from "../context/AuthContext";
 import { NotesProvider } from "../context/NotesContext";
 import Header from "../components/Header";
 import NoteForm from "../components/NoteForm";
 import NoteList from "../components/NoteList";
+import LoginPage from "../components/LoginPage";
 import "../styles/noteApp.css";
 function NotesPage() {
   const [editingNote, setEditingNote] = useState(null);
@@ -30,10 +32,22 @@ function NotesPage() {
   );
 }
 
-export default function MainNote() {
+function AppRouter() {
+  const { user } = useAuth();
+
+  if (!user) return <LoginPage />;
+
   return (
     <NotesProvider>
       <NotesPage />
     </NotesProvider>
+  );
+}
+
+export default function MainNote() {
+  return (
+    <AuthProvider>
+      <AppRouter />
+    </AuthProvider>
   );
 }
