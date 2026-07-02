@@ -2,14 +2,14 @@ export const COLORS = ["#FFE9A8", "#C9E4FF", "#FFD2D2", "#D8F5D0", "#E6D9FF"];
 
 export const SEED_NOTES = [
   {
-    id: "seed-1",
+    id: "1",
     title: "Ghi chú 1",
     content: "Nội dung ghi chú ",
     color: COLORS[0],
     createdAt: Date.now(),
   },
   {
-    id: "seed-2",
+    id: "2",
     title: "Ghi chú 2",
     content: "Nội dung ghi chú",
     color: COLORS[1],
