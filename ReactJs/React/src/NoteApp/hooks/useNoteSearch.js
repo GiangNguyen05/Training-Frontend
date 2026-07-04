@@ -1,8 +1,7 @@
 import { useMemo, useState } from "react";
 
-/*
- * Nhận vào danh sách notes, trả ra danh sách đã lọc + state của ô tìm kiếm.
- */
+//  Nhận vào danh sách notes, trả ra danh sách đã lọc + state của ô tìm kiếm.
+
 export function useNoteSearch(notes) {
   const [query, setQuery] = useState("");
 

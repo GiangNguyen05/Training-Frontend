@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "../features/cartSlice";
 
-//Tủ hồ sơ trung tâm
+//Tủ hồ sơ chung
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
