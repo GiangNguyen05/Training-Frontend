@@ -15,9 +15,15 @@
 // import Form from "./Day15/components/Form.jsx";
 // import LoginForm from "./Day16/components/LoginForm.jsx";
 // import MainNote from "./NoteApp/components/MainNote.jsx";
-import MainCart from "./ReduxToolkit/Day17/components/MainCart.jsx";
+
+// import MainCart from "./ReduxToolkit/Demo/components/MainCart.jsx";
+// import { Provider } from "react-redux";
+// import { store } from "./ReduxToolkit/Demo/app/store.js";
+
+import UserList from "./ReduxToolkit/Day18/components/UserList.jsx";
 import { Provider } from "react-redux";
-import { store } from "./ReduxToolkit/Day17/app/store.js";
+import { store } from "./ReduxToolkit/Day18/app/store.js";
+
 export default function App() {
   return (
     <>
@@ -39,8 +45,11 @@ export default function App() {
       {/* <Form /> */}
       {/* <LoginForm /> */}
       {/* <MainNote /> */}
-      <Provider store={store}>
+      {/* <Provider store={store}>
         <MainCart />
+      </Provider> */}
+      <Provider store={store}>
+        <UserList />
       </Provider>
     </>
   );
