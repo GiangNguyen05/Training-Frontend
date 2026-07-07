@@ -20,9 +20,13 @@
 // import { Provider } from "react-redux";
 // import { store } from "./ReduxToolkit/Demo/app/store.js";
 
-import UserList from "./ReduxToolkit/Day18/components/UserList.jsx";
+// import UserList from "./ReduxToolkit/Day18/components/UserList.jsx";
+// import { Provider } from "react-redux";
+// import { store } from "./ReduxToolkit/Day18/app/store.js";
+
+import PlayList from "./ReduxToolkit/Day19/components/PlayList.jsx";
 import { Provider } from "react-redux";
-import { store } from "./ReduxToolkit/Day18/app/store.js";
+import { store } from "./ReduxToolkit/Day19/app/store.js";
 
 export default function App() {
   return (
@@ -48,8 +52,11 @@ export default function App() {
       {/* <Provider store={store}>
         <MainCart />
       </Provider> */}
-      <Provider store={store}>
+      {/* <Provider store={store}>
         <UserList />
+      </Provider> */}
+      <Provider store={store}>
+        <PlayList />
       </Provider>
     </>
   );
