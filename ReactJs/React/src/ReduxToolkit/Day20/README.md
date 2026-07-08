@@ -23,9 +23,9 @@ song-search-demo/
     ├── api/
     │   └── musicApi.js             # Mock API mô phỏng lỗi HTTP + abort
     │
-    └── components/
-        ├── SearchBar.jsx           # Debounce + huỷ request cũ (LƯU Ý #1, #4)
-        ├── ResultsList.jsx         # Đọc dữ liệu đã chuẩn hoá (LƯU Ý #6)
+    └── components/(chưa hoàn thiện)
+        ├── SearchBar.jsx           # Debounce + huỷ request cũ (LƯU Ý 1, 4)
+        ├── ResultsList.jsx         # Đọc dữ liệu đã chuẩn hoá (LƯU Ý 6)
         └── SongRow.jsx
 ```
 
