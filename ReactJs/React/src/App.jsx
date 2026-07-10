@@ -24,9 +24,13 @@
 // import { Provider } from "react-redux";
 // import { store } from "./ReduxToolkit/Day18/app/store.js";
 
-import PlayList from "./ReduxToolkit/Day19/components/PlayList.jsx";
+// import PlayList from "./ReduxToolkit/Day19/components/PlayList.jsx";
+// import { Provider } from "react-redux";
+// import { store } from "./ReduxToolkit/Day19/app/store.js";
+
+import MainSong from "./ReduxToolkit/Day20/components/MainSong.jsx";
 import { Provider } from "react-redux";
-import { store } from "./ReduxToolkit/Day19/app/store.js";
+import { store } from "./ReduxToolkit/Day20/app/store.js";
 
 export default function App() {
   return (
@@ -55,8 +59,11 @@ export default function App() {
       {/* <Provider store={store}>
         <UserList />
       </Provider> */}
-      <Provider store={store}>
+      {/* <Provider store={store}>
         <PlayList />
+      </Provider> */}
+      <Provider store={store}>
+        <MainSong />
       </Provider>
     </>
   );
