@@ -4,7 +4,7 @@ import {
   useGetWeatherQuery,
   useAddFavoriteMutation,
 } from "../features/weatherApi";
-import WeatherIcon from "./WeatherIcon";
+import WeatherIcon from "./WearherIcon";
 
 export default function WeatherSearch() {
   const [input, setInput] = useState("");

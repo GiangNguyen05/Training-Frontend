@@ -28,9 +28,13 @@
 // import { Provider } from "react-redux";
 // import { store } from "./ReduxToolkit/Day19/app/store.js";
 
-import MainSong from "./ReduxToolkit/Day20/components/MainSong.jsx";
+// import MainSong from "./ReduxToolkit/Day20/components/MainSong.jsx";
+// import { Provider } from "react-redux";
+// import { store } from "./ReduxToolkit/Day20/app/store.js";
+
+import MainApp from "./ReduxToolkit/WeatherApp/components/MainApp.jsx";
 import { Provider } from "react-redux";
-import { store } from "./ReduxToolkit/Day20/app/store.js";
+import { store } from "./ReduxToolkit/WeatherApp/app/store.js";
 
 export default function App() {
   return (
@@ -62,8 +66,11 @@ export default function App() {
       {/* <Provider store={store}>
         <PlayList />
       </Provider> */}
-      <Provider store={store}>
+      {/* <Provider store={store}>
         <MainSong />
+      </Provider> */}
+      <Provider store={store}>
+        <MainApp />
       </Provider>
     </>
   );
