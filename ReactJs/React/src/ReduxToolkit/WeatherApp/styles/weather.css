@@ -44,7 +44,6 @@
   gap: 18px;
 }
 
-/* Search card */
 .search-card {
   background: var(--card);
   border: 1px solid var(--card-border);
@@ -101,7 +100,6 @@
   }
 }
 
-/* Weather result */
 .weather-result {
   position: relative;
   text-align: center;
@@ -149,13 +147,14 @@
   cursor: default;
 }
 
-/* Favorites card */
 .favorites-card {
   background: var(--card);
   border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 18px;
   backdrop-filter: blur(6px);
+  max-height: 250px;
+  overflow-y: auto;
 }
 .favorites-card h3 {
   margin: 0 0 10px 0;
@@ -186,4 +185,19 @@
   border-radius: 8px;
   padding: 8px 10px;
   font-size: 13px;
+}
+.favorite-row span {
+  flex: 1;
+}
+.remove-fav-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  padding: 2px;
+  flex-shrink: 0;
+}
+.remove-fav-btn:hover {
+  color: var(--danger);
 }

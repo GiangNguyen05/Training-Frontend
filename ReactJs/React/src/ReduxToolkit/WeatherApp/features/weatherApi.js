@@ -1,7 +1,8 @@
 import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
 import { mapWeatherCode } from "../utils/weatherCode";
+import { loadFavorites, saveFavorites } from "../utils/favoritesStorage";
 
-let favoritesStore = [];
+let favoritesStore = loadFavorites();
 
 export const weatherApi = createApi({
   reducerPath: "weatherApi",
@@ -63,19 +64,34 @@ export const weatherApi = createApi({
       providesTags: (result, error, city) => [{ type: "Weather", id: city }],
     }),
 
+    // ĐỌC danh sách thành phố yêu thích — đọc từ localStorage (qua biến module)
     getFavorites: builder.query({
       queryFn: () => ({ data: favoritesStore }),
       providesTags: ["Favorite"],
-    }), // đọc danh sách thành phố yêu thích (mock trong bộ nhớ)
+    }),
 
+    // GHI — thêm thành phố vào yêu thích, đồng thời ghi xuống localStorage
     addFavorite: builder.mutation({
       queryFn: (city) => {
         const exists = favoritesStore.some((f) => f.city === city);
-        if (!exists) favoritesStore = [...favoritesStore, { city }];
+        if (!exists) {
+          favoritesStore = [...favoritesStore, { city }];
+          saveFavorites(favoritesStore);
+        }
         return { data: { city } };
       },
       invalidatesTags: ["Favorite"],
-    }), // ghi thêm thành phố vào yêu thích
+    }),
+
+    // GHI — xoá thành phố khỏi yêu thích, đồng thời ghi xuống localStorage
+    removeFavorite: builder.mutation({
+      queryFn: (city) => {
+        favoritesStore = favoritesStore.filter((f) => f.city !== city);
+        saveFavorites(favoritesStore);
+        return { data: { city } };
+      },
+      invalidatesTags: ["Favorite"],
+    }),
   }),
 });
 
@@ -83,4 +99,5 @@ export const {
   useGetWeatherQuery,
   useGetFavoritesQuery,
   useAddFavoriteMutation,
+  useRemoveFavoriteMutation,
 } = weatherApi;

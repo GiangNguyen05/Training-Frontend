@@ -1,8 +1,12 @@
-import { MapPin } from "lucide-react";
-import { useGetFavoritesQuery } from "../features/weatherApi";
+import { MapPin, X } from "lucide-react";
+import {
+  useGetFavoritesQuery,
+  useRemoveFavoriteMutation,
+} from "../features/weatherApi";
 
 export default function FavoriteList() {
   const { data: favorites, isLoading } = useGetFavoritesQuery();
+  const [removeFavorite] = useRemoveFavoriteMutation();
 
   return (
     <section className="favorites-card">
@@ -19,6 +23,13 @@ export default function FavoriteList() {
           <li key={f.city} className="favorite-row">
             <MapPin size={14} />
             <span>{f.city}</span>
+            <button
+              className="remove-fav-btn"
+              onClick={() => removeFavorite(f.city)}
+              aria-label={`Xoá ${f.city} khỏi yêu thích`}
+            >
+              <X size={13} />
+            </button>
           </li>
         ))}
       </ul>
